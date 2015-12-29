@@ -8,7 +8,7 @@
   </head>
   <body>
     <nav>
-      <div class="nav-wrapper blue lighten-1">
+      <div class="nav-wrapper blue lighten-1 z-depth-1">
         <a href="#" class="brand-logo center">AIMCO</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="sass.html">Sass</a></li>
