@@ -37,7 +37,7 @@
     </header>
 
     <nav id="tiulo_pagina">
-      <div class="nav-wrapper red darken-4">
+      <div class="nav-wrapper red darken-4 z-depth-3">
         <img src="img/logo.png" id="logo">
           <a href="#" id="aimco">AIMCO Corporation de México</a>
       </div>
@@ -76,12 +76,16 @@
         </div>
       </div>
     </div>
+    <!--Slider-->
+    <div class="slider2  z-depth-1" id="big2">
+      <img src="img/big2.png" alt=""/>
+    </div>
+    <!--/Slider-->
     <div class="row">
       <div class="col s12 m4">
         <div class="card z-depth-2">
-          <span class="card-title right red-text darken-4-text"> GEN IV Controller</span>
           <div class="card-image ">
-            <img src="http://aimco-global.com/images/Aimco_Controller.png" id="logo_tarjeta1">
+            <img src="img/geniv.png" id="logo_tarjeta2">
           </div>
           <div class="card-content">
             <p>
@@ -103,27 +107,33 @@
           </div>
         </div>
       </div>
+      <div class="col s12 m4">
+        <div class="card">
+          <div class="card-image ">
+            <img src="http://aimco-global.com/images/aimco-argo.jpg" id="logo_tarjeta3">
+          </div>
+          <div class="card-content">
+            <p>
+              AIMCO is awarded AGCO's 2014 Indirect Supplier of the Year award - October 2014</p>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m4">
+        <div class="card">
+          <div class="card-image ">
+            <iframe width="425" height="235" src="https://www.youtube.com/embed/BkRv7OkWfXo" frameborder="0" allowfullscreen></iframe>
+            </video>
+          </div>
+        </div>
+      </div>
     </div>
   <!--/Tarjetas-->
   <!--Footer-->
         <footer class="page-footer grey lighten-1 ">
-               <div class="container">
-                 <div class="row">
-                   <div class="col l6 s12">
-                     <h5 class="gray-text">AIMCO de México</h5>
-                     <p class="grey-text">Achieving Assembly Excellence</p>
-                   </div>
-                   <div class="col l4 offset-l2 s12">
-                     <h5 class="gray-text">Teléfono</h5>
-                     <ul>
-                       <li><a class="gray-text">(614)-380-1010 </a></li>
-                     </ul>
-                   </div>
-                 </div>
-                 </div>
+
                  <div class="footer-copyright red darken-4">
                    <div class="container">
-                   © 2016 AIMCO
+                   © 2016 AIMCO Corporation de México
                    <a class="grey-text text-lighten-4 right " href="#!">Contacto</a>
                    </div>
                  </div>

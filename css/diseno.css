@@ -2,6 +2,7 @@
 /*Diseño de la barra superior de cada página*/
 .activo { color:#B71C1C; }
 body{ background-color: #e0e0e0; }
+#big2 {background-color: white;};
 header a:hover:not(.activo) { color: #B71C1C; }
 #aimco{position: relative; left: 18%; top: 10px; font-size: 20px;}
 header{ background-color: #e0e0e0; box-shadow: 2px 2px 2px gray; color: #212121; height: 25px; position: fixed; top: auto; width: 100%; z-index: 1999;}
@@ -10,6 +11,9 @@ header li a { display: block; color: #212121; font-size: 13px; text-align: cente
 header ul { list-style-type: none; margin-left: 15%; margin-top: 3px; padding: 0; overflow: hidden; }
 #logo { height: 25px; left: 17%; position: relative; top: 18px; width: 70px; z-index: 998;}
 #logo_tarjeta1 {height: 30%; width: 30%; position: relative; left: 20%;}
-.slider{background-color: black;}
-.slider img{width: 70%; height: 100%; margin-left: 15%;}
+#logo_tarjeta2 {height: 60%; width: 100%; position: relative;}
+#logo_tarjeta3 {height: 15%; width: 80%; position: relative; left: 10%;}
+.slider{background-color: #212121;}
+.slider img{width: 60%; height: 100%; margin-left: 20%;}
+.slider2 img{width: 60%; height: 100%; margin-left: 20%;}
 #titulo_pagina{position: fixed; top: 0; z-index: 997; display: block;}
