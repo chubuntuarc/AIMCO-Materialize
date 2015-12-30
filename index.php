@@ -31,8 +31,18 @@
           <li><a href="#" id="ocultar">Servicios</a></li>
           <li><a href="#" id="ocultar">Soporte</a></li>
           <li><a href="#">Contacto</a></li>
-          <li><a href="dashboard">Acceso</a></li>
-
+          <li><a href="#modal1" class="modal-trigger">Acceso</a></li>
+          <!-- Pantalla modal de login -->
+          <div id="modal1" class="modal">
+            <div class="modal-content">
+              <h4>Modal Header</h4>
+              <p>A bunch of text</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+          </div>
+          <!-- Pantalla modal de login -->
         </ul>
     </header>
 
