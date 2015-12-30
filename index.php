@@ -23,15 +23,15 @@
     <header class="z-depth-1">
         <ul>
           <li><a class="activo" href="#">AIMCO</a></li>
-          <li><a href="http://aimex.sytes.net/" target="_blank">AIMEX</a></li>
+          <li><a href="http://aimex.sytes.net/" target="_blank" id="ocultar">AIMEX</a></li>
           <li><a href="http://aimco-global.com/" target="_blank">Nosotros</a></li>
-          <li><a href="http://www.aimco-solutions.com/acradyne.asp" target="_blank">AcraDyne</a></li>
-          <li><a href="http://www.eagle-premier.com/" target="_blank">Eagle</a></li>
-          <li><a href="http://www.aimco-solutions.com/online_catalog.asp" target="_blank">Catalogos</a></li>
-          <li><a href="#">Servicios</a></li>
-          <li><a href="#">Soporte</a></li>
+          <li><a href="http://www.aimco-solutions.com/acradyne.asp" target="_blank" id="ocultar">AcraDyne</a></li>
+          <li><a href="http://www.eagle-premier.com/" target="_blank" id="ocultar">Eagle</a></li>
+          <li><a href="http://www.aimco-solutions.com/online_catalog.asp" target="_blank" id="ocultar">Catalogos</a></li>
+          <li><a href="#" id="ocultar">Servicios</a></li>
+          <li><a href="#" id="ocultar">Soporte</a></li>
           <li><a href="#">Contacto</a></li>
-          <li><a href="#">Acceso</a></li>
+          <li><a href="dashboard">Acceso</a></li>
 
         </ul>
     </header>
@@ -50,7 +50,7 @@
     <!--/Slider-->
     <!--Tarjetas-->
     <div class="row">
-      <div class="col s12 m4">
+      <div class="col s12 m4" id="ocultar">
         <div class="card-panel  red darken-4 z-depth-3">
           <span class="white-text">AIMCO manufactures and markets the most comprehensive selection
              of industrial power tools used for assembly operations available in the industry.
@@ -119,9 +119,9 @@
         </div>
       </div>
       <div class="col s12 m4">
-        <div class="card">
+        <div class="card" id="ocultar">
           <div class="card-image ">
-            <iframe width="425" height="235" src="https://www.youtube.com/embed/BkRv7OkWfXo" frameborder="0" allowfullscreen></iframe>
+            <iframe width="415" height="235" src="https://www.youtube.com/embed/BkRv7OkWfXo" frameborder="0" allowfullscreen></iframe>
             </video>
           </div>
         </div>

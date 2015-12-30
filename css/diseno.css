@@ -1,5 +1,5 @@
 /*Stylesheet con diseños adicionales para formato de la web*/
-/*Diseño de la barra superior de cada página*/
+/*Diseño del index*/
 .activo { color:#B71C1C; }
 body{ background-color: #e0e0e0; }
 #big2 {background-color: white;};
@@ -17,3 +17,12 @@ header ul { list-style-type: none; margin-left: 15%; margin-top: 3px; padding: 0
 .slider img{width: 60%; height: 100%; margin-left: 20%;}
 .slider2 img{width: 60%; height: 100%; margin-left: 20%;}
 #titulo_pagina{position: fixed; top: 0; z-index: 997; display: block;}
+
+/*Ocultar elementos en pantallas de 5.5 Pulgadas como LG G3 Stylus*/
+@media only screen and (max-width: 479px)
+{ #ocultar, #logo { display:none!important; }
+  #aimco{position: relative; left: 15%; top: 10px; font-size: 20px;}
+  header ul { list-style-type: none; margin-left: 5%; margin-top: 3px; padding: 0; overflow: hidden; }
+  .slider{height: 10%;}
+  .slider img{width: 60%; height: 80%;}
+}
