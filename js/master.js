@@ -43,31 +43,5 @@ $(document).ready(function(){
     });
 
     //Gráfica de barras --------------------------------------------------------------------------------------------------------------
-    var grafica = {
-  		"datasets": {
-  			"values": [5, 10, 30, 50, 20, 10, 20, 50, 30, 10, 5, 10],
-  			"labels": [
-  				"Enero",
-  				"Febrero",
-  				"Marzo",
-  				"Abril",
-  				"Mayo",
-          "Junio",
-          "Julio",
-          "Agosto",
-          "Septiembre",
-          "Octubre",
-          "Noviembre",
-          "Diciembre"
-  			],
-  			"color": "green"
-  		},
-  		"title": "Facturas de Clientes",
-  		"noY": true,
-  		"height": "300px",
-  		"background": "#FFFFFF",
-  		"shadowDepth": "1"
-  	};
-
-  	MaterialCharts.bar("#grafica", grafica)
+  
   });

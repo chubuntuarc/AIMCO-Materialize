@@ -119,6 +119,7 @@
 	font-size: 8px;
 }
 
+/*Texto con los meses del año*/
 .material-charts-box-chart-horizontal-label {
 	display: inline;
 	position: relative;
@@ -132,7 +133,6 @@
 	bottom: 25px;
 	box-shadow: 2px -2px 15px 0 rgba(0, 0, 0, 0.16), 2px -2px 15px 0 rgba(0, 0, 0, 0.12);
 	border-radius: 3px 3px 0 0;
-
 	-webkit-transition: all 0.2s ease; /* Safari and Chrome */
 	-moz-transition: all 0.2s ease; /* Firefox */
 	-ms-transition: all 0.2s ease; /* IE 9 */
