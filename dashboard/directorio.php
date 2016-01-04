@@ -48,8 +48,9 @@
         <div class="row">
           <div class="card col m12 s12">
             <h2>Directorio corporativo</h2>
+            <input type="text" name="busqueda" id="busqueda" value="" placeholder="Buscar">
             <?php
-            echo "<table class='bordered highlight responsive-table'>";
+            echo "<table class='bordered highlight responsive-table' id='directorio'>";
             echo "<thead>";
             echo "<tr>";
             echo "<th data-field='id'>Nombre</th>";
@@ -92,4 +93,7 @@
                          </footer>
                    <!--/Footer-->
   </body>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+  <script type="text/javascript" src="../js/master.js"></script>
 </html>
