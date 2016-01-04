@@ -20,6 +20,29 @@ session_start(0);
 	if ($Conexion_SQL == FALSE){
 	echo ('Error en la conexion' . odbc_error());
 	}
+
+//Conexión a MySQL ------------------------------------------------------------------------------
+error_reporting(0);
+
+$host='192.168.1.150';
+$user='aimco';
+$pass='@@imco';
+
+
+$link=mysql_connect($host,$user,$pass);
+mysql_select_db("aimco",$link);
+
+$user = 'soporteit@aimco-global.com';
+$pass = 'AIMEX77877!';
+
+$sql 		= "";
+$sql 		= mysql_query("SELECT user, pass, name, usertype FROM usuarios WHERE user = '$user' && pass = '$pass' ", $link);
+$user_name 	= mysql_result($sql, 0, "Name");
+$user_type  = mysql_result($sql, 0, "UserType");
+$exist_user = mysql_num_rows($sql);
+
+if ($exist_user > 0)
+{}
 //Fin Conexión a SQL Server usando el driver ODBC de Windows  ---------------------------------------------------------------------------
 
 //Sección de valores parte superior index   --------------------------------------------------------------------------------------------
