@@ -13,7 +13,7 @@
     <meta name="autor" content="Jesus Arciniega">
     <meta name="description" content="Dashboard Corporativo de AIMCO Corporation de México" />
     <!--/Meta-Tags-->
-    <title>AIMCO Corporation de México</title>
+    <title>AIMCO CORPORATION DE MÉXICO SA DE CV</title>
     <!--Stylesheets-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="css/diseno.css" media="screen" title="no title" charset="utf-8">

@@ -13,7 +13,7 @@
   <meta name="autor" content="Jesus Arciniega">
   <meta name="description" content="Dashboard Corporativo de AIMCO Corporation de México" />
   <!--/Meta-Tags-->
-  <title>AIMCO Corporation de México</title>
+  <title>AIMCO CORPORATION DE MÉXICO SA DE CV</title>
   <!--Stylesheets-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css" media="screen" title="no title" charset="utf-8">
   <link rel="stylesheet" href="../css/diseno.css" media="screen" title="no title" charset="utf-8">
@@ -24,7 +24,7 @@
     <!--Barra superior - Header-->
     <header class="z-depth-1">
         <ul>
-          <li><a class="activo" href="#">AIMCO</a></li>
+          <li><a class="activo" href="../dashboard">AIMCO</a></li>
           <li><a href="http://aimex.sytes.net/" target="_blank" id="ocultar">AIMEX</a></li>
           <li><a href="http://www.aimco-solutions.com/acradyne.asp" target="_blank" id="ocultar">AcraDyne</a></li>
           <li><a href="http://www.eagle-premier.com/" target="_blank" id="ocultar">Eagle</a></li>

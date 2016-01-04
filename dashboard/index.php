@@ -13,11 +13,12 @@
     <meta name="autor" content="Jesus Arciniega">
     <meta name="description" content="Dashboard Corporativo de AIMCO Corporation de México" />
     <!--/Meta-Tags-->
-    <title>AIMCO Corporation de México</title>
+    <title>AIMCO CORPORATION DE MÉXICO SA DE CV</title>
     <!--Stylesheets-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="../css/diseno.css" media="screen" title="no title" charset="utf-8">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../css/material-charts.css">
     <!--/Stylesheets-->
   </head>
   <body>
@@ -47,11 +48,34 @@
     <!--/Barra superior - Header-->
   <!--Gráfica-->
   <div class="row">
-    <div class="col m9">
-
+    <div class="col s12 m8" id="ocultar">
+      <div class="card-panel z-depth-3">
+        <div class="example-chart">
+            <div id="grafica"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m4">
+          <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header"><i class="material-icons">filter_drama</i>Facturas de Clientes</div>
+          <div class="collapsible-body" style="background-color: white;"><p>Lorem ipsum dolor sit amet.</p></div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">place</i>Ordenes de Ventas</div>
+          <div class="collapsible-body" style="background-color: white;"><p>Lorem ipsum dolor sit amet.</p></div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">whatshot</i>Ofertas de Ventas</div>
+          <div class="collapsible-body" style="background-color: white;"><p>Lorem ipsum dolor sit amet.</p></div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">whatshot</i>Back Order</div>
+          <div class="collapsible-body" style="background-color: white;"><p>Lorem ipsum dolor sit amet.</p></div>
+        </li>
+      </ul>
     </div>
   </div>
-
   <!--/Gráfica-->
   <!--Footer-->
         <footer class="page-footer grey lighten-1 ">
@@ -68,4 +92,5 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
   <script type="text/javascript" src="../js/master.js"></script>
+  <script type="text/javascript" src="../js/material-charts.js"></script>
 </html>
