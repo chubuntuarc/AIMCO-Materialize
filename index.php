@@ -3,6 +3,7 @@
     Desarrollado en PHP - HTML5 - Javascript - CSS
     Utilizando Materialize http://materializecss.com/
     Derechos Reservados 2016-->
+<?php require 'php/master.php';?>
 <!DOCTYPE html>
 <html>
   <head>
