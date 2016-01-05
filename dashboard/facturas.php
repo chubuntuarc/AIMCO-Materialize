@@ -56,12 +56,51 @@
             <input type="text" id="campos_facturacion" value="
               <?php
               //Consultas para información de la gráfica en index   --------------------------------------------------------------------------------------------
-                  //Consulta de Facturas de Clientes
-                  $Consulta_Grafica_Facturas ="SELECT sum(T1.[TotalSumSy])AS Total FROM OINV T0  INNER JOIN INV1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocDate] >= '".$_SESSION["Anual"]."' AND  T2.[U_CODIGO_USA]  = ".$_SESSION['Usuario_Actual']." AND T1.[TargetType] <> 14 GROUP BY month(T0.[DocDate]) ORDER BY month(T0.[DocDate])";
+                  //Consulta de Facturas de Clientes 2016
+                  $Consulta_Grafica_Facturas ="SELECT sum(T1.[TotalSumSy])AS Total FROM OINV T0  INNER JOIN INV1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocDate] >= '2016' AND  T2.[U_CODIGO_USA]  = ".$_SESSION['Usuario_Actual']." AND T1.[TargetType] <> 14 GROUP BY month(T0.[DocDate]) ORDER BY month(T0.[DocDate])";
                   $Resultado_Consulta_Grafica = odbc_exec($Conexion_SQL, $Consulta_Grafica_Facturas);
                   while ($fac = odbc_fetch_array($Resultado_Consulta_Grafica)) {
                     foreach ($fac as $meses) {
                       echo $meses.",";  //Se crea usando el foreach una cadena, la cual se divide en scripts/datosGrafica.js para llenar los campos de la gráfica
+                    }
+                  }
+              ?>
+            ">
+            <input type="text" id="campos_facturacion_anterior" value="
+              <?php
+              //Consultas para información de la gráfica en index   --------------------------------------------------------------------------------------------
+                  //Consulta de Facturas de Clientes 2015
+                  $Consulta_Grafica_Facturas_Anterior ="SELECT sum(T1.[TotalSumSy])AS Total FROM OINV T0  INNER JOIN INV1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocDate] >= '2015' AND  T2.[U_CODIGO_USA]  = ".$_SESSION['Usuario_Actual']." AND T1.[TargetType] <> 14 GROUP BY month(T0.[DocDate]) ORDER BY month(T0.[DocDate])";
+                  $Resultado_Consulta_Grafica_Anterior = odbc_exec($Conexion_SQL, $Consulta_Grafica_Facturas_Anterior);
+                  while ($faca = odbc_fetch_array($Resultado_Consulta_Grafica_Anterior)) {
+                    foreach ($faca as $mesesa) {
+                      echo $mesesa.",";  //Se crea usando el foreach una cadena, la cual se divide en scripts/datosGrafica.js para llenar los campos de la gráfica
+                    }
+                  }
+              ?>
+            ">
+            <input type="text" id="campos_facturacion_anterior2" value="
+              <?php
+              //Consultas para información de la gráfica en index   --------------------------------------------------------------------------------------------
+                  //Consulta de Facturas de Clientes 2014
+                  $Consulta_Grafica_Facturas_Anterior2 ="SELECT sum(T1.[TotalSumSy])AS Total FROM OINV T0  INNER JOIN INV1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocDate] >= '2014' AND  T2.[U_CODIGO_USA]  = ".$_SESSION['Usuario_Actual']." AND T1.[TargetType] <> 14 GROUP BY month(T0.[DocDate]) ORDER BY month(T0.[DocDate])";
+                  $Resultado_Consulta_Grafica_Anterior2 = odbc_exec($Conexion_SQL, $Consulta_Grafica_Facturas_Anterior2);
+                  while ($faca2 = odbc_fetch_array($Resultado_Consulta_Grafica_Anterior2)) {
+                    foreach ($faca2 as $mesesa2) {
+                      echo $mesesa2.",";  //Se crea usando el foreach una cadena, la cual se divide en scripts/datosGrafica.js para llenar los campos de la gráfica
+                    }
+                  }
+              ?>
+            ">
+            <input type="text" id="campos_facturacion_anterior3" value="
+              <?php
+              //Consultas para información de la gráfica en index   --------------------------------------------------------------------------------------------
+                  //Consulta de Facturas de Clientes 2013
+                  $Consulta_Grafica_Facturas_Anterior3 ="SELECT sum(T1.[TotalSumSy])AS Total FROM OINV T0  INNER JOIN INV1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocDate] >= '2013' AND  T2.[U_CODIGO_USA]  = ".$_SESSION['Usuario_Actual']." AND T1.[TargetType] <> 14 GROUP BY month(T0.[DocDate]) ORDER BY month(T0.[DocDate])";
+                  $Resultado_Consulta_Grafica_Anterior3 = odbc_exec($Conexion_SQL, $Consulta_Grafica_Facturas_Anterior3);
+                  while ($faca3 = odbc_fetch_array($Resultado_Consulta_Grafica_Anterior3)) {
+                    foreach ($faca3 as $mesesa3) {
+                      echo $mesesa3.",";  //Se crea usando el foreach una cadena, la cual se divide en scripts/datosGrafica.js para llenar los campos de la gráfica
                     }
                   }
               ?>
@@ -73,7 +112,7 @@
             <ul class="collapsible" data-collapsible="accordion">
           <li>
             <div class="collapsible-header active" id="facturas_clientes"><i class="material-icons">attach_money</i>Facturas de Clientes</div>
-            <div class="collapsible-body" style="background-color: white;"><p>Total: <?php echo $facturas; ?></p>
+            <div class="collapsible-body" style="background-color: white;" ><p id="total_facturas_clientes">Total: <?php echo $facturas; ?></p>
               <p style="margin-top: -40px;"><?php //Consulta de nuevas facturas al día
                 $Consulta_Notificacion_Facturas ="SELECT count(T0.[DocNum]) as Total FROM OINV T0  INNER JOIN INV1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." AND  T0.[DocDate] = '".date("Y/m/d")."' AND  T1.[TargetType] <> 14 GROUP BY T0.[DocDate]";
                 $Resultado_Notificacion_Factura = odbc_exec($Conexion_SQL, $Consulta_Notificacion_Facturas);
@@ -84,6 +123,10 @@
                 else { echo "Sin nuevos registros"; }
                 odbc_close($Conexion_SQL);  ?></p>
             </div>
+            <input type="text" id="facturas2016" value="<?php echo $facturas; ?>">
+            <input type="text" id="facturas2015" value="<?php echo $facturas2; ?>">
+            <input type="text" id="facturas2014" value="<?php echo $facturas3; ?>">
+            <input type="text" id="facturas2013" value="<?php echo $facturas4; ?>">
           </li>
           <li>
             <div class="collapsible-header" id="ordenes_venta"><i class="material-icons">star</i>Ordenes de Ventas</div>
@@ -131,6 +174,17 @@
           </li>
         </ul>
       </div>
+      <!-- Dropdown Trigger -->
+        <a class='dropdown-button btn red darken-4' href='#' data-activates='dropdown1' id="boton"><?php echo date('Y'); ?></a>
+
+        <!-- Dropdown Structure -->
+        <ul id='dropdown1' class='dropdown-content'>
+          <li><a href="#!" id="year">2016</a></li>
+          <li><a href="#!" id="year_anterior">2015</a></li>
+          <li><a href="#!" id="year_anterior_2">2014</a></li>
+          <li><a href="#!" id="year_anterior_3">2013</a></li>
+        </ul>
+          <!-- Dropdown Trigger -->
     </div>
     <!--/Gráfica-->
     <!--Facturas-->
@@ -150,6 +204,7 @@
                 <th>Total</th>
                 <th>PDF</th>
                 <th>XML</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -167,15 +222,44 @@
                     echo "<td>$".number_format(odbc_result($Resultado_Consulta_Facturas, 6),2)."</td>";
                     echo "<td><a href='facturas/".odbc_result($Resultado_Consulta_Facturas, 1).".pdf' target='blank'><img style='height:20px;' src='../img/pdf.png'></a></td>";
                     echo "<td><a href='facturas/".odbc_result($Resultado_Consulta_Facturas, 1).".xml' target='blank'><img style='height:20px;' id='Icono_XML' src='../img/xml.ico'></a></td>";
+                    echo "<td><a href='#modal1' class='modal-trigger preview' data-tooltip='Vista Previa' data-position='left'><i class='material-icons ' >search</i></a></td>";
                     echo "</tr>";
                     }
                ?>
+               <!-- Pantalla modal de vista previa -->
+               <div id="modal1" class="modal">
+                  <div class="modal-content">
+                    <form class="col m9 s12">
+                       <div class="row">
+                         <h5>Vista Previa</h5>
+                       </div>
+                       <div class="row">
+                         <div class="input-field col s12">
+                           <input id="email" type="email" class="validate">
+                           <label for="email">Usuario</label>
+                         </div>
+                       </div>
+                       <div class="row">
+                         <div class="input-field col s12">
+                           <input id="password" type="password" class="validate">
+                           <label for="password">Contraseña</label>
+                         </div>
+                     </form>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="#" class="waves-effect waves-light btn red darken-4">ok</a>
+                  </div>
+                </div>
+               <!-- Pantalla modal de vista previa -->
             </tbody>
           </table>
         </div>
+
       </div>
+
     </div>
     <!--/Facturas-->
+
     <!--Footer-->
           <footer class="page-footer grey lighten-1 ">
 

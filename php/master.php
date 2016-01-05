@@ -53,6 +53,27 @@ if ($exist_user > 0)
 	$facturas = "$". number_format($Monto_Total, 2);
 	odbc_close($Conexion_SQL);
 
+	//Consulta de facturas de Clientes 2015
+	$Consulta_Monto_Factura_F15 ="SELECT sum(T1.[TotalSumSy]) as Total FROM OINV T0  INNER JOIN INV1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." AND  T0.[DocDate] >= '2015-01-01' AND  T0.[DocDate] <= '2015-12-31' AND  T1.[TargetType] <> 14";
+	$Resultado_Consulta_F15 = odbc_exec($Conexion_SQL, $Consulta_Monto_Factura_F15);
+	$Monto_Total_F15 = odbc_result($Resultado_Consulta_F15, "Total");
+	$facturas2 = "$". number_format($Monto_Total_F15, 2);
+	odbc_close($Conexion_SQL);
+
+	//Consulta de facturas de Clientes 2014
+	$Consulta_Monto_Factura_F14 ="SELECT sum(T1.[TotalSumSy]) as Total FROM OINV T0  INNER JOIN INV1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." AND  T0.[DocDate] >= '2014-01-01' AND  T0.[DocDate] <= '2014-12-31' AND  T1.[TargetType] <> 14";
+	$Resultado_Consulta_F14 = odbc_exec($Conexion_SQL, $Consulta_Monto_Factura_F14);
+	$Monto_Total_F14 = odbc_result($Resultado_Consulta_F14, "Total");
+	$facturas3 = "$". number_format($Monto_Total_F14, 2);
+	odbc_close($Conexion_SQL);
+
+	//Consulta de facturas de Clientes 2013
+	$Consulta_Monto_Factura_F13 ="SELECT sum(T1.[TotalSumSy]) as Total FROM OINV T0  INNER JOIN INV1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." AND  T0.[DocDate] >= '2013-01-01' AND  T0.[DocDate] <= '2013-12-31' AND  T1.[TargetType] <> 14";
+	$Resultado_Consulta_F13 = odbc_exec($Conexion_SQL, $Consulta_Monto_Factura_F13);
+	$Monto_Total_F13 = odbc_result($Resultado_Consulta_F13, "Total");
+	$facturas4 = "$". number_format($Monto_Total_F13, 2);
+	odbc_close($Conexion_SQL);
+
 	//Consulta de ordenes de Venta
 	$Consulta_Monto_Ordenes ="SELECT SUM ( T2.[TotalSumSy] ) as Total FROM ORDR T0  INNER JOIN OSLP T1 ON T0.SlpCode = T1.SlpCode INNER JOIN RDR1 T2 ON T0.DocEntry = T2.DocEntry WHERE T0.[DocDate] >= '".$_SESSION["Fecha_Inicial"]."' AND  T0.[DocDate] <= '".$_SESSION["Fecha_Final"]."' AND T0.[CANCELED] = 'N' AND  T1.[U_CODIGO_USA]  = ".$_SESSION['Usuario_Actual']."";
 	$Resultado_Consulta2 = odbc_exec($Conexion_SQL, $Consulta_Monto_Ordenes);
