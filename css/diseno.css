@@ -31,5 +31,10 @@ header ul { list-style-type: none; margin-left: 15%; margin-top: 3px; padding: 0
 
 /*------------------------------------------------------------------------------Dashboard*/
 /*Diseño de la Gráfica*/
+#campos_facturacion, #campos_ordenes, #campos_ofertas, #campos_back_order
+{
+	display: none;
+}
 
+#canvas {position: relative; width: 80%;}
 /*------------------------------------------------------------------------------Dashboard*/
