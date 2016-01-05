@@ -25,14 +25,13 @@
     <!--Barra superior - Header-->
     <header class="z-depth-1">
         <ul>
-          <li><a class="activo" href="../dashboard">AIMCO</a></li>
-          <li><a href="http://aimex.sytes.net/" target="_blank" id="ocultar">AIMEX</a></li>
+          <li><a href="../dashboard">Dashboard</a></li>
           <li><a href="http://www.aimco-solutions.com/acradyne.asp" target="_blank" id="ocultar">AcraDyne</a></li>
           <li><a href="http://www.eagle-premier.com/" target="_blank" id="ocultar">Eagle</a></li>
           <li><a href="http://www.aimco-solutions.com/online_catalog.asp" target="_blank" id="ocultar">Catalogos</a></li>
           <li><a href="#" id="ocultar">Documentos</a></li>
           <li><a href="#" id="ocultar">Inventarios</a></li>
-          <li><a href="../dashboard/directorio.php" id="ocultar">Directorio</a></li>
+          <li><a class="activo" href="../dashboard/directorio.php" id="ocultar">Directorio</a></li>
           <li><a href="#" id="ocultar">Comedor</a></li>
           <li><a href="#" id="ocultar">Soporte</a></li>
           <li><a>Antonio Diaz</a></li>
@@ -42,7 +41,7 @@
     <nav id="tiulo_pagina">
       <div class="nav-wrapper red darken-4 ">
         <img src="../img/logo.png" id="logo">
-          <a href="#" id="aimco">AIMCO Corporation de México</a>
+          <a href="../dashboard" id="aimco">AIMCO Corporation de México</a>
       </div>
     </nav>
     		<!-- Contenido -->
@@ -96,5 +95,5 @@
   </body>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-  <script type="text/javascript" src="../js/master.js"></script>
+  <script type="text/javascript" src="../js/busqueda.js"></script>
 </html>
