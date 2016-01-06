@@ -34,7 +34,7 @@
           <li><a href="../dashboard/directorio.php" id="ocultar">Directorio</a></li>
           <li><a href="#" id="ocultar">Comedor</a></li>
           <li><a href="#" id="ocultar">Soporte</a></li>
-          <li><a>Antonio Diaz</a></li>
+          <li><a><?php echo $_SESSION['Nombre_Usuario']; ?></a></li>
           <li><i class="material-icons">supervisor_account</i></li>
         </ul>
     </header>

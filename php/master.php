@@ -1,11 +1,10 @@
 <?php
 session_start(0);
-
+error_reporting(0);
 //Variables globales del sistema.   -----------------------------------------------------------------------------------------------
 	//Zona horaria del sistema
 	date_default_timezone_set('America/Chihuahua');
-	//ID del usuario actual.
-	$_SESSION['Usuario_Actual'] = 5113;
+
 	//Año actual.... Esta por defecto el del equipo, pero se busca modificarlo después
 	$_SESSION["Anual"] = date('Y');
 	//Fecha desde la que se haran las consultas.
@@ -20,30 +19,24 @@ session_start(0);
 	if ($Conexion_SQL == FALSE){
 	echo ('Error en la conexion' . odbc_error());
 	}
-
-//Conexión a MySQL ------------------------------------------------------------------------------
-error_reporting(0);
-
-$host='192.168.1.150';
-$user='aimco';
-$pass='@@imco';
-
-
-$link=mysql_connect($host,$user,$pass);
-mysql_select_db("aimco",$link);
-
-$user = 'soporteit@aimco-global.com';
-$pass = 'AIMEX77877!';
-
-$sql 		= "";
-$sql 		= mysql_query("SELECT user, pass, name, usertype FROM usuarios WHERE user = '$user' && pass = '$pass' ", $link);
-$user_name 	= mysql_result($sql, 0, "Name");
-$user_type  = mysql_result($sql, 0, "UserType");
-$exist_user = mysql_num_rows($sql);
-
-if ($exist_user > 0)
-{}
 //Fin Conexión a SQL Server usando el driver ODBC de Windows  ---------------------------------------------------------------------------
+//Conexión a MySQL ------------------------------------------------------------------------------
+$_SESSION['conn'] = mysql_connect('192.168.1.150','aimco','@@imco');
+mysql_select_db("aimco",$_SESSION['conn']);
+//Fin Conexión a MySQL ------------------------------------------------------------------------------
+
+//Datos del usuario
+//Usuario
+$_SESSION['user'];
+//Contraseña
+$_SESSION['pass'];
+
+//ID SAP del usuario actual.
+$_SESSION['Usuario_Actual'];
+//Nivel del usuario
+$_SESSION['Rango'];
+//Nombre del usuario
+$_SESSION['Nombre_Usuario'];
 
 //Sección de valores parte superior index   --------------------------------------------------------------------------------------------
 	//Consulta de facturas de Clientes

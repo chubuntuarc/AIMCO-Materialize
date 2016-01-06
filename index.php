@@ -35,25 +35,41 @@
           <!-- Pantalla modal de login -->
           <div id="modal1" class="modal">
              <div class="modal-content">
-               <form class="col s12">
+               <form class="col s12" method="post">
                   <div class="row">
                     <h4>Acceso</h4>
                   </div>
                   <div class="row">
                     <div class="input-field col s12">
-                      <input id="email" type="email" class="validate">
+                      <input id="email" name="email" type="email">
                       <label for="email">Usuario</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s12">
-                      <input id="password" type="password" class="validate">
+                      <input id="password" name="password" type="password" class="validate">
                       <label for="password">Contraseña</label>
                     </div>
+                    <button type="submit" id="login" name="login" class="waves-effect waves-light btn red darken-4">ok</button>
                 </form>
-             </div>
-             <div class="modal-footer">
-               <a href="dashboard" class="waves-effect waves-light btn red darken-4">ok</a>
+                <?php
+                		if(isset($_POST['login'])){
+                			$_SESSION['user'] = $_POST['email'];
+                			$_SESSION['pass'] = $_POST['password'];
+                			$sql = mysql_query("SELECT * from usuarios where user = '{$_POST['email']}' and pass = '{$_POST['pass']}'", $_SESSION['conn']);
+                      while ($fila = mysql_fetch_array($sql)) {
+                                        $_SESSION['Nombre_Usuario'] = $fila[name];
+                                    }
+                			if ($sql) {
+                					header('Location: dashboard');
+                			}
+                			else
+                			{
+                				  echo "<script>alert('Usuario y/o contraseña incorrectos');</script>";
+                			}
+
+                			}
+                			 ?>
              </div>
            </div>
           <!-- Pantalla modal de login -->
