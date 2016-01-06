@@ -173,13 +173,21 @@
       </div>
     </div>
     <!--/Facturas-->
+    <!-- Modal Contacto -->
+    <div id="modal2" class="modal bottom-sheet">
+      <div class="modal-content">
+        <h5>Contacto AIMCO</h5>
+        <p>Tel: (614) 380 1010</p>
+      </div>
+    </div>
+    <!-- /Modal Contacto -->
     <!--Footer-->
           <footer class="page-footer grey lighten-1 ">
 
                    <div class="footer-copyright red darken-4">
                      <div class="container">
                      © 2016 AIMCO Corporation de México
-                     <a class="grey-text text-lighten-4 right " href="#!">Contacto</a>
+                     <a class="modal-trigger grey-text text-lighten-4 right " href="#modal2">Contacto</a>
                      </div>
                    </div>
                  </footer>

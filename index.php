@@ -25,14 +25,12 @@
     <header class="z-depth-1">
         <ul>
           <li><a class="activo" href="#">AIMCO</a></li>
-          <li><a href="http://aimex.sytes.net/" target="_blank" id="ocultar">AIMEX</a></li>
           <li><a href="http://aimco-global.com/" target="_blank">Nosotros</a></li>
           <li><a href="http://www.aimco-solutions.com/acradyne.asp" target="_blank" id="ocultar">AcraDyne</a></li>
           <li><a href="http://www.eagle-premier.com/" target="_blank" id="ocultar">Eagle</a></li>
           <li><a href="http://www.aimco-solutions.com/online_catalog.asp" target="_blank" id="ocultar">Catalogos</a></li>
           <li><a href="#" id="ocultar">Servicios</a></li>
-          <li><a href="#" id="ocultar">Soporte</a></li>
-          <li><a href="#">Contacto</a></li>
+          <li><a href="#modal2" class="modal-trigger">Contacto</a></li>
           <li><a href="#modal1" class="modal-trigger">Acceso</a></li>
           <!-- Pantalla modal de login -->
           <div id="modal1" class="modal">
@@ -154,13 +152,21 @@
       </div>
     </div>
   <!--/Tarjetas-->
+  <!-- Modal Contacto -->
+  <div id="modal2" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h5>Contacto AIMCO</h5>
+      <p>Tel: (614) 380 1010</p>
+    </div>
+  </div>
+  <!-- /Modal Contacto -->
   <!--Footer-->
         <footer class="page-footer grey lighten-1 ">
 
                  <div class="footer-copyright red darken-4">
                    <div class="container">
                    © 2016 AIMCO Corporation de México
-                   <a class="grey-text text-lighten-4 right " href="#!">Contacto</a>
+                   <a class="modal-trigger grey-text text-lighten-4 right " href="#modal2">Contacto</a>
                    </div>
                  </div>
                </footer>
