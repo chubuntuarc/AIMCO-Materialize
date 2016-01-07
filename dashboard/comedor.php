@@ -37,7 +37,7 @@
           <li><i class="material-icons sesion" data-activates='dropdown1'>supervisor_account</i></li>
           <!-- Dropdown Structure -->
           <ul id='dropdown1' class='dropdown-content'>
-            <li><a href="#!">Información</a></li>
+            <li><a class="modal-trigger" href="#modal3">Información</a></li>
             <li class="divider"></li>
             <li><a href="../">Cerrar Sesión</a></li>
           </ul>
@@ -52,9 +52,18 @@
     <!--/Barra superior - Header-->
     <div class="row">
       <!--Si ya se selecciono el menu-->
+      <div class="col m12 s12">
+        <div class="card small">
+              <div class="card-image">
+                <img src="../img/food_big.jpg">
+              </div>
+              <div class="card-content">
+                <h5><?php if($_SESSION['Comedor'] == 1){ echo "Menú de la Semana";} else{echo "Selecciona tu menú de la semana";} ?></h5>
+              </div>
+            </div>
+      </div>
       <div class="col m12 s12" <?php if($_SESSION['Comedor'] == 0){ echo "style='display: none;'";} ?>>
         <div class="card-panel">
-          <h5>Menú de la semana</h5>
           <?php
           echo "<table class='bordered highlight responsive-table' id='directorio'>";
           echo "<thead>";
@@ -78,8 +87,6 @@
               echo "<td>".$row['Complemento']."</td>";
               echo "<td>".$row['Postre']."</td>";
               echo "</tr>";
-              echo "<tr>";
-              echo "</tr>";
           }
           echo "</tbody>";
           echo "</table>";
@@ -88,9 +95,77 @@
         </div>
       </div>
       <!--Si no se selecciono el menu-->
-      <div class="col m12 s12" <?php if($_SESSION['Comedor'] == 1){ echo "style='display: none;'";} ?>>
+      <div class="col m12 s12" <?php if($_SESSION['Comedor'] == 0){ echo "style='display: none;'";} ?>>
         <div class="card-panel">
-          <h5>Selecciona tu menú de la semana</h5>
+          <form method="post">
+            <table>
+              <?php
+              $sql = "";
+    					$sql = mysql_query("SELECT * FROM Platillos", $_SESSION['conn']);
+              while ($row = mysql_fetch_array($sql))
+    					{
+    						echo "<tr>";
+    							echo "<td>".$row['DiaSemana']."</td>";
+    							echo "<td><input class='with-gap' name='group3' type='radio' id='test5'/><label for='test5'>".$row['Platillo1']."</label></td>";
+    							echo "<td><input class='with-gap' name='group4' type='radio' id='test6'/><label for='test6'>".$row['Platillo2']."</label></td>";
+    						echo "</tr>";
+
+                  echo "<tr>";
+                    echo "<td  class='first'></td>";
+                    echo "<td  class='first' align='right'>Complemento: </td>";
+                    echo "<td  class='first' align='right'><font color='Green'>".$row['Complemento']." y ".$row['Postre']."</font></td>";
+  			        echo "</tr>";
+
+    						echo "<tr>";
+                    echo "<td  class='first'></td>";
+                    echo "<td  class='first'></td>";
+      							echo "<td  class='first'></td>";
+  			        echo "</tr>";
+
+    					}
+
+               ?>
+            </table>
+            <button class="btn waves-effect waves-light" type="submit" name="guardar" id="guardar">Guardar
+              <i class="material-icons right">check</i>
+            </button>
+          </form>
+          <?php
+          $sql = "";
+      		$sql = mysql_query("UPDATE Usuarios SET ResetMenu = '1' WHERE Name = '".$_SESSION['Nombre_Usuario']."'", $_SESSION['conn']);
+
+      			foreach($_POST['group3'] as $p1)
+      			{
+      				$sql = "";
+      				$sql = mysql_query("SELECT ID, DiaSemana, Complemento, Postre FROM Platillos WHERE Platillo1 = '$p1' OR Platillo2 = '$p1'", $_SESSION['conn']);
+      				$No = mysql_result($sql, 0, "ID");
+      				$DiaSemana = mysql_result($sql, 0, "DiaSemana");
+      				$Complemento = mysql_result($sql, 0, "Complemento");
+      				$Postre = mysql_result($sql, 0, "Postre");
+
+      				$sql = "";
+      				$sql = mysql_query("INSERT INTO MENU VALUES ('$No', '$DiaSemana', '$user_name', '$p1', '$Complemento', '$Postre')", $_SESSION['conn']);
+
+      				$sql = "";
+      				$sql = mysql_query("UPDATE Pedido SET Cantidad = Cantidad + 1 WHERE Platillo = '$p1'", $_SESSION['conn']);
+      			}
+
+      			foreach($_POST['group4'] as $p2)
+      			{
+      				$sql = "";
+      				$sql = mysql_query("SELECT ID, DiaSemana, Complemento, Postre FROM Platillos WHERE Platillo1 = '$p2' OR Platillo2 = '$p2'", $_SESSION['conn']);
+      				$No = mysql_result($sql, 0, "ID");
+      				$DiaSemana = mysql_result($sql, 0, "DiaSemana");
+      				$Complemento = mysql_result($sql, 0, "Complemento");
+      				$Postre = mysql_result($sql, 0, "Postre");
+
+      				$sql = "";
+      				$sql = mysql_query("INSERT INTO MENU VALUES ('$No', '$DiaSemana', '$user_name', '$p2', '$Complemento', '$Postre')", $_SESSION['conn']);
+
+      				$sql = "";
+      				$sql = mysql_query("UPDATE Pedido SET Cantidad = Cantidad + 1 WHERE Platillo = '$p2'", $_SESSION['conn']);
+      			}
+           ?>
         </div>
       </div>
     </div>
@@ -102,6 +177,14 @@
       </div>
     </div>
     <!-- /Modal Contacto -->
+    <!-- Modal Información -->
+    <div id="modal3" class="modal bottom-sheet">
+      <div class="modal-content">
+        <h5>Información</h5>
+        <p>AIMCO 2016</p>
+      </div>
+    </div>
+    <!-- /Modal Información -->
     <!--Footer-->
           <footer class="page-footer grey lighten-1 ">
 

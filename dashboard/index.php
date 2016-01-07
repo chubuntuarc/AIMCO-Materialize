@@ -37,7 +37,7 @@
           <li><i class="material-icons sesion" data-activates='dropdown1'>supervisor_account</i></li>
           <!-- Dropdown Structure -->
           <ul id='dropdown1' class='dropdown-content'>
-            <li><a href="#!">Información</a></li>
+            <li><a class="modal-trigger" href="#modal3">Información</a></li>
             <li class="divider"></li>
             <li><a href="../">Cerrar Sesión</a></li>
           </ul>
@@ -301,6 +301,14 @@
     </div>
   </div>
   <!-- /Modal Contacto -->
+  <!-- Modal Información -->
+  <div id="modal3" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h5>Información</h5>
+      <p>AIMCO 2016</p>
+    </div>
+  </div>
+  <!-- /Modal Información -->
   <!--Footer-->
         <footer class="page-footer grey lighten-1 ">
 

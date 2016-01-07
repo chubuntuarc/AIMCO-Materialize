@@ -37,7 +37,7 @@
           <li><i class="material-icons sesion" data-activates='dropdown2'>supervisor_account</i></li>
           <!-- Dropdown Structure -->
           <ul id='dropdown2' class='dropdown-content'>
-            <li><a href="#!">Información</a></li>
+            <li><a class="modal-trigger" href="#modal3">Información</a></li>
             <li class="divider"></li>
             <li><a href="../">Cerrar Sesión</a></li>
           </ul>
@@ -197,7 +197,7 @@
       <div class="col m12 s12">
         <div class="card-panel">
           <h5>Listado de facturas</h5>
-          <input type="text" name="busqueda" id="busqueda" value="" placeholder="Buscar">
+            <input type="text" name="busqueda" id="busqueda" value="" placeholder="Buscar">
           <table id="directorio">
             <thead>
               <tr>
@@ -218,8 +218,8 @@
                   $Consulta_Nuevas_Facturas ="SELECT T0.[DocNum],T0.[CardName],T0.[DocDate], sum(T1.[TotalSumSy]),sum(T1.[TotalSumSy]) * T1.[VatPrcnt] /100, sum(T1.[TotalSumSy]) * T1.[VatPrcnt] /100 + sum(T1.[TotalSumSy]) FROM OINV T0  INNER JOIN INV1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." AND  T1.[TargetType] <> 14 GROUP BY T0.[DocNum],T0.[DocDate],T1.[VatPrcnt],T0.[CardName] order by T0.[DocNum] desc";
                   $Resultado_Consulta_Facturas = odbc_exec($Conexion_SQL, $Consulta_Nuevas_Facturas);
                   while (odbc_fetch_array($Resultado_Consulta_Facturas)) {
-                    echo "<tr>";
-                    echo "<td>".odbc_result($Resultado_Consulta_Facturas, 1)."</td>";
+                    echo "<tr id='num_doc'>";
+                    echo "<td >".odbc_result($Resultado_Consulta_Facturas, 1)."</td>";
                     echo "<td>".odbc_result($Resultado_Consulta_Facturas, 2)."</td>";
                     echo "<td>".odbc_result($Resultado_Consulta_Facturas, 3)."</td>";
                     echo "<td>$".number_format(odbc_result($Resultado_Consulta_Facturas, 4),2)."</td>";
@@ -236,7 +236,14 @@
                   <div class="modal-content">
                     <form class="col m9 s12">
                        <div class="row">
-                         <h5>Vista Previa</h5>
+                         <h5>Vista Previa <script>
+                         $('.preview').on('click', function() {
+                           var bid, trid;
+                           $('#directorio tr').click(function() {
+                                trid = $(this).attr('id'); // table row ID
+                                alert(trid);
+                           });
+                         </script></h5>
                        </div>
                        <div class="row">
                          <div class="input-field col s12">
@@ -272,6 +279,14 @@
       </div>
     </div>
     <!-- /Modal Contacto -->
+    <!-- Modal Información -->
+    <div id="modal3" class="modal bottom-sheet">
+      <div class="modal-content">
+        <h5>Información</h5>
+        <p>AIMCO 2016</p>
+      </div>
+    </div>
+    <!-- /Modal Información -->
     <!--Footer-->
           <footer class="page-footer grey lighten-1 ">
 
