@@ -65,6 +65,7 @@
                     $_SESSION['Nombre_Usuario'] =  $row['Name'];
                     $_SESSION['Usuario_Actual'] =  $row['Sap'];
                     $_SESSION['Rango'] = $row['UserType'];
+                    $_SESSION['Comedor'] = $row['ResetMenu'];
                   }
                 if ($valor == $_SESSION['pass']) {
                   header('Location: dashboard');

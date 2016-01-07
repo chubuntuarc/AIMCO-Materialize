@@ -31,7 +31,7 @@
           <li><a href="http://www.aimco-solutions.com/online_catalog.asp" target="_blank" id="ocultar">Catalogos</a></li>
           <li><a href="#" id="ocultar">Inventarios</a></li>
           <li><a href="../dashboard/directorio.php" id="ocultar">Directorio</a></li>
-          <li><a href="#" id="ocultar" <?php if($_SESSION['Rango'] < 4){ echo "style='display: none;'";} ?>>Comedor</a></li>
+          <li><a href="../dashboard/comedor.php" id="ocultar" <?php if($_SESSION['Rango'] < 4){ echo "style='display: none;'";} ?>>Comedor</a></li>
           <li><a href="#" id="ocultar">Soporte</a></li>
           <li><a><?php echo $_SESSION['Nombre_Usuario']; ?></a></li>
           <li><i class="material-icons sesion" data-activates='dropdown1'>supervisor_account</i></li>
@@ -60,13 +60,11 @@
           <!--El id usado en los input sirve para llevar la cadena al script JS y esconderlos usando styles/adicionales.css-->
           <input type="text" id="campos_facturacion" value="
             <?php
-            //Consultas para información de la gráfica en index   --------------------------------------------------------------------------------------------
-                //Consulta de Facturas de Clientes
                 $Consulta_Grafica_Facturas ="SELECT sum(T1.[TotalSumSy])AS Total FROM OINV T0  INNER JOIN INV1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocDate] >= '".$_SESSION["Anual"]."' AND  T2.[U_CODIGO_USA]  = ".$_SESSION['Usuario_Actual']." AND T1.[TargetType] <> 14 GROUP BY month(T0.[DocDate]) ORDER BY month(T0.[DocDate])";
                 $Resultado_Consulta_Grafica = odbc_exec($Conexion_SQL, $Consulta_Grafica_Facturas);
                 while ($fac = odbc_fetch_array($Resultado_Consulta_Grafica)) {
                   foreach ($fac as $meses) {
-                    echo $meses.",";  //Se crea usando el foreach una cadena, la cual se divide en scripts/datosGrafica.js para llenar los campos de la gráfica
+                    echo $meses.",";
                   }
                 }
             ?>
@@ -236,6 +234,65 @@
     </div>
   </div>
   <!--/Rankings-->
+  <!-- Comedor -->
+  <div class="row" <?php if($_SESSION['Rango'] < 4){ echo "style='display: none;'";} ?>>
+    <div class="col m9 s12">
+      <div class="card medium">
+            <div class="card-image">
+              <img src="../img/avisos.jpg">
+              <span class="card-title">Avisos</span>
+            </div>
+            <div class="card-content">
+              <p>Avisos informativos de la empresa.</p>
+            </div>
+          </div>
+      </div>
+    <div class="col m3 s12">
+      <div class="card small">
+            <div class="card-image">
+              <img src="../img/food.jpg">
+              <span class="card-title">Platillo del día</span>
+            </div>
+            <div class="card-content">
+              <p><?php
+              $dia = date('N');
+                $sql = mysql_query("SELECT * FROM menu WHERE ID = 4 and Usuario = '".$_SESSION['Nombre_Usuario']."'", $_SESSION['conn']);
+                while ($row = mysql_fetch_array($sql))
+                {
+                    echo $row['Platillo'];
+                    echo "<br>" . $row['Complemento'];
+                    echo "<br>" . $row['Postre'];
+                }
+               ?></p>
+            </div>
+          </div>
+    </div>
+  </div>
+  <!-- /Comedor -->
+  <!-- Generales -->
+  <div class="row">
+    <div class="col m9 s12">
+      <div class="card-panel">
+          <h5>Presentaciones Corporativas</h5>
+          <div class="collection">
+        <a href="http://aimex.sytes.net/documentos/AIMCO%20(TODO%20LO%20QUE%20NECESITA%20EN%20UN%20SOLO%20PROVEEDOR)%20FINAL.ppt" class="collection-item" target="_blank">Todo lo que necesitas en un solo proveedor  </a>
+        <a href="http://aimex.sytes.net/documentos/Aimex%20Automation%20Systems%202011.ppt" class="collection-item" target="_blank">Aimex Automation Systems 2011</a>
+        <a href="http://aimex.sytes.net/documentos/GenericaMXPresentation%2009.07.2013%20-%20Nueva%20Version.pdf" class="collection-item active" class="collection-item" target="_blank">Generica MX Presentation</a>
+        <a href="http://aimex.sytes.net/documentos/Standard%20Corporate%20Presentation%20rev%2001.21.13.pptx" class="collection-item" target="_blank">Standard Corporate Presentation</a>
+      </div>
+      </div>
+    </div>
+    <div class="col m3 s12">
+      <div class="card-panel">
+        <h5>¿Escritorio Remoto Vencido?</h5>
+        <p>
+          He aqui el tutorial de como re-instalar de nuevo el acceso al escritorio remoto, una vez que ha vencido.
+        </p>
+        <a href="http://aimex.sytes.net/documentos/Tutorial-Escritorio-Remoto.pdf" target="_blank">Ver</a>
+      </div>
+    </div>
+  </div>
+  <!-- /Generales -->
   <!-- Modal Contacto -->
   <div id="modal2" class="modal bottom-sheet">
     <div class="modal-content">
