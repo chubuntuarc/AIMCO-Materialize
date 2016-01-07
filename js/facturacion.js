@@ -1,7 +1,5 @@
 $(document).ready(function(){
   $('.preview').tooltip({delay: 50});
-  $('.modal-trigger').leanModal();
-
   $('.sesion').dropdown({
    inDuration: 300,
    outDuration: 225,

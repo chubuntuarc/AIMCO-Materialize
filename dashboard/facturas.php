@@ -29,15 +29,14 @@
           <li><a href="http://www.aimco-solutions.com/acradyne.asp" target="_blank" id="ocultar">AcraDyne</a></li>
           <li><a href="http://www.eagle-premier.com/" target="_blank" id="ocultar">Eagle</a></li>
           <li><a href="http://www.aimco-solutions.com/online_catalog.asp" target="_blank" id="ocultar">Catalogos</a></li>
-          <li><a href="#" id="ocultar">Documentos</a></li>
           <li><a href="#" id="ocultar">Inventarios</a></li>
           <li><a href="../dashboard/directorio.php" id="ocultar">Directorio</a></li>
           <li><a href="#" id="ocultar" <?php if($_SESSION['Rango'] < 4){ echo "style='display: none;'";} ?>>Comedor</a></li>
           <li><a href="#" id="ocultar">Soporte</a></li>
           <li><a><?php echo $_SESSION['Nombre_Usuario']; ?></a></li>
-          <li><i class="material-icons sesion" data-activates='dropdown1'>supervisor_account</i></li>
+          <li><i class="material-icons sesion" data-activates='dropdown2'>supervisor_account</i></li>
           <!-- Dropdown Structure -->
-          <ul id='dropdown1' class='dropdown-content'>
+          <ul id='dropdown2' class='dropdown-content'>
             <li><a href="#!">Información</a></li>
             <li class="divider"></li>
             <li><a href="../">Cerrar Sesión</a></li>
@@ -45,7 +44,7 @@
         </ul>
     </header>
     <nav id="tiulo_pagina">
-      <div class="nav-wrapper red darken-4 ">
+      <div class="nav-wrapper grey darken-4 ">
         <img src="../img/logo.png" id="logo">
           <a href="../dashboard" id="aimco">AIMCO Corporation de México</a>
       </div>
@@ -253,7 +252,7 @@
                      </form>
                   </div>
                   <div class="modal-footer">
-                    <a href="#" class="waves-effect waves-light btn red darken-4">ok</a>
+                    <a href="#" class="waves-effect waves-light btn red darken-4" id="cerrar_vista_previa">ok</a>
                   </div>
                 </div>
                <!-- Pantalla modal de vista previa -->

@@ -6,7 +6,7 @@ error_reporting(0);
 	date_default_timezone_set('America/Chihuahua');
 
 	//Año actual.... Esta por defecto el del equipo, pero se busca modificarlo después
-	$_SESSION["Anual"] = date('Y');
+	$_SESSION["Anual"] = 2016;
 	//Fecha desde la que se haran las consultas.
 	$_SESSION["Fecha_Inicial"] = $_SESSION["Anual"]."-01-01";
 	//Fecha hasta la que se haran las consultas.
