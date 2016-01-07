@@ -37,7 +37,6 @@ $_SESSION['Usuario_Actual'];
 $_SESSION['Rango'];
 //Nombre del usuario
 $_SESSION['Nombre_Usuario'];
-
 //Sección de valores parte superior index   --------------------------------------------------------------------------------------------
 	//Consulta de facturas de Clientes
 	$Consulta_Monto_Factura ="SELECT sum(T1.[TotalSumSy]) as Total FROM OINV T0  INNER JOIN INV1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." AND  T0.[DocDate] >= '".$_SESSION["Fecha_Inicial"]."' AND  T0.[DocDate] <= '".$_SESSION["Fecha_Final"]."' AND  T1.[TargetType] <> 14";
@@ -89,8 +88,6 @@ $_SESSION['Nombre_Usuario'];
     odbc_close($Conexion_SQL);
 
 //Fin de Sección de valores parte superior index   --------------------------------------------------------------------------------------------
-
-
 
 
 

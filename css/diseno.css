@@ -32,7 +32,7 @@ header ul { list-style-type: none; margin-left: 15%; margin-top: 3px; padding: 0
 /*------------------------------------------------------------------------------Dashboard*/
 /*Diseño de la Gráfica*/
 #campos_facturacion, #campos_ordenes, #campos_ofertas, #campos_back_order, #campos_facturacion_anterior, #campos_facturacion_anterior2, #campos_facturacion_anterior3, #facturas2015, #facturas2016
-,#facturas2014, #facturas2013
+,#facturas2014, #facturas2013, #houdini
 {
 	display: none;
 }

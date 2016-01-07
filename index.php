@@ -41,7 +41,7 @@
                   </div>
                   <div class="row">
                     <div class="input-field col s12">
-                      <input id="email" name="email" type="email">
+                      <input id="email" name="email" type="text">
                       <label for="email">Usuario</label>
                     </div>
                   </div>
@@ -53,22 +53,27 @@
                     <button type="submit" id="login" name="login" class="waves-effect waves-light btn red darken-4">ok</button>
                 </form>
                 <?php
-                		if(isset($_POST['login'])){
-                			$_SESSION['user'] = $_POST['email'];
-                			$_SESSION['pass'] = $_POST['password'];
-                			$sql = mysql_query("SELECT * from usuarios where user = '{$_POST['email']}' and pass = '{$_POST['pass']}'", $_SESSION['conn']);
-                      while ($fila = mysql_fetch_array($sql)) {
-                                        $_SESSION['Nombre_Usuario'] = $fila[name];
-                                    }
-                			if ($sql) {
-                					header('Location: dashboard');
-                			}
-                			else
-                			{
-                				  echo "<script>alert('Usuario y/o contraseña incorrectos');</script>";
-                			}
-
-                			}
+                if(isset($_POST['login'])){
+                  $_SESSION['user'] = $_POST['email'];
+                  $_SESSION['pass'] = $_POST['password'];
+                  error_reporting(0);
+                  $sql = "";
+                  $sql = mysql_query("SELECT * FROM Usuarios where User = '".$_SESSION['user']."'", $_SESSION['conn']);
+                  while ($row = mysql_fetch_array($sql))
+                  {
+                    $valor =  $row['Pass'];
+                    $_SESSION['Nombre_Usuario'] =  $row['Name'];
+                    $_SESSION['Usuario_Actual'] =  $row['Sap'];
+                    $_SESSION['Rango'] = $row['UserType'];
+                  }
+                if ($valor == $_SESSION['pass']) {
+                  header('Location: dashboard');
+                }
+              else {
+                {
+                  echo "<script>alert('Usuario y/o contraseña incorrectos');</script>";
+                }
+              }}
                 			 ?>
              </div>
            </div>

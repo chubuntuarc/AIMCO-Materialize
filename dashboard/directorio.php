@@ -35,7 +35,13 @@
           <li><a href="#" id="ocultar">Comedor</a></li>
           <li><a href="#" id="ocultar">Soporte</a></li>
           <li><a>Antonio Diaz</a></li>
-          <li><i class="material-icons">supervisor_account</i></li>
+          <li><i class="material-icons sesion" data-activates='dropdown1'>supervisor_account</i></li>
+          <!-- Dropdown Structure -->
+          <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="#!">Información</a></li>
+            <li class="divider"></li>
+            <li><a href="../">Cerrar Sesión</a></li>
+          </ul>
         </ul>
     </header>
     <nav id="tiulo_pagina">
@@ -61,7 +67,7 @@
             echo "</thead>";
             echo "<tbody>";
             $sql = "";
-            $sql = mysql_query("SELECT * FROM Directory", $link);
+            $sql = mysql_query("SELECT * FROM Directory", $_SESSION['conn']);
 
             while ($row = mysql_fetch_array($sql))
             {

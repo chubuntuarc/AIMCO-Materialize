@@ -35,7 +35,13 @@
           <li><a href="#" id="ocultar">Comedor</a></li>
           <li><a href="#" id="ocultar">Soporte</a></li>
           <li><a><?php echo $_SESSION['Nombre_Usuario']; ?></a></li>
-          <li><i class="material-icons">supervisor_account</i></li>
+          <li><i class="material-icons sesion" data-activates='dropdown1'>supervisor_account</i></li>
+          <!-- Dropdown Structure -->
+          <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="#!">Información</a></li>
+            <li class="divider"></li>
+            <li><a href="../">Cerrar Sesión</a></li>
+          </ul>
         </ul>
     </header>
     <nav id="tiulo_pagina">
@@ -46,7 +52,7 @@
     </nav>
     <!--/Barra superior - Header-->
   <!--Gráfica-->
-  <div class="row">
+  <div class="row" <?php if($_SESSION['Rango'] != 3 ){ echo "style='display: none;'";} ?>>
     <div class="col s12 m9" id="ocultar">
       <div class="card-panel z-depth-3">
         <h5 id="Titulo_Grafica">Facturas de Clientes</h5>
@@ -171,7 +177,7 @@
   </div>
   <!--/Gráfica-->
   <!--Rankings-->
-  <div class="row">
+  <div class="row" <?php if($_SESSION['Rango'] != 3 ){ echo "style='display: none;'";} ?>>
     <div class="col m6 s12">
       <div class="card-panel">
         <h5>Top 10 - Producto más vendido por cliente</h5>
