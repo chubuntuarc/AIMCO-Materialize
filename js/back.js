@@ -9,6 +9,7 @@ $(document).ready(function(){
    alignment: 'left' // Displays dropdown with edge aligned to the left of button
  }
 );
+$('.modal-trigger').leanModal();
   //Campos para la gráfica de Back Order
   var Campos_Back_Order = document.getElementById("campos_back_order").value;   //Cadena capturada de los input ocultos en el DOM
   var Valores_Back_Order = document.getElementById("campos_back_order").innerHTML=Campos_Back_Order;

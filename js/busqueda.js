@@ -15,6 +15,7 @@ $( "#busqueda" ).ready(function() {
         $("#directorio tbody>tr").show();
     }
 });
+$('.modal-trigger').leanModal();
 // Escribe en el evento keyup
 $("#busqueda").keyup(function(){
     //Cuando el valor del input no esta vacio

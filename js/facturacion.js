@@ -12,6 +12,7 @@ $(document).ready(function(){
    alignment: 'left' // Displays dropdown with edge aligned to the left of button
  }
 );
+$('.modal-trigger').leanModal();
 //Campos para la gráfica de Facturación
 var Campos_Facturacion = document.getElementById("campos_facturacion").value;  //Cadena capturada de los input ocultos en el DOM
 var Valores_Facturacion = document.getElementById("campos_facturacion").innerHTML=Campos_Facturacion;

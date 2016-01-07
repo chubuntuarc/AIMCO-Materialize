@@ -32,9 +32,9 @@
           <li><a href="#" id="ocultar">Documentos</a></li>
           <li><a href="#" id="ocultar">Inventarios</a></li>
           <li><a class="activo" href="../dashboard/directorio.php" id="ocultar">Directorio</a></li>
-          <li><a href="#" id="ocultar">Comedor</a></li>
+          <li><a href="#" id="ocultar" <?php if($_SESSION['Rango'] < 4){ echo "style='display: none;'";} ?>>Comedor</a></li>
           <li><a href="#" id="ocultar">Soporte</a></li>
-          <li><a>Antonio Diaz</a></li>
+          <li><a><?php echo $_SESSION['Nombre_Usuario']; ?></a></li>
           <li><i class="material-icons sesion" data-activates='dropdown1'>supervisor_account</i></li>
           <!-- Dropdown Structure -->
           <ul id='dropdown1' class='dropdown-content'>
@@ -110,4 +110,5 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
   <script type="text/javascript" src="../js/busqueda.js"></script>
+  <script type="text/javascript" src="../js/master.js"></script>
 </html>

@@ -9,6 +9,7 @@ $(document).ready(function(){
    alignment: 'left' // Displays dropdown with edge aligned to the left of button
  }
 );
+$('.modal-trigger').leanModal();
   //Campos para la gráfica de Ordenes de Ventas
   var Campos_Ordenes = document.getElementById("campos_ordenes").value;   //Cadena capturada de los input ocultos en el DOM
   var Valores_Ordenes = document.getElementById("campos_ordenes").innerHTML=Campos_Ordenes;
