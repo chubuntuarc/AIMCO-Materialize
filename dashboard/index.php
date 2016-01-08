@@ -256,7 +256,7 @@
             <div class="card-content">
               <p><?php
               $dia = date('N');
-                $sql = mysql_query("SELECT * FROM menu WHERE ID = 4 and Usuario = '".$_SESSION['Nombre_Usuario']."'", $_SESSION['conn']);
+                $sql = mysql_query("SELECT * FROM menu WHERE ID = $dia and Usuario = '".$_SESSION['Nombre_Usuario']."'", $_SESSION['conn']);
                 while ($row = mysql_fetch_array($sql))
                 {
                     echo $row['Platillo'];
