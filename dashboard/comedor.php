@@ -58,11 +58,11 @@
                 <img src="../img/food_big.jpg">
               </div>
               <div class="card-content">
-                <h5><?php if($_SESSION['Comedor'] == 0){ echo "Menú de la Semana";} else{echo "Selecciona tu menú de la semana";} ?></h5>
+                <h5><?php if($_SESSION['Comedor'] == 1){ echo "Menú de la Semana";} else{echo "Selecciona tu menú de la semana";} ?></h5>
               </div>
             </div>
       </div>
-      <div class="col m12 s12" <?php if($_SESSION['Comedor'] == 1){ echo "style='display: none;'";} ?>>
+      <div class="col m12 s12" <?php if($_SESSION['Comedor'] == 0){ echo "style='display: none;'";} ?>>
         <div class="card-panel">
           <?php
           echo "<table class='bordered highlight responsive-table' id='directorio'>";
@@ -95,7 +95,7 @@
         </div>
       </div>
       <!--Si no se selecciono el menu-->
-      <div class="col m12 s12" <?php if($_SESSION['Comedor'] == 0){ echo "style='display: none;'";} ?>>
+      <div class="col m12 s12" <?php if($_SESSION['Comedor'] == 1){ echo "style='display: none;'";} ?>>
         <div class="card-panel">
           <form method="post">
             <table>
@@ -193,6 +193,7 @@
                       $_SESSION['Miercoles'] = (isset($_POST['miercoles'])) ? $_SESSION['M3'] : $_SESSION['M4'];
                       $_SESSION['Jueves'] = (isset($_POST['jueves'])) ? $_SESSION['J1'] : $_SESSION['J2'];
                       $_SESSION['Viernes'] = (isset($_POST['viernes'])) ? $_SESSION['V1'] : $_SESSION['V2'];
+
                        ?>
                 </tr>
               </tbody>
@@ -212,9 +213,11 @@
             $sql = "";
             $sql = mysql_query("INSERT INTO menu VALUES ('3', 'Miercoles', '".$_SESSION['Nombre_Usuario']."', '".$_SESSION['Miercoles']."', '".$_SESSION['M33']."', '".$_SESSION['M44']."')", $_SESSION['conn']);
             $sql = "";
-            $sql = mysql_query("INSERT INTO menu VALUES ('4', 'Jueves', '".$_SESSION['Nombre_Usuario']."', '".$_SESSION['Jueves']."', '".$_SESSION['J1']."', '".$_SESSION['J2']."')", $_SESSION['conn']);
+            $sql = mysql_query("INSERT INTO menu VALUES ('4', 'Jueves', '".$_SESSION['Nombre_Usuario']."', '".$_SESSION['Jueves']."', '".$_SESSION['J3']."', '".$_SESSION['J4']."')", $_SESSION['conn']);
             $sql = "";
-            $sql = mysql_query("INSERT INTO menu VALUES ('5', 'Viernes', '".$_SESSION['Nombre_Usuario']."', '".$_SESSION['Viernes']."', '".$_SESSION['V1']."', '".$_SESSION['V2']."')", $_SESSION['conn']);
+            $sql = mysql_query("INSERT INTO menu VALUES ('5', 'Viernes', '".$_SESSION['Nombre_Usuario']."', '".$_SESSION['Viernes']."', '".$_SESSION['V3']."', '".$_SESSION['V4']."')", $_SESSION['conn']);
+            $_SESSION['Comedor'] = 1;
+            header("location: ../dashboard");
           }
            ?>
         </div>

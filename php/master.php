@@ -91,6 +91,11 @@ $_SESSION['Comedor'];
 
 //Fin de Sección de valores parte superior index   --------------------------------------------------------------------------------------------
 
-
+$sql = "";
+$sql = mysql_query("SELECT * FROM Usuarios where User = '".$_SESSION['user']."'", $_SESSION['conn']);
+while ($row = mysql_fetch_array($sql))
+{
+	$_SESSION['Comedor'] = $row['ResetMenu'];
+}
 
 ?>
