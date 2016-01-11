@@ -32,7 +32,7 @@ require '../fpdf/fpdf.php';?>
           <li><a href="http://www.aimco-solutions.com/online_catalog.asp" target="_blank" id="ocultar">Catalogos</a></li>
           <li><a href="#" id="ocultar">Inventarios</a></li>
           <li><a href="../dashboard/directorio.php" id="ocultar">Directorio</a></li>
-          <li><a class="activo" href="../dashboard/actualiza_comedor.php" id="ocultar" <?php if($_SESSION['user'] != 'Vmurillo'){ echo "style='display: none;'";} ?>>Menú Comedor</a></li>
+          <li><a class="activo" href="../dashboard/actualiza_comedor.php" id="ocultar" <?php if($_SESSION['Nombre_Usuario'] != 'Veronica Murillo'){ echo "style='display: none;'";} ?>>Menú Comedor</a></li>
           <li><a href="../dashboard/comedor.php" id="ocultar" <?php if($_SESSION['Rango'] < 4){ echo "style='display: none;'";} ?>>Comedor</a></li>
           <li><a href="#" id="ocultar">Soporte</a></li>
           <li><a><?php echo $_SESSION['Nombre_Usuario']; ?></a></li>
@@ -68,7 +68,7 @@ require '../fpdf/fpdf.php';?>
       <!--Si no se selecciono el menu-->
       <div class="col m12 s12">
         <div class="card-panel">
-          <form method="post">
+          <form method="post" action="../php/nuevo_menu.php">
             <table>
               <thead>
                 <tr>
@@ -86,10 +86,6 @@ require '../fpdf/fpdf.php';?>
         					$sql = mysql_query("SELECT * FROM Platillos where ID = 1", $_SESSION['conn']);
                   while ($row = mysql_fetch_array($sql))
         					{
-                      $_SESSION['L1'] = $row['Platillo1'];
-                      $_SESSION['L2'] = $row['Platillo2'];
-                      $_SESSION['L3'] = $row['Complemento'];
-                      $_SESSION['L4'] = $row['Postre'];
         							echo "<td><input class='with-gap' name='lunes' type='text' id='lunes1' placeholder='".$row['Platillo1']."'/>
                       <br><br><input class='with-gap' type='text' id='lunes2' placeholder='".$row['Platillo2']."'/>
                       <br><br><input class='with-gap' type='text' id='lunes3' placeholder='".$row['Complemento']."'/>
@@ -102,14 +98,10 @@ require '../fpdf/fpdf.php';?>
          					$sql = mysql_query("SELECT * FROM Platillos where ID = 2", $_SESSION['conn']);
                    while ($row = mysql_fetch_array($sql))
          					{
-                      $_SESSION['M1'] = $row['Platillo1'];
-                      $_SESSION['M2'] = $row['Platillo2'];
-                      $_SESSION['M11'] = $row['Complemento'];
-                      $_SESSION['M22'] = $row['Postre'];
-         							echo "<td><input class='with-gap' name='martes' type='text' id='test5' placeholder='".$row['Platillo1']."'/>
-                       <br><br><input class='with-gap' type='text' id='test6' placeholder='".$row['Platillo2']."'/>
-                       <br><br><input class='with-gap' type='text' id='test7' placeholder='".$row['Complemento']."'/>
-                       <br><br><input class='with-gap' type='text' id='test8' placeholder='".$row['Postre']."'/></td>";
+         							echo "<td><input class='with-gap' name='martes' type='text' id='martes1' placeholder='".$row['Platillo1']."'/>
+                       <br><br><input class='with-gap' type='text' id='martes2' placeholder='".$row['Platillo2']."'/>
+                       <br><br><input class='with-gap' type='text' id='martes3' placeholder='".$row['Complemento']."'/>
+                       <br><br><input class='with-gap' type='text' id='martes4' placeholder='".$row['Postre']."'/></td>";
          					}
 
                     ?>
@@ -118,14 +110,10 @@ require '../fpdf/fpdf.php';?>
           					$sql = mysql_query("SELECT * FROM Platillos where ID = 3", $_SESSION['conn']);
                     while ($row = mysql_fetch_array($sql))
           					{
-                        $_SESSION['M3'] = $row['Platillo1'];
-                        $_SESSION['M4'] = $row['Platillo2'];
-                        $_SESSION['M33'] = $row['Complemento'];
-                        $_SESSION['M44'] = $row['Postre'];
-          							echo "<td><input class='with-gap' name='miercoles' type='text' id='test7' placeholder='".$row['Platillo1']."'/>
-                        <br><br><input class='with-gap' type='text' id='test8' placeholder='".$row['Platillo2']."'/>
-                        <br><br><input class='with-gap' type='text' id='test9' placeholder='".$row['Complemento']."'/>
-                        <br><br><input class='with-gap' type='text' id='test10' placeholder='".$row['Postre']."'/></td>";
+          							echo "<td><input class='with-gap' name='miercoles' type='text' id='miercoles1' placeholder='".$row['Platillo1']."'/>
+                        <br><br><input class='with-gap' type='text' id='miercoles2' placeholder='".$row['Platillo2']."'/>
+                        <br><br><input class='with-gap' type='text' id='miercoles3' placeholder='".$row['Complemento']."'/>
+                        <br><br><input class='with-gap' type='text' id='miercoles4' placeholder='".$row['Postre']."'/></td>";
           					}
 
                      ?>
@@ -134,14 +122,10 @@ require '../fpdf/fpdf.php';?>
            					$sql = mysql_query("SELECT * FROM Platillos where ID = 4", $_SESSION['conn']);
                      while ($row = mysql_fetch_array($sql))
            					{
-                      $_SESSION['J1'] = $row['Platillo1'];
-                      $_SESSION['J2'] = $row['Platillo2'];
-                      $_SESSION['J3'] = $row['Complemento'];
-                      $_SESSION['J4'] = $row['Postre'];
-           							echo "<td><input class='with-gap' name='jueves' type='text' id='test9' placeholder='".$row['Platillo1']."'/>
-                         <br><br><input class='with-gap' type='text' id='test10' placeholder='".$row['Platillo2']."'/>
-                         <br><br><input class='with-gap' type='text' id='test11' placeholder='".$row['Complemento']."'/>
-                         <br><br><input class='with-gap' type='text' id='test12' placeholder='".$row['Postre']."'/></td>";
+           							echo "<td><input class='with-gap' name='jueves' type='text' id='jueves1' placeholder='".$row['Platillo1']."'/>
+                         <br><br><input class='with-gap' type='text' id='jueves2' placeholder='".$row['Platillo2']."'/>
+                         <br><br><input class='with-gap' type='text' id='jueves3' placeholder='".$row['Complemento']."'/>
+                         <br><br><input class='with-gap' type='text' id='jueves4' placeholder='".$row['Postre']."'/></td>";
            					}
 
                       ?>
@@ -150,53 +134,25 @@ require '../fpdf/fpdf.php';?>
             					$sql = mysql_query("SELECT * FROM Platillos where ID = 5", $_SESSION['conn']);
                       while ($row = mysql_fetch_array($sql))
             					{
-                        $_SESSION['V1'] = $row['Platillo1'];
-                        $_SESSION['V2'] = $row['Platillo2'];
-                        $_SESSION['V3'] = $row['Complemento'];
-                        $_SESSION['V4'] = $row['Postre'];
-            							echo "<td><input class='with-gap' name='viernes' type='text' id='test11' placeholder='".$row['Platillo1']."'/>
-                          <br><br><input class='with-gap' type='text' id='test12' placeholder='".$row['Platillo2']."'/>
-                          <br><br><input class='with-gap' type='text' id='test13' placeholder='".$row['Complemento']."'/>
-                          <br><br><input class='with-gap' type='text' id='test14' placeholder='".$row['Postre']."'/></td>";
+            							echo "<td><input class='with-gap' name='viernes' type='text' id='viernes1' placeholder='".$row['Platillo1']."'/>
+                          <br><br><input class='with-gap' type='text' id='viernes2' placeholder='".$row['Platillo2']."'/>
+                          <br><br><input class='with-gap' type='text' id='viernes3' placeholder='".$row['Complemento']."'/>
+                          <br><br><input class='with-gap' type='text' id='viernes4' placeholder='".$row['Postre']."'/></td>";
             					}
-                      $_SESSION['Lunes'] = (isset($_POST['lunes'])) ? $_SESSION['L1'] : $_SESSION['L2'];
-                      $_SESSION['Martes'] = (isset($_POST['martes'])) ? $_SESSION['M1'] : $_SESSION['M2'];
-                      $_SESSION['Miercoles'] = (isset($_POST['miercoles'])) ? $_SESSION['M3'] : $_SESSION['M4'];
-                      $_SESSION['Jueves'] = (isset($_POST['jueves'])) ? $_SESSION['J1'] : $_SESSION['J2'];
-                      $_SESSION['Viernes'] = (isset($_POST['viernes'])) ? $_SESSION['V1'] : $_SESSION['V2'];
-
                        ?>
                 </tr>
               </tbody>
             </table>
-            <button class="btn waves-effect waves-light" type="submit" name="guardar" id="guardar">Nuevo
-              <i class="material-icons right">check</i>
-            </button>
-            <button class="btn waves-effect waves-light yellow darken-4">Modificar
+              <button class="btn waves-effect waves-light" type="submit" name="guardar" id="guardar">Nuevo
+                <i class="material-icons right">check</i>
+            </form>
+            <button class="btn waves-effect waves-light yellow darken-4" name="modificar" id="modificar">Modificar
               <i class="material-icons right">create</i>
             </button>
             <a class="modal-trigger btn waves-effect waves-light red darken-4" href="#modal4">Ver Menu
               <i class="material-icons right">visibility</i>
             </a>
           </form>
-          <?php
-          if (isset($_POST['guardar'])) {
-            $sql = "";
-        		$sql = mysql_query("UPDATE Usuarios SET ResetMenu = '1' WHERE Name = '".$_SESSION['Nombre_Usuario']."'", $_SESSION['conn']);
-            $sql = "";
-            $sql = mysql_query("INSERT INTO menu VALUES ('1', 'Lunes', '".$_SESSION['Nombre_Usuario']."', '".$_SESSION['Lunes']."', '".$_SESSION['L3']."', '".$_SESSION['L4']."')", $_SESSION['conn']);
-            $sql = "";
-            $sql = mysql_query("INSERT INTO menu VALUES ('2', 'Martes', '".$_SESSION['Nombre_Usuario']."', '".$_SESSION['Martes']."', '".$_SESSION['M11']."', '".$_SESSION['M22']."')", $_SESSION['conn']);
-            $sql = "";
-            $sql = mysql_query("INSERT INTO menu VALUES ('3', 'Miercoles', '".$_SESSION['Nombre_Usuario']."', '".$_SESSION['Miercoles']."', '".$_SESSION['M33']."', '".$_SESSION['M44']."')", $_SESSION['conn']);
-            $sql = "";
-            $sql = mysql_query("INSERT INTO menu VALUES ('4', 'Jueves', '".$_SESSION['Nombre_Usuario']."', '".$_SESSION['Jueves']."', '".$_SESSION['J3']."', '".$_SESSION['J4']."')", $_SESSION['conn']);
-            $sql = "";
-            $sql = mysql_query("INSERT INTO menu VALUES ('5', 'Viernes', '".$_SESSION['Nombre_Usuario']."', '".$_SESSION['Viernes']."', '".$_SESSION['V3']."', '".$_SESSION['V4']."')", $_SESSION['conn']);
-            $_SESSION['Comedor'] = 1;
-            header("location: ../dashboard");
-          }
-           ?>
         </div>
       </div>
     </div>
