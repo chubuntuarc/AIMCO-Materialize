@@ -3,7 +3,8 @@
     Desarrollado en PHP - HTML5 - Javascript - CSS
     Utilizando Materialize http://materializecss.com/
     Derechos Reservados 2016-->
-<?php require '../php/master.php';?>
+<?php require '../php/master.php';
+require '../fpdf/fpdf.php';?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,8 +32,8 @@
           <li><a href="http://www.aimco-solutions.com/online_catalog.asp" target="_blank" id="ocultar">Catalogos</a></li>
           <li><a href="#" id="ocultar">Inventarios</a></li>
           <li><a href="../dashboard/directorio.php" id="ocultar">Directorio</a></li>
-          <li><a href="../dashboard/actualiza_comedor.php" id="ocultar" <?php if($_SESSION['user'] != 'Vmurillo'){ echo "style='display: none;'";} ?>>Menú Comedor</a></li>
-          <li><a class="activo" href="../dashboard/comedor.php" id="ocultar" <?php if($_SESSION['Rango'] < 4){ echo "style='display: none;'";} ?>>Comedor</a></li>
+          <li><a class="activo" href="../dashboard/actualiza_comedor.php" id="ocultar" <?php if($_SESSION['user'] != 'Vmurillo'){ echo "style='display: none;'";} ?>>Menú Comedor</a></li>
+          <li><a href="../dashboard/comedor.php" id="ocultar" <?php if($_SESSION['Rango'] < 4){ echo "style='display: none;'";} ?>>Comedor</a></li>
           <li><a href="#" id="ocultar">Soporte</a></li>
           <li><a><?php echo $_SESSION['Nombre_Usuario']; ?></a></li>
           <li><i class="material-icons sesion" data-activates='dropdown1'>supervisor_account</i></li>
@@ -56,47 +57,16 @@
       <div class="col m12 s12">
         <div class="card small">
               <div class="card-image">
-                <img src="../img/food_big.jpg">
+                <img src="../img/food_big2.jpg">
               </div>
               <div class="card-content">
-                <h5><?php if($_SESSION['Comedor'] == 1){ echo "Menú de la Semana";} else{echo "Selecciona tu menú de la semana";} ?></h5>
+                <h5>Menú de la Semana</h5>
               </div>
             </div>
       </div>
-      <div class="col m12 s12" <?php if($_SESSION['Comedor'] == 0){ echo "style='display: none;'";} ?>>
-        <div class="card-panel">
-          <?php
-          echo "<table class='bordered highlight responsive-table' id='directorio'>";
-          echo "<thead>";
-          echo "<tr>";
-          echo "<th>Día</th>";
-          echo "<th>Platillo</th>";
-          echo "<th>Complemento</th>";
-          echo "<th>Postre</th>";
-          echo "</tr>";
-          echo "</thead>";
-          echo "<tbody>";
-          $sql = "";
-          $sql = mysql_query("SELECT * FROM menu WHERE Usuario = '".$_SESSION['Nombre_Usuario']."' ORDER BY ID ASC", $_SESSION['conn']);
 
-          while ($row = mysql_fetch_array($sql))
-          {
-
-              echo "<tr>";
-              echo "<td>".$row['DiaSemana']."</td>";
-              echo "<td>".$row['Platillo']."</td>";
-              echo "<td>".$row['Complemento']."</td>";
-              echo "<td>".$row['Postre']."</td>";
-              echo "</tr>";
-          }
-          echo "</tbody>";
-          echo "</table>";
-
-              ?>
-        </div>
-      </div>
       <!--Si no se selecciono el menu-->
-      <div class="col m12 s12" <?php if($_SESSION['Comedor'] == 1){ echo "style='display: none;'";} ?>>
+      <div class="col m12 s12">
         <div class="card-panel">
           <form method="post">
             <table>
@@ -120,10 +90,10 @@
                       $_SESSION['L2'] = $row['Platillo2'];
                       $_SESSION['L3'] = $row['Complemento'];
                       $_SESSION['L4'] = $row['Postre'];
-        							echo "<td><input class='with-gap' name='lunes' type='radio' id='lunes1'/><label for='lunes1'>".$row['Platillo1']."</label>
-                      <br><br><input class='with-gap' type='radio' id='lunes2'/><label for='lunes2'>".$row['Platillo2']."</label>
-                      <br><br><font color='Green'>".$row['Complemento']."</font>
-                      <br><br><font color='Green'>".$row['Postre']."</font></td>";
+        							echo "<td><input class='with-gap' name='lunes' type='text' id='lunes1' placeholder='".$row['Platillo1']."'/>
+                      <br><br><input class='with-gap' type='text' id='lunes2' placeholder='".$row['Platillo2']."'/>
+                      <br><br><input class='with-gap' type='text' id='lunes3' placeholder='".$row['Complemento']."'/>
+                      <br><br><input class='with-gap' type='text' id='lunes4' placeholder='".$row['Postre']."'/></td>";
         					}
 
                    ?>
@@ -136,10 +106,10 @@
                       $_SESSION['M2'] = $row['Platillo2'];
                       $_SESSION['M11'] = $row['Complemento'];
                       $_SESSION['M22'] = $row['Postre'];
-         							echo "<td><input class='with-gap' name='martes' type='radio' id='test5'/><label for='test5'>".$row['Platillo1']."</label>
-                       <br><br><input class='with-gap' type='radio' id='test6'/><label for='test6'>".$row['Platillo2']."</label>
-                       <br><br><font color='Green'>".$row['Complemento']."</font>
-                       <br><br><font color='Green'>".$row['Postre']."</font></td>";
+         							echo "<td><input class='with-gap' name='martes' type='text' id='test5' placeholder='".$row['Platillo1']."'/>
+                       <br><br><input class='with-gap' type='text' id='test6' placeholder='".$row['Platillo2']."'/>
+                       <br><br><input class='with-gap' type='text' id='test7' placeholder='".$row['Complemento']."'/>
+                       <br><br><input class='with-gap' type='text' id='test8' placeholder='".$row['Postre']."'/></td>";
          					}
 
                     ?>
@@ -152,10 +122,10 @@
                         $_SESSION['M4'] = $row['Platillo2'];
                         $_SESSION['M33'] = $row['Complemento'];
                         $_SESSION['M44'] = $row['Postre'];
-          							echo "<td><input class='with-gap' name='miercoles' type='radio' id='test7'/><label for='test7'>".$row['Platillo1']."</label>
-                        <br><br><input class='with-gap' type='radio' id='test8'/><label for='test8'>".$row['Platillo2']."</label>
-                        <br><br><font color='Green'>".$row['Complemento']."</font>
-                        <br><br><font color='Green'>".$row['Postre']."</font></td>";
+          							echo "<td><input class='with-gap' name='miercoles' type='text' id='test7' placeholder='".$row['Platillo1']."'/>
+                        <br><br><input class='with-gap' type='text' id='test8' placeholder='".$row['Platillo2']."'/>
+                        <br><br><input class='with-gap' type='text' id='test9' placeholder='".$row['Complemento']."'/>
+                        <br><br><input class='with-gap' type='text' id='test10' placeholder='".$row['Postre']."'/></td>";
           					}
 
                      ?>
@@ -168,10 +138,10 @@
                       $_SESSION['J2'] = $row['Platillo2'];
                       $_SESSION['J3'] = $row['Complemento'];
                       $_SESSION['J4'] = $row['Postre'];
-           							echo "<td><input class='with-gap' name='jueves' type='radio' id='test9'/><label for='test9'>".$row['Platillo1']."</label>
-                         <br><br><input class='with-gap' type='radio' id='test10'/><label for='test10'>".$row['Platillo2']."</label>
-                         <br><br><font color='Green'>".$row['Complemento']."</font>
-                         <br><br><font color='Green'>".$row['Postre']."</font></td>";
+           							echo "<td><input class='with-gap' name='jueves' type='text' id='test9' placeholder='".$row['Platillo1']."'/>
+                         <br><br><input class='with-gap' type='text' id='test10' placeholder='".$row['Platillo2']."'/>
+                         <br><br><input class='with-gap' type='text' id='test11' placeholder='".$row['Complemento']."'/>
+                         <br><br><input class='with-gap' type='text' id='test12' placeholder='".$row['Postre']."'/></td>";
            					}
 
                       ?>
@@ -184,10 +154,10 @@
                         $_SESSION['V2'] = $row['Platillo2'];
                         $_SESSION['V3'] = $row['Complemento'];
                         $_SESSION['V4'] = $row['Postre'];
-            							echo "<td><input class='with-gap' name='viernes' type='radio' id='test11'/><label for='test11'>".$row['Platillo1']."</label>
-                          <br><br><input class='with-gap' type='radio' id='test12'/><label for='test12'>".$row['Platillo2']."</label>
-                          <br><br><font color='Green'>".$row['Complemento']."</font>
-                          <br><br><font color='Green'>".$row['Postre']."</font></td>";
+            							echo "<td><input class='with-gap' name='viernes' type='text' id='test11' placeholder='".$row['Platillo1']."'/>
+                          <br><br><input class='with-gap' type='text' id='test12' placeholder='".$row['Platillo2']."'/>
+                          <br><br><input class='with-gap' type='text' id='test13' placeholder='".$row['Complemento']."'/>
+                          <br><br><input class='with-gap' type='text' id='test14' placeholder='".$row['Postre']."'/></td>";
             					}
                       $_SESSION['Lunes'] = (isset($_POST['lunes'])) ? $_SESSION['L1'] : $_SESSION['L2'];
                       $_SESSION['Martes'] = (isset($_POST['martes'])) ? $_SESSION['M1'] : $_SESSION['M2'];
@@ -199,9 +169,15 @@
                 </tr>
               </tbody>
             </table>
-            <button class="btn waves-effect waves-light" type="submit" name="guardar" id="guardar">Guardar
+            <button class="btn waves-effect waves-light" type="submit" name="guardar" id="guardar">Nuevo
               <i class="material-icons right">check</i>
             </button>
+            <button class="btn waves-effect waves-light yellow darken-4">Modificar
+              <i class="material-icons right">create</i>
+            </button>
+            <a class="modal-trigger btn waves-effect waves-light red darken-4" href="#modal4">Ver Menu
+              <i class="material-icons right">visibility</i>
+            </a>
           </form>
           <?php
           if (isset($_POST['guardar'])) {
@@ -240,6 +216,153 @@
       </div>
     </div>
     <!-- /Modal Información -->
+    <!-- Modal Menu Semanal -->
+    <div id="modal4" class="modal ">
+      <div class="modal-content">
+        <h5>Menu Semanal</h5>
+        <div class="col s12">
+      <ul class="tabs grey lighten-5">
+        <li class="tab col s3"><a href="#test1">Lunes</a></li>
+        <li class="tab col s3"><a href="#test2">Martes</a></li>
+        <li class="tab col s3"><a href="#test3">Miércoles</a></li>
+        <li class="tab col s3"><a href="#test4">Jueves</a></li>
+        <li class="tab col s3"><a href="#viernes">Viernes</a></li>
+      </ul>
+    </div>
+    <div id="test1" class="col s12">
+      <table>
+        <thead>
+          <tr>
+            <td>Usuario</td>
+            <td>Platillo</td>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+          $sql = "";
+          $sql = mysql_query("SELECT * FROM menu WHERE ID = 1 ORDER BY Usuario ASC", $_SESSION['conn']);
+
+          while ($row = mysql_fetch_array($sql))
+          {
+
+              echo "<tr>";
+              echo "<td>".$row['Usuario']."</td>";
+              echo "<td>".$row['Platillo']."</td>";
+              echo "</tr>";
+          }
+           ?>
+        </tbody>
+      </table>
+    </div>
+    <div id="test2" class="col s12">
+      <table>
+        <thead>
+          <tr>
+            <td>Usuario</td>
+            <td>Platillo</td>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+          $sql = "";
+          $sql = mysql_query("SELECT * FROM menu WHERE ID = 2 ORDER BY Usuario ASC", $_SESSION['conn']);
+
+          while ($row = mysql_fetch_array($sql))
+          {
+
+              echo "<tr>";
+              echo "<td>".$row['Usuario']."</td>";
+              echo "<td>".$row['Platillo']."</td>";
+              echo "</tr>";
+          }
+           ?>
+        </tbody>
+      </table>
+    </div>
+    <div id="test3" class="col s12">
+      <table>
+        <thead>
+          <tr>
+            <td>Usuario</td>
+            <td>Platillo</td>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+          $sql = "";
+          $sql = mysql_query("SELECT * FROM menu WHERE ID = 3 ORDER BY Usuario ASC", $_SESSION['conn']);
+
+          while ($row = mysql_fetch_array($sql))
+          {
+
+              echo "<tr>";
+              echo "<td>".$row['Usuario']."</td>";
+              echo "<td>".$row['Platillo']."</td>";
+              echo "</tr>";
+          }
+           ?>
+        </tbody>
+      </table>
+    </div>
+    <div id="test4" class="col s12">
+      <table>
+        <thead>
+          <tr>
+            <td>Usuario</td>
+            <td>Platillo</td>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+          $sql = "";
+          $sql = mysql_query("SELECT * FROM menu WHERE ID = 4 ORDER BY Usuario ASC", $_SESSION['conn']);
+
+          while ($row = mysql_fetch_array($sql))
+          {
+
+              echo "<tr>";
+              echo "<td>".$row['Usuario']."</td>";
+              echo "<td>".$row['Platillo']."</td>";
+              echo "</tr>";
+          }
+           ?>
+        </tbody>
+      </table>
+    </div>
+    <div id="viernes" class="col s12">
+      <table>
+        <thead>
+          <tr>
+            <td>Usuario</td>
+            <td>Platillo</td>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+          $sql = "";
+          $sql = mysql_query("SELECT * FROM menu WHERE ID = 5 ORDER BY Usuario ASC", $_SESSION['conn']);
+
+          while ($row = mysql_fetch_array($sql))
+          {
+
+              echo "<tr>";
+              echo "<td>".$row['Usuario']."</td>";
+              echo "<td>".$row['Platillo']."</td>";
+              echo "</tr>";
+          }
+           ?>
+        </tbody>
+      </table>
+    </div>
+        <div class="modal-footer">
+          <form  method="post" action="../php/crearpdf.php">
+            <button class=" modal-action modal-close waves-effect waves-green btn-flat" type="submit" name="button" name="imprimir" id="imprimir">Imprimir</button>
+          </form>
+    </div>
+      </div>
+    </div>
+
+    <!-- /Modal Menu Semanal -->
     <!--Footer-->
           <footer class="page-footer grey lighten-1 ">
 

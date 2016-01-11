@@ -31,6 +31,7 @@
           <li><a href="http://www.aimco-solutions.com/online_catalog.asp" target="_blank" id="ocultar">Catalogos</a></li>
           <li><a href="#" id="ocultar">Inventarios</a></li>
           <li><a href="../dashboard/directorio.php" id="ocultar">Directorio</a></li>
+          <li><a href="../dashboard/actualiza_comedor.php" id="ocultar" <?php if($_SESSION['user'] != 'Vmurillo'){ echo "style='display: none;'";} ?>>Menú Comedor</a></li>
           <li><a href="../dashboard/comedor.php" id="ocultar" <?php if($_SESSION['Rango'] < 4){ echo "style='display: none;'";} ?>>Comedor</a></li>
           <li><a href="#" id="ocultar">Soporte</a></li>
           <li><a><?php echo $_SESSION['Nombre_Usuario']; ?></a></li>
@@ -240,10 +241,11 @@
       <div class="card medium">
             <div class="card-image">
               <img src="../img/avisos.jpg">
-              <span class="card-title">Avisos</span>
+              <span class="card-title">Nueva Versión</span>
             </div>
             <div class="card-content">
-              <p>Avisos informativos de la empresa.</p>
+              <p>Te presentamos la nueva versión de AIMEX.SYTES, aqui encontraras toda la información necesaria.</p>
+              <br><p>Estamos trabajando para ofrecerte una experiencia completa y en base a tu departamento ofrecerte el mayor número de soluciones posibles.</p>
             </div>
           </div>
       </div>
