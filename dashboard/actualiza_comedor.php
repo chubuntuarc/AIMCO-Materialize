@@ -86,10 +86,10 @@ require '../fpdf/fpdf.php';?>
         					$sql = mysql_query("SELECT * FROM Platillos where ID = 1", $_SESSION['conn']);
                   while ($row = mysql_fetch_array($sql))
         					{
-        							echo "<td><input class='with-gap' name='lunes' type='text' id='lunes1' placeholder='".$row['Platillo1']."'/>
-                      <br><br><input class='with-gap' type='text' id='lunes2' placeholder='".$row['Platillo2']."'/>
-                      <br><br><input class='with-gap' type='text' id='lunes3' placeholder='".$row['Complemento']."'/>
-                      <br><br><input class='with-gap' type='text' id='lunes4' placeholder='".$row['Postre']."'/></td>";
+        							echo "<td><input class='with-gap' name='lunes' type='text' id='lunes1' value='".$row['Platillo1']."'/><label for='lunes1'>Platillo 1</label>
+                      <br><br><input class='with-gap' type='text' name='lunes2' id='lunes2' value='".$row['Platillo2']."'/><label for='lunes2'>Platillo 2</label>
+                      <br><br><input class='with-gap' type='text' name='lunes3' id='lunes3' value='".$row['Complemento']."'/><label for='lunes3'>Complemento</label>
+                      <br><br><input class='with-gap' type='text' name='lunes4' id='lunes4' value='".$row['Postre']."'/><label for='lunes4'>Postre</label></td>";
         					}
 
                    ?>
@@ -98,10 +98,10 @@ require '../fpdf/fpdf.php';?>
          					$sql = mysql_query("SELECT * FROM Platillos where ID = 2", $_SESSION['conn']);
                    while ($row = mysql_fetch_array($sql))
          					{
-         							echo "<td><input class='with-gap' name='martes' type='text' id='martes1' placeholder='".$row['Platillo1']."'/>
-                       <br><br><input class='with-gap' type='text' id='martes2' placeholder='".$row['Platillo2']."'/>
-                       <br><br><input class='with-gap' type='text' id='martes3' placeholder='".$row['Complemento']."'/>
-                       <br><br><input class='with-gap' type='text' id='martes4' placeholder='".$row['Postre']."'/></td>";
+         							echo "<td><input class='with-gap' name='martes' type='text' id='martes1' value='".$row['Platillo1']."'/><label for='martes1'>Platillo 1</label>
+                       <br><br><input class='with-gap' type='text' name='martes2' id='martes2' value='".$row['Platillo2']."'/><label for='martes2'>Platillo 2</label>
+                       <br><br><input class='with-gap' type='text' name='martes3' id='martes3' value='".$row['Complemento']."'/><label for='martes3'>Complemento</label>
+                       <br><br><input class='with-gap' type='text' name='martes4' id='martes4' value='".$row['Postre']."'/><label for='martes4'>Postre</label></td>";
          					}
 
                     ?>
@@ -110,10 +110,10 @@ require '../fpdf/fpdf.php';?>
           					$sql = mysql_query("SELECT * FROM Platillos where ID = 3", $_SESSION['conn']);
                     while ($row = mysql_fetch_array($sql))
           					{
-          							echo "<td><input class='with-gap' name='miercoles' type='text' id='miercoles1' placeholder='".$row['Platillo1']."'/>
-                        <br><br><input class='with-gap' type='text' id='miercoles2' placeholder='".$row['Platillo2']."'/>
-                        <br><br><input class='with-gap' type='text' id='miercoles3' placeholder='".$row['Complemento']."'/>
-                        <br><br><input class='with-gap' type='text' id='miercoles4' placeholder='".$row['Postre']."'/></td>";
+          							echo "<td><input class='with-gap' name='miercoles' type='text' id='miercoles1' value='".$row['Platillo1']."'/><label for='miercoles1'>Platillo 1</label>
+                        <br><br><input class='with-gap' type='text' name='miercoles2' id='miercoles2' value='".$row['Platillo2']."'/><label for='miercoles2'>Platillo 2</label>
+                        <br><br><input class='with-gap' type='text' name='miercoles3' id='miercoles3' value='".$row['Complemento']."'/><label for='miercoles3'>Complemento</label>
+                        <br><br><input class='with-gap' type='text' name='miercoles4' id='miercoles4' value='".$row['Postre']."'/><label for='miercoles4'>Postre</label></td>";
           					}
 
                      ?>
@@ -122,10 +122,10 @@ require '../fpdf/fpdf.php';?>
            					$sql = mysql_query("SELECT * FROM Platillos where ID = 4", $_SESSION['conn']);
                      while ($row = mysql_fetch_array($sql))
            					{
-           							echo "<td><input class='with-gap' name='jueves' type='text' id='jueves1' placeholder='".$row['Platillo1']."'/>
-                         <br><br><input class='with-gap' type='text' id='jueves2' placeholder='".$row['Platillo2']."'/>
-                         <br><br><input class='with-gap' type='text' id='jueves3' placeholder='".$row['Complemento']."'/>
-                         <br><br><input class='with-gap' type='text' id='jueves4' placeholder='".$row['Postre']."'/></td>";
+           							echo "<td><input class='with-gap' name='jueves' type='text' id='jueves1' value='".$row['Platillo1']."'/><label for='jueves1'>Platillo 1</label>
+                         <br><br><input class='with-gap' type='text' name='jueves2' id='jueves2' value='".$row['Platillo2']."'/><label for='jueves2'>Platillo 2</label>
+                         <br><br><input class='with-gap' type='text' name='jueves3' id='jueves3' value='".$row['Complemento']."'/><label for='jueves3'>Complemento</label>
+                         <br><br><input class='with-gap' type='text' name='jueves4' id='jueves4' value='".$row['Postre']."'/><label for='jueves4'>Postre</label></td>";
            					}
 
                       ?>
@@ -134,24 +134,25 @@ require '../fpdf/fpdf.php';?>
             					$sql = mysql_query("SELECT * FROM Platillos where ID = 5", $_SESSION['conn']);
                       while ($row = mysql_fetch_array($sql))
             					{
-            							echo "<td><input class='with-gap' name='viernes' type='text' id='viernes1' placeholder='".$row['Platillo1']."'/>
-                          <br><br><input class='with-gap' type='text' id='viernes2' placeholder='".$row['Platillo2']."'/>
-                          <br><br><input class='with-gap' type='text' id='viernes3' placeholder='".$row['Complemento']."'/>
-                          <br><br><input class='with-gap' type='text' id='viernes4' placeholder='".$row['Postre']."'/></td>";
+            							echo "<td><input class='with-gap' name='viernes' type='text' id='viernes1' value='".$row['Platillo1']."'/><label for='viernes1'>Platillo 1</label>
+                          <br><br><input class='with-gap' type='text' name='viernes2' id='viernes2' value='".$row['Platillo2']."'/><label for='viernes2'>Platillo 2</label>
+                          <br><br><input class='with-gap' type='text' name='viernes3' id='viernes3' value='".$row['Complemento']."'/><label for='viernes3'>Complemento</label>
+                          <br><br><input class='with-gap' type='text' name='viernes4' id='viernes4' value='".$row['Postre']."'/><label for='viernes4'>Postre 1</label></td>";
             					}
                        ?>
                 </tr>
               </tbody>
             </table>
               <button class="btn waves-effect waves-light" type="submit" name="guardar" id="guardar">Nuevo
-                <i class="material-icons right">check</i>
+                <i class="material-icons right">check</i></button>
+                <button class="btn waves-effect waves-light yellow darken-4" name="modificar" id="modificar">Modificar
+                  <i class="material-icons right">create</i>
+                </button>
+                <a class="modal-trigger btn waves-effect waves-light red darken-4" href="#modal4">Ver Menu
+                  <i class="material-icons right">visibility</i>
+                </a>
             </form>
-            <button class="btn waves-effect waves-light yellow darken-4" name="modificar" id="modificar">Modificar
-              <i class="material-icons right">create</i>
-            </button>
-            <a class="modal-trigger btn waves-effect waves-light red darken-4" href="#modal4">Ver Menu
-              <i class="material-icons right">visibility</i>
-            </a>
+
           </form>
         </div>
       </div>
