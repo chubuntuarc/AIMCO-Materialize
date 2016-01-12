@@ -1,7 +1,7 @@
 $(document).ready(function(){
     //Modal del login -----------------------------------------------------------------------------------------------------------------
     $('.modal-trigger').leanModal();
-
+     $('select').material_select();
     $('.sesion').dropdown({
      inDuration: 300,
      outDuration: 225,
@@ -11,7 +11,9 @@ $(document).ready(function(){
      belowOrigin: false, // Displays dropdown below the button
      alignment: 'left' // Displays dropdown with edge aligned to the left of button
    }
+
  );
+
     //Gráfica de barras --------------------------------------------------------------------------------------------------------------
     //Funciones generales de la gráfica principal.
     //El script principal se encuentra en scripts/tabla_ventas.js

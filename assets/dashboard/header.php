@@ -27,6 +27,7 @@
           <li><a href="../dashboard/actualiza_comedor.php" id="ocultar" <?php if($_SESSION['Nombre_Usuario'] != $_SESSION['Recepcionista'] || $_SESSION['Nombre_Usuario'] != $_SESSION['RH']){ echo "style='display: none;'";} ?>>Menú Comedor</a></li>
           <li><a href="../dashboard/comedor.php" id="ocultar" <?php if($_SESSION['Rango'] < 4){ echo "style='display: none;'";} ?>>Comedor</a></li>
           <li><a href="#" id="ocultar">Soporte</a></li>
+          <li><a href="../dashboard/config.php" id="ocultar" <?php if($_SESSION['Rango'] != 10){ echo "style='display: none;'";} ?>>Configuración</a></li>
           <li><a><?php echo $_SESSION['Nombre_Usuario']; ?></a></li>
           <li><i class="material-icons sesion" data-activates='dropdown1'>supervisor_account</i></li>
           <!-- Dropdown Structure -->
@@ -38,7 +39,7 @@
         </ul>
     </header>
     <nav id="tiulo_pagina">
-      <div class="nav-wrapper grey darken-4 ">
+      <div  <?php echo $_SESSION['Color_Header'];?>>
         <img src="../img/logo.png" id="logo">
           <a href="#" id="aimco">AIMCO Corporation de México</a>
       </div>
