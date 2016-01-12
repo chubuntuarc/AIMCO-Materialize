@@ -20,15 +20,18 @@ require('../assets/dashboard/header.php'); ?>
             <span class="card-title">Colores</span>
           </div>
           <div class="card-content">
-            <div class="input-field col s12 m12">
-              <select class="icons">
-                <option value="" disabled selected>Selecciona color</option>
-                <option value="" data-icon="../img/colors/black.png" class="right circle">Negro</option>
-                <option value="" data-icon="../img/colors/red.png" class="right circle">Rojo</option>
-                <option value="" data-icon="../img/colors/green.png" class="rigth circle">Verde</option>
-              </select>
-              <label>Color Encabezado</label>
-            </div><br><br><br>
+            <form action="../php/colores.php" method="post">
+              <div class="input-field col s12 m12">
+                <select class="icons" name="seleccionar_color_header">
+                  <option value="" disabled selected>Selecciona color</option>
+                  <option value="" data-icon="../img/colors/black.png" class="right circle" value="Negro">Negro</option>
+                  <option value="" data-icon="../img/colors/red.png" class="right circle" value="Rojo">Rojo</option>
+                  <option value="" data-icon="../img/colors/green.png" class="rigth circle" name="header_verde">Verde</option>
+                </select>
+                <label>Color Encabezado</label>
+              </div>
+            </form>
+            <br><br><br>
           </div>
         </div>
         </div>
