@@ -3,7 +3,7 @@
 <head>
   <!--Meta-Tags-->
   <meta charset="utf-8">
-  <meta name="viewport" content="width-device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="autor" content="Jesus Arciniega">
   <meta name="description" content="Dashboard Corporativo de AIMCO Corporation de México" />
   <link rel="shortcut icon" href="../img/favicon.ico" />
