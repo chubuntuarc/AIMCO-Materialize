@@ -29,7 +29,6 @@ require('../assets/dashboard/header.php'); ?>
           ">
           <input type="text" id="campos_ordenes" value="
             <?php
-                //Consulta de Ordenes de Venta
                 $Consulta_Grafica_Ordenes ="SELECT sum(T1.[TotalSumSy])AS Total FROM ORDR T0  INNER JOIN RDR1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocDate] >= '".$_SESSION["Anual"]."' AND T0.[CANCELED] = 'N' AND   T2.[U_CODIGO_USA]  = ".$_SESSION['Usuario_Actual']." GROUP BY month(T0.[DocDate]) ORDER BY month(T0.[DocDate])";
                 $Resultado_Consulta_Grafica_Ordenes = odbc_exec($Conexion_SQL, $Consulta_Grafica_Ordenes);
                 while ($ord = odbc_fetch_array($Resultado_Consulta_Grafica_Ordenes)) {
@@ -41,7 +40,6 @@ require('../assets/dashboard/header.php'); ?>
           ">
           <input type="text" id="campos_ofertas" value="
             <?php
-                //Consulta de Ofertas de Venta
                 $Consulta_Grafica_Ofertas ="SELECT sum(T1.[TotalSumSy])AS Total FROM OQUT T0  INNER JOIN QUT1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocDate] >= '".$_SESSION["Anual"]."' AND T2.[U_CODIGO_USA]  = ".$_SESSION['Usuario_Actual']." GROUP BY month(T0.[DocDate]) ORDER BY month(T0.[DocDate])";
                 $Resultado_Consulta_Grafica_Ofertas = odbc_exec($Conexion_SQL, $Consulta_Grafica_Ofertas);
                 while ($ofe = odbc_fetch_array($Resultado_Consulta_Grafica_Ofertas)) {
@@ -53,7 +51,6 @@ require('../assets/dashboard/header.php'); ?>
           ">
           <input type="text" id="campos_back_order" value="
             <?php
-                //Consulta de Back Order
                 $Consulta_Grafica_Back_Order ="SELECT SUM( T1.[OpenQty] *  T1.[Price]  ) as Total FROM ORDR T0  INNER JOIN RDR1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocDate] >= '2013' AND  T2.[U_CODIGO_USA]  = ".$_SESSION['Usuario_Actual']." group by month(T0.[DocDate]) ORDER BY month(T0.[DocDate])";
                 $Resultado_Consulta_Grafica_Back_Order = odbc_exec($Conexion_SQL, $Consulta_Grafica_Back_Order);
                 while ($bac = odbc_fetch_array($Resultado_Consulta_Grafica_Back_Order)) {
@@ -197,7 +194,7 @@ require('../assets/dashboard/header.php'); ?>
     <div class="col m9 s12">
       <div class="card medium">
             <div class="card-image">
-              <img src="../img/avisos.jpg">
+              <img src="../img/avisos.jpg" height="992px" width="1200px">
               <span class="card-title">Nueva Versión</span>
             </div>
             <div class="card-content">
@@ -209,7 +206,7 @@ require('../assets/dashboard/header.php'); ?>
     <div class="col m3 s12">
       <div class="card small">
             <div class="card-image">
-              <img src="../img/food.jpg">
+              <img src="../img/food.jpg"  height="300px" width="992px">
               <span class="card-title">Platillo del día</span>
             </div>
             <div class="card-content">
