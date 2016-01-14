@@ -21,7 +21,7 @@ error_reporting(0);
 	}
 //Fin Conexión a SQL Server usando el driver ODBC de Windows  ---------------------------------------------------------------------------
 //Conexión a MySQL ------------------------------------------------------------------------------
-$_SESSION['conn'] = mysql_connect('192.168.1.150','aimco','@@imco');
+$_SESSION['conn'] = mysql_connect('aimex.sytes.net','aimco','@@imco');
 mysql_select_db("aimco",$_SESSION['conn']);
 //Fin Conexión a MySQL ------------------------------------------------------------------------------
 
