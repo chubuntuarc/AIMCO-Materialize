@@ -2,6 +2,7 @@ $(document).ready(function(){
     //Modal del login -----------------------------------------------------------------------------------------------------------------
     $('.modal-trigger').leanModal();
      $('select').material_select();
+     $('.parallax').parallax();
     $('.sesion').dropdown({
      inDuration: 300,
      outDuration: 225,
