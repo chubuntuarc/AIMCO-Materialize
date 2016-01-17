@@ -13,27 +13,40 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css" media="screen" title="no title" charset="utf-8">
   <link rel="stylesheet" href="../css/diseno.css" media="screen" title="no title" charset="utf-8">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../css/material-charts.css">
   <!--/Stylesheets-->
 </head>
   <body>
     <header class="z-depth-1">
-        <ul>
-          <li><a class="activo" href="../dashboard">AIMCO</a></li>
+        <ul <?php echo "id='header_global_".$_SESSION['Rango']."'"; ?>>
+          <li><a <?php if ( basename($_SERVER['PHP_SELF']) == "index.php") {
+            echo "class='activo' "; } ?>
+             href="../dashboard">AIMCO</a></li>
           <li><a href="http://www.aimco-solutions.com/acradyne.asp" target="_blank" id="ocultar">AcraDyne</a></li>
           <li><a href="http://www.eagle-premier.com/" target="_blank" id="ocultar">Eagle</a></li>
           <li><a href="http://www.aimco-solutions.com/online_catalog.asp" target="_blank" id="ocultar">Catalogos</a></li>
-          <li><a href="#" id="ocultar">Inventarios</a></li>
-          <li><a href="../dashboard/directorio.php" id="ocultar">Directorio</a></li>
-          <li><a href="../dashboard/actualiza_comedor.php" id="ocultar" <?php if($_SESSION['Nombre_Usuario'] != $_SESSION['Recepcionista'] || $_SESSION['Nombre_Usuario'] != $_SESSION['RH']){ echo "style='display: none;'";} ?>>Menú Comedor</a></li>
-          <li><a href="../dashboard/comedor.php" id="ocultar" <?php if($_SESSION['Rango'] < 4){ echo "style='display: none;'";} ?>>Comedor</a></li>
-          <li><a href="#" id="ocultar">Soporte</a></li>
-          <li><a href="../dashboard/config.php" id="ocultar" <?php if($_SESSION['Rango'] != 10){ echo "style='display: none;'";} ?>>Configuración</a></li>
+          <li><a <?php if ( basename($_SERVER['PHP_SELF']) == "inventarios.php") {
+            echo "class='activo' "; } ?>
+            href="#" id="ocultar">Inventarios</a></li>
+          <li><a <?php if ( basename($_SERVER['PHP_SELF']) == "directorio.php") {
+            echo "class='activo' "; } ?>
+            href="../dashboard/directorio.php" id="ocultar">Directorio</a></li>
+          <li><a <?php if ( basename($_SERVER['PHP_SELF']) == "actualiza_comedor.php") {
+            echo "class='activo' "; } ?>
+            href="../dashboard/actualiza_comedor.php" id="ocultar" <?php if($_SESSION['Nombre_Usuario'] != $_SESSION['Recepcionista'] || $_SESSION['Nombre_Usuario'] != $_SESSION['RH']){ echo "style='display: none;'";} ?>>Menú Comedor</a></li>
+          <li><a <?php if ( basename($_SERVER['PHP_SELF']) == "comedor.php") {
+            echo "class='activo' "; } ?>
+            href="../dashboard/comedor.php" id="ocultar" <?php if($_SESSION['Rango'] < 4){ echo "style='display: none;'";} ?>>Comedor</a></li>
+          <li><a <?php if ( basename($_SERVER['PHP_SELF']) == "soporte.php") {
+            echo "class='activo' "; } ?>
+            href="#" id="ocultar">Soporte</a></li>
+          <li><a <?php if ( basename($_SERVER['PHP_SELF']) == "config.php") {
+            echo "class='activo' "; } ?>
+             href="../dashboard/config.php" id="ocultar" <?php if($_SESSION['Rango'] != 10){ echo "style='display: none;'";} ?>>Configuración</a></li>
           <li><a><?php echo $_SESSION['Nombre_Usuario']; ?></a></li>
           <li><i class="material-icons sesion" data-activates='dropdown1'>supervisor_account</i></li>
           <!-- Dropdown Structure -->
           <ul id='dropdown1' class='dropdown-content'>
-            <li><a class="modal-trigger" href="#modal3">Información</a></li>
-            <li class="divider"></li>
             <li><a href="../">Cerrar Sesión</a></li>
           </ul>
         </ul>

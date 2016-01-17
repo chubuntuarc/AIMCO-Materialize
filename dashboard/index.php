@@ -11,9 +11,8 @@ require('../assets/dashboard/header.php'); ?>
   <!--Gráfica-->
   <div class="row" <?php if($_SESSION['Rango'] != 3 ){ echo "style='display: none;'";} ?>>
     <div class="col s12 m9" id="ocultar">
-      <div class="card-panel z-depth-3">
+      <div class="card-panel z-depth-3" id="grafico_principal">
         <h5 id="Titulo_Grafica">Facturas de Clientes</h5>
-          <canvas id="canvas" height="150" width="400"></canvas>
           <!--Inputs ocultos para la consulta de los valores de las graficas-->
           <!--El id usado en los input sirve para llevar la cadena al script JS y esconderlos usando styles/adicionales.css-->
           <input type="text" id="campos_facturacion" value="
@@ -281,4 +280,5 @@ require('../assets/dashboard/header.php'); ?>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
   <script type="text/javascript" src="../js/master.js"></script>
+  <script src="js/material-charts.js"></script>
 </html>

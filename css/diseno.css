@@ -40,4 +40,12 @@ header ul { list-style-type: none; ; margin-top: 3px; padding: 0; overflow: hidd
     position: relative;
     left: 30%;
   }
+  #header_global_3{ /*Acomodo de la navegación si es de ventas*/
+    position: relative;
+    left: 25%;
+  }
+  #header_global_10{ /*Acomodo de la navegación si es de sistemas*/
+    position: relative;
+    left: 15%;
+  }
 }

@@ -61,6 +61,25 @@ $(document).ready(function(){
              responsive : true
            });
 
+           var exampleBarChartData = {
+    "datasets": {
+        "values": [5, 10, 30, 50, 20],
+        "labels": [
+            "Apples",
+            "Oranges",
+            "Berries",
+            "Peaches",
+            "Bananas"
+        ], "color": "blue"
+    },
+    "title": "Example Bar Chart",
+    "height": "300px",
+    "width": "500px",
+    "background": "#FFFFFF",
+    "shadowDepth": "1"
+};
+           MaterialCharts.bar("#grafico_principal", exampleBarChartData)
+
            //Funcion del botón Facturas de Clientes
            $('#facturas_clientes').on('click', function() {
                $('#Titulo_Grafica').text("Facturas de Clientes");
