@@ -41,7 +41,7 @@ $(document).ready(function(){
            var Valores_Back_Order = document.getElementById("campos_back_order").innerHTML=Campos_Back_Order;
            var Mes_Back_Order = Valores_Back_Order.split(",");   //Se divide la cadena en partes para poder pasarlos a Float
 
-           var barChartData = {
+           var inicial = {
              labels : ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],
              datasets : [
                {
@@ -57,28 +57,9 @@ $(document).ready(function(){
            }
 
            var ctx = document.getElementById("canvas").getContext("2d");
-           window.myBar = new Chart(ctx).Bar(barChartData, {
+           window.myBar = new Chart(ctx).Bar(inicial, {
              responsive : true
            });
-
-           var exampleBarChartData = {
-    "datasets": {
-        "values": [5, 10, 30, 50, 20],
-        "labels": [
-            "Apples",
-            "Oranges",
-            "Berries",
-            "Peaches",
-            "Bananas"
-        ], "color": "blue"
-    },
-    "title": "Example Bar Chart",
-    "height": "300px",
-    "width": "500px",
-    "background": "#FFFFFF",
-    "shadowDepth": "1"
-};
-           MaterialCharts.bar("#grafico_principal", exampleBarChartData)
 
            //Funcion del botón Facturas de Clientes
            $('#facturas_clientes').on('click', function() {
