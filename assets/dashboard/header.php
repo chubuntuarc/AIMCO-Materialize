@@ -44,7 +44,7 @@
             href="../dashboard/comedor.php" id="ocultar" <?php if($_SESSION['Rango'] < 4){ echo "style='display: none;'";} ?>>Comedor</a></li>
           <li><a <?php if ( basename($_SERVER['PHP_SELF']) == "soporte.php") {
             echo "class='activo' "; } ?>
-            href="#" id="ocultar">Soporte</a></li>
+            href="soporte.php" id="ocultar">Soporte</a></li>
           <li><a <?php if ( basename($_SERVER['PHP_SELF']) == "config.php") {
             echo "class='activo' "; } ?>
              href="../dashboard/config.php" id="ocultar" <?php if($_SESSION['Rango'] != 10){ echo "style='display: none;'";} ?>>Configuración</a></li>

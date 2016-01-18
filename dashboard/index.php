@@ -194,12 +194,13 @@ require('../assets/dashboard/header.php'); ?>
     <div class="col m9 s12">
       <div class="card medium">
             <div class="card-image">
-              <img src="../img/avisos.jpg" height="992px" width="1200px">
-              <span class="card-title">Nueva Versión</span>
+              <img src="../img/avisos.png" height="992px" width="1200px">
+              <span class="card-title">Nueva Versión AIMEX</span>
             </div>
             <div class="card-content">
+              <h5>Bienvenido <?php echo $_SESSION['Nombre_Usuario']; ?></h5>
               <p>Te presentamos la nueva versión de AIMEX.SYTES, aqui encontraras toda la información necesaria.</p>
-              <br><p>Estamos trabajando para ofrecerte una experiencia completa y en base a tu departamento ofrecerte el mayor número de soluciones posibles.</p>
+              <p>Estamos trabajando para ofrecerte una experiencia completa y en base a tu departamento ofrecerte el mayor número de soluciones posibles.</p>
             </div>
           </div>
       </div>
@@ -231,10 +232,10 @@ require('../assets/dashboard/header.php'); ?>
       <div class="card-panel">
           <h5>Presentaciones Corporativas</h5>
           <div class="collection">
-        <a href="http://aimex.sytes.net/documentos/AIMCO%20(TODO%20LO%20QUE%20NECESITA%20EN%20UN%20SOLO%20PROVEEDOR)%20FINAL.ppt" class="collection-item" target="_blank">Todo lo que necesitas en un solo proveedor  </a>
-        <a href="http://aimex.sytes.net/documentos/Aimex%20Automation%20Systems%202011.ppt" class="collection-item" target="_blank">Aimex Automation Systems 2011</a>
-        <a href="http://aimex.sytes.net/documentos/GenericaMXPresentation%2009.07.2013%20-%20Nueva%20Version.pdf" class="collection-item active" class="collection-item" target="_blank">Generica MX Presentation</a>
-        <a href="http://aimex.sytes.net/documentos/Standard%20Corporate%20Presentation%20rev%2001.21.13.pptx" class="collection-item" target="_blank">Standard Corporate Presentation</a>
+        <a href="../documentos/AIMCO%20(TODO%20LO%20QUE%20NECESITA%20EN%20UN%20SOLO%20PROVEEDOR)%20FINAL.ppt" class="collection-item" target="_blank">Todo lo que necesitas en un solo proveedor  </a>
+        <a href="../documentos/Aimex%20Automation%20Systems%202011.ppt" class="collection-item" target="_blank">Aimex Automation Systems 2011</a>
+        <a href="../documentos/GenericaMXPresentation%2009.07.2013%20-%20Nueva%20Version.pdf" class="collection-item active" class="collection-item" target="_blank">Generica MX Presentation</a>
+        <a href="../documentos/Standard%20Corporate%20Presentation%20rev%2001.21.13.pptx" class="collection-item" target="_blank">Standard Corporate Presentation</a>
       </div>
       </div>
     </div>
@@ -244,7 +245,7 @@ require('../assets/dashboard/header.php'); ?>
         <p>
           He aqui el tutorial de como re-instalar de nuevo el acceso al escritorio remoto, una vez que ha vencido.
         </p>
-        <a href="http://aimex.sytes.net/documentos/Tutorial-Escritorio-Remoto.pdf" target="_blank">Ver</a>
+        <a href="../documentos/Tutorial-Escritorio-Remoto.pdf" target="_blank">Ver</a>
       </div>
     </div>
   </div>
