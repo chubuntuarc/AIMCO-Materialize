@@ -48,8 +48,8 @@ header ul { list-style-type: none; ; margin-top: 3px; padding: 0; overflow: hidd
     position: relative;
     left: 15%;
   }
-  #header_global_4{ /*Acomodo de la navegación si es de sistemas*/
+  #header_global_4, #header_global_5, #header_global_2{ /*Acomodo de la navegación si es de sistemas*/
     position: relative;
-    left: 15%;
+    left: 17%;
   }
 }

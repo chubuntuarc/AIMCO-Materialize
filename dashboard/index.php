@@ -9,7 +9,7 @@ require('../assets/dashboard/header.php'); ?>
 <html>
   <body>
   <!--Gráfica-->
-  <div class="row" <?php if($_SESSION['Rango'] != 3 ){ echo "style='display: none;'";} ?>>
+  <div class="row" <?php if($_SESSION['Rango'] != 3){ echo "style='display: none;'";} ?>>
     <div class="col s12 m9" id="ocultar">
       <div class="card-panel z-depth-3">
         <h5 id="Titulo_Grafica">Facturas de Clientes</h5>
