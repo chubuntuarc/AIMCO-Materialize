@@ -32,7 +32,10 @@
             href="../dashboard/directorio.php" id="ocultar">Directorio</a></li>
           <li><a <?php if ( basename($_SERVER['PHP_SELF']) == "actualiza_comedor.php") {
             echo "class='activo' "; } ?>
-            href="../dashboard/actualiza_comedor.php" id="ocultar" <?php if($_SESSION['Nombre_Usuario'] != $_SESSION['Recepcionista'] || $_SESSION['Nombre_Usuario'] != $_SESSION['RH']){ echo "style='display: none;'";} ?>>Menú Comedor</a></li>
+            href="../dashboard/actualiza_comedor.php" id="ocultar" <?php if($_SESSION['Nombre_Usuario'] != $_SESSION['Recepcionista']){ echo "style='display: none;'";} ?>>Menú Comedor</a></li>
+              <li><a <?php if ( basename($_SERVER['PHP_SELF']) == "actualiza_comedor.php") {
+                echo "class='activo' "; } ?>
+                href="../dashboard/actualiza_comedor.php" id="ocultar" <?php if($_SESSION['Nombre_Usuario'] != $_SESSION['RH']){ echo "style='display: none;'";} ?>>Menú Comedor</a></li>
           <li><a <?php if ( basename($_SERVER['PHP_SELF']) == "comedor.php") {
             echo "class='activo' "; } ?>
             href="../dashboard/comedor.php" id="ocultar" <?php if($_SESSION['Rango'] < 4){ echo "style='display: none;'";} ?>>Comedor</a></li>

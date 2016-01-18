@@ -175,7 +175,7 @@ require('../assets/dashboard/header.php');?>
             $sql = "";
             $sql = mysql_query("INSERT INTO menu VALUES ('5', 'Viernes', '".$_SESSION['Nombre_Usuario']."', '".$_SESSION['Viernes']."', '".$_SESSION['V3']."', '".$_SESSION['V4']."')", $_SESSION['conn']);
             $_SESSION['Comedor'] = 1;
-            header("location: ../dashboard");
+            echo "<script language=Javascript> location.href=\"comedor.php\"; </script>"; 
           }
            ?>
         </div>
