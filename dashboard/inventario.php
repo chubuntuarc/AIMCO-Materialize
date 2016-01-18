@@ -5,10 +5,6 @@
     Derechos Reservados 2016-->
 <?php require '../php/master.php';
 require('../assets/dashboard/header.php');?>
-<script type="text/javascript">
-  alert("Aún estamos trabajando en esta sección");
-  location.href = "index.php";
-</script>
 <!DOCTYPE HTML>
 <html>
 	<body>
@@ -34,14 +30,14 @@ require('../assets/dashboard/header.php');?>
             if ($_POST['Visitor'] > 0)
             {
                 $sql = "";
-                $sql = mysql_query("UPDATE Usuarios SET Visitor = Visitor + 1  WHERE Name = '$user_name'", $link);
+                $sql = mysql_query("UPDATE Usuarios SET Visitor = Visitor + 1  WHERE Name = '$user_name'", $_SESSION['conn']);
             }
 
 
             if (  ($_POST['ItemCode'] <> NULL) and ($_POST['Qty'] >= 1)  )
             {
                 $sql = "";
-                $sql = mysql_query("SELECT * FROM Stocks WHERE ItemNumber = '".$_POST['ItemCode']."'", $link);
+                $sql = mysql_query("SELECT * FROM Stocks WHERE ItemNumber = '".$_POST['ItemCode']."'", $_SESSION['conn']);
 
                 $ItemNumber = mysql_result($sql, 0, "ItemNumber");
                 $Description1 = mysql_result($sql, 0, "Description1");
@@ -82,7 +78,7 @@ require('../assets/dashboard/header.php');?>
 
                         //OBTENER DIRENCIA DEL MONTHLY---------------------------------------------------
                         $sql = "";
-                        $sql = mysql_query("SELECT * FROM Stocksm WHERE ItemNumber = '$ItemNumber' AND Stk Y/N = '$Stk' AND Division = '$Division' AND Class = '$Class'", $link);
+                        $sql = mysql_query("SELECT * FROM Stocksm WHERE ItemNumber = '$ItemNumber' AND Stk Y/N = '$Stk' AND Division = '$Division' AND Class = '$Class'", $_SESSION['conn']);
                         if ($Dif > 0)
                         {
 
@@ -90,7 +86,7 @@ require('../assets/dashboard/header.php');?>
                         {
 
                             $sql = "";
-                            $sql = mysql_query("SELECT * FROM Leadtimes WHERE Division = '$Division' AND Class = '$Class'", $link);
+                            $sql = mysql_query("SELECT * FROM Leadtimes WHERE Division = '$Division' AND Class = '$Class'", $_SESSION['conn']);
 
                             echo "<td class='td_green'>$ItemNumber</td>";
                             echo "<td class='td_green'>$Description1</td>";
@@ -100,7 +96,7 @@ require('../assets/dashboard/header.php');?>
                         else
                         {
                             $sql = "";
-                            $sql = mysql_query("SELECT * FROM Leadtimes WHERE Division = '$Division' AND Class = '$Class'", $link);
+                            $sql = mysql_query("SELECT * FROM Leadtimes WHERE Division = '$Division' AND Class = '$Class'", $_SESSION['conn']);
 
                             echo "<td class='td_green'>$ItemNumber</td>";
                             echo "<td class='td_green'>$Description1</td>";
@@ -140,13 +136,13 @@ require('../assets/dashboard/header.php');?>
                     echo "<tr>";
 
                         $sql = "";
-                        $sql = mysql_query("SELECT * FROM Stocksm WHERE ItemNumber = '$ItemNumber' AND Stk Y/N = '$Stk' AND Division = '$Division' AND Class = '$Class'", $link);
+                        $sql = mysql_query("SELECT * FROM Stocksm WHERE ItemNumber = '$ItemNumber' AND Stk Y/N = '$Stk' AND Division = '$Division' AND Class = '$Class'", $_SESSION['conn']);
                         if ($ItemNumber <> NULL)
                         {
                             if ($Stk == 'Y')
                             {
                                 $sql = "";
-                                $sql = mysql_query("SELECT * FROM Leadtimes WHERE Division = '$Division' AND Class = '$Class'", $link);
+                                $sql = mysql_query("SELECT * FROM Leadtimes WHERE Division = '$Division' AND Class = '$Class'", $_SESSION['conn']);
 
                                 echo "<td class='td_green'>$ItemNumber</td>";
                                 echo "<td class='td_green'>$Description1</td>";
@@ -156,7 +152,7 @@ require('../assets/dashboard/header.php');?>
                             else
                             {
                                 $sql = "";
-                                $sql = mysql_query("SELECT * FROM Leadtimes WHERE Division = '$Division' AND Class = '$Class'", $link);
+                                $sql = mysql_query("SELECT * FROM Leadtimes WHERE Division = '$Division' AND Class = '$Class'", $_SESSION['conn']);
 
                                 echo "<td class='td_green'>$ItemNumber</td>";
                                 echo "<td class='td_green'>$Description1</td>";
@@ -176,7 +172,7 @@ require('../assets/dashboard/header.php');?>
                 {
                     //NO ESTA DAIRY BUSCAR EN EL MONTHLY---------------------------------------------------
                     $sql = "";
-                    $sql = mysql_query("SELECT * FROM Stocksm WHERE ItemNumber = '".$_POST['ItemCode']."'", $link);
+                    $sql = mysql_query("SELECT * FROM Stocksm WHERE ItemNumber = '".$_POST['ItemCode']."'", $_SESSION['conn']);
 
                     $ItemNumber = mysql_result($sql, 0, "ItemNumber");
                     $Division = mysql_result($sql, 0, "Division");
@@ -187,12 +183,12 @@ require('../assets/dashboard/header.php');?>
                     if ($ItemNumber <> NULL)
                     {
                         $sql = "";
-                        $sql = mysql_query("SELECT * FROM Stocksm WHERE ItemNumber = '$ItemNumber' AND Stk Y/N = '$Stk' AND Division = '$Division' AND Class = '$Class'", $link);
+                        $sql = mysql_query("SELECT * FROM Stocksm WHERE ItemNumber = '$ItemNumber' AND Stk Y/N = '$Stk' AND Division = '$Division' AND Class = '$Class'", $_SESSION['conn']);
 
                         if ($Stk == 'Y')
                         {
                             $sql = "";
-                            $sql = mysql_query("SELECT * FROM Leadtimes WHERE Division = '$Division' AND Class = '$Class'", $link);
+                            $sql = mysql_query("SELECT * FROM Leadtimes WHERE Division = '$Division' AND Class = '$Class'", $_SESSION['conn']);
 
                             echo "<td class='td_green'>$ItemNumber</td>";
                             echo "<td class='td_green'>$Description1</td>";
@@ -202,7 +198,7 @@ require('../assets/dashboard/header.php');?>
                         else
                         {
                             $sql = "";
-                            $sql = mysql_query("SELECT * FROM Leadtimes WHERE Division = '$Division' AND Class = '$Class'", $link);
+                            $sql = mysql_query("SELECT * FROM Leadtimes WHERE Division = '$Division' AND Class = '$Class'", $_SESSION['conn']);
 
                             echo "<td class='td_green'>$ItemNumber$Stk</td>";
                             echo "<td class='td_green'>$Description1</td>";
@@ -235,6 +231,11 @@ require('../assets/dashboard/header.php');?>
           <div class="card-panel">
             <h5>Buscar</h5>
             <form name="SubSapBuscar" method="post" action="inventario.php">
+                <select class="icons">
+                  <option value="" data-icon="../img/mex.png" class="circle" disabled>México</option>
+                  <option value="" data-icon="../img/usa.png" class="circle" selected>USA</option>
+                </select>
+                <label>Images in select</label>
             <p>Cantidad <input type="text" name="Qty" value="1" size="5"></p>
             <p>Producto <input type="text" name="ItemCode" /></p>
             <button class="btn waves-effect waves-light" type="submit" name="action">Consultar
