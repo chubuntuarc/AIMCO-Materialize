@@ -24,9 +24,9 @@
           <li><a href="http://www.aimco-solutions.com/acradyne.asp" target="_blank" id="ocultar">AcraDyne</a></li>
           <li><a href="http://www.eagle-premier.com/" target="_blank" id="ocultar">Eagle</a></li>
           <li><a href="http://www.aimco-solutions.com/online_catalog.asp" target="_blank" id="ocultar">Catalogos</a></li>
-          <li><a <?php if ( basename($_SERVER['PHP_SELF']) == "inventarios.php") {
+          <li><a <?php if ( basename($_SERVER['PHP_SELF']) == "inventario.php") {
             echo "class='activo' "; } ?>
-            href="#" id="ocultar">Inventarios</a></li>
+            href="../dashboard/inventario.php" id="ocultar">Inventarios</a></li>
           <li><a <?php if ( basename($_SERVER['PHP_SELF']) == "directorio.php") {
             echo "class='activo' "; } ?>
             href="../dashboard/directorio.php" id="ocultar">Directorio</a></li>
@@ -56,7 +56,7 @@
     <nav id="tiulo_pagina">
       <div  <?php echo $_SESSION['Color_Header'];?>>
         <img src="../img/logo.png" id="logo">
-          <a href="#" id="aimco">AIMCO Corporation de México</a>
+          <a href="../dashboard" id="aimco">AIMCO Corporation de México</a>
       </div>
     </nav>
   </body>

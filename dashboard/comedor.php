@@ -175,7 +175,7 @@ require('../assets/dashboard/header.php');?>
             $sql = "";
             $sql = mysql_query("INSERT INTO menu VALUES ('5', 'Viernes', '".$_SESSION['Nombre_Usuario']."', '".$_SESSION['Viernes']."', '".$_SESSION['V3']."', '".$_SESSION['V4']."')", $_SESSION['conn']);
             $_SESSION['Comedor'] = 1;
-            echo "<script language=Javascript> location.href=\"comedor.php\"; </script>"; 
+            echo "<script language=Javascript> location.href=\"comedor.php\"; </script>";
           }
            ?>
         </div>
@@ -186,6 +186,8 @@ require('../assets/dashboard/header.php');?>
       <div class="modal-content">
         <h5>Contacto AIMCO</h5>
         <p>Tel: (614) 380 1010</p>
+        <h5>Sistemas</h5>
+        <p>Ext: 1045</p>
       </div>
     </div>
     <!-- /Modal Contacto -->
