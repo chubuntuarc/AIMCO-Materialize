@@ -185,42 +185,9 @@ require('../assets/dashboard/header.php');?>
                     echo "<td>$".number_format(odbc_result($Resultado_Consulta_Facturas, 6),2)."</td>";
                     echo "<td><a href='facturas/".odbc_result($Resultado_Consulta_Facturas, 1).".pdf' target='blank'><img style='height:20px;' src='../img/pdf.png'></a></td>";
                     echo "<td><a href='facturas/".odbc_result($Resultado_Consulta_Facturas, 1).".xml' target='blank'><img style='height:20px;' id='Icono_XML' src='../img/xml.ico'></a></td>";
-                    echo "<td><a href='#modal1' class='modal-trigger preview' data-tooltip='Vista Previa' data-position='left'><i class='material-icons ' >search</i></a></td>";
                     echo "</tr>";
                     }
                ?>
-               <!-- Pantalla modal de vista previa -->
-               <div id="modal1" class="modal">
-                  <div class="modal-content">
-                    <form class="col m9 s12">
-                       <div class="row">
-                         <h5>Vista Previa <script>
-                         $('.preview').on('click', function() {
-                           var bid, trid;
-                           $('#directorio tr').click(function() {
-                                trid = $(this).attr('id'); // table row ID
-                                alert(trid);
-                           });
-                         </script></h5>
-                       </div>
-                       <div class="row">
-                         <div class="input-field col s12">
-                           <input id="email" type="email" class="validate">
-                           <label for="email">Usuario</label>
-                         </div>
-                       </div>
-                       <div class="row">
-                         <div class="input-field col s12">
-                           <input id="password" type="password" class="validate">
-                           <label for="password">Contraseña</label>
-                         </div>
-                     </form>
-                  </div>
-                  <div class="modal-footer">
-                    <a href="#" class="waves-effect waves-light btn red darken-4" id="cerrar_vista_previa">ok</a>
-                  </div>
-                </div>
-               <!-- Pantalla modal de vista previa -->
             </tbody>
           </table>
         </div>
