@@ -44,6 +44,138 @@ require('../assets/dashboard/header.php'); ?>
         <video src="../videos/office/powerpoint/parte3.mp4" controls style="position:relative; margin-left:20%;"></video>
       </div>
     </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">add</i>Diapositivas</div>
+      <div class="collapsible-body" >
+        <video src="../videos/office/powerpoint/parte4.mp4" controls style="position:relative; margin-left:20%;"></video>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">add</i>Fuentes Tipografía</div>
+      <div class="collapsible-body" >
+        <video src="../videos/office/powerpoint/parte5.mp4" controls style="position:relative; margin-left:20%;"></video>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">add</i>Párrafos</div>
+      <div class="collapsible-body" >
+        <video src="../videos/office/powerpoint/parte6.mp4" controls style="position:relative; margin-left:20%;"></video>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">add</i>Dibujo</div>
+      <div class="collapsible-body" >
+        <video src="../videos/office/powerpoint/parte7.mp4" controls style="position:relative; margin-left:20%;"></video>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">add</i>Buscar, Reemplazar y Seleccionar</div>
+      <div class="collapsible-body" >
+        <video src="../videos/office/powerpoint/parte8.mp4" controls style="position:relative; margin-left:20%;"></video>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">add</i>Insertar Elementos</div>
+      <div class="collapsible-body" >
+        <video src="../videos/office/powerpoint/parte9.mp4" controls style="position:relative; margin-left:20%;"></video>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">add</i>Insertar Tablas</div>
+      <div class="collapsible-body" >
+        <video src="../videos/office/powerpoint/parte10.mp4" controls style="position:relative; margin-left:20%;"></video>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">add</i>Insertar Imagenes</div>
+      <div class="collapsible-body" >
+        <video src="../videos/office/powerpoint/parte11.mp4" controls style="position:relative; margin-left:20%;"></video>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">add</i>Diagramas y Organigramas con SmartArt</div>
+      <div class="collapsible-body" >
+        <video src="../videos/office/powerpoint/parte12.mp4" controls style="position:relative; margin-left:20%;"></video>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">add</i>Insertar Estadísticas</div>
+      <div class="collapsible-body" >
+        <video src="../videos/office/powerpoint/parte13.mp4" controls style="position:relative; margin-left:20%;"></video>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">add</i>Insertar Hipervínculos</div>
+      <div class="collapsible-body" >
+        <video src="../videos/office/powerpoint/parte14.mp4" controls style="position:relative; margin-left:20%;"></video>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">add</i>Insertar Comentarios</div>
+      <div class="collapsible-body" >
+        <video src="../videos/office/powerpoint/parte15.mp4" controls style="position:relative; margin-left:20%;"></video>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">add</i>Insertar Cuadro de Texto</div>
+      <div class="collapsible-body" >
+        <video src="../videos/office/powerpoint/parte16.mp4" controls style="position:relative; margin-left:20%;"></video>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">add</i>Encabezado, pie de pagina, numeración y fecha</div>
+      <div class="collapsible-body" >
+        <video src="../videos/office/powerpoint/parte17.mp4" controls style="position:relative; margin-left:20%;"></video>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">add</i>Insertar WordArt, Símbolos y Otros</div>
+      <div class="collapsible-body" >
+        <video src="../videos/office/powerpoint/parte18.mp4" controls style="position:relative; margin-left:20%;"></video>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">add</i>Insertar Video y Audio</div>
+      <div class="collapsible-body" >
+        <video src="../videos/office/powerpoint/parte19.mp4" controls style="position:relative; margin-left:20%;"></video>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">add</i>Diseño</div>
+      <div class="collapsible-body" >
+        <video src="../videos/office/powerpoint/parte20.mp4" controls style="position:relative; margin-left:20%;"></video>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">add</i>Transiciones</div>
+      <div class="collapsible-body" >
+        <video src="../videos/office/powerpoint/parte21.mp4" controls style="position:relative; margin-left:20%;"></video>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">add</i>Animaciones</div>
+      <div class="collapsible-body" >
+        <video src="../videos/office/powerpoint/parte22.mp4" controls style="position:relative; margin-left:20%;"></video>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">add</i>Presentaciones</div>
+      <div class="collapsible-body" >
+        <video src="../videos/office/powerpoint/parte23.mp4" controls style="position:relative; margin-left:20%;"></video>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">add</i>Revision ortográfica</div>
+      <div class="collapsible-body" >
+        <video src="../videos/office/powerpoint/parte24.mp4" controls style="position:relative; margin-left:20%;"></video>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">add</i>Vistas</div>
+      <div class="collapsible-body" >
+        <video src="../videos/office/powerpoint/parte25.mp4" controls style="position:relative; margin-left:20%;"></video>
+      </div>
+    </li>
   </ul>
     </div>
   </div>
