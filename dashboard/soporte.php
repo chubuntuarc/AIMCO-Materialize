@@ -95,6 +95,23 @@ require('../assets/dashboard/header.php'); ?>
               </div>
             </div>
         </div>
+        <div class="col m6 s12">
+          <div class="card medium">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="../img/ppt.jpg">
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Curso de Power Point<i class="material-icons right">more_vert</i></span>
+                <p><a href="../dashboard/power_point.php">Ver</a></p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Curso de Power Point<i class="material-icons right">close</i></span>
+                <p>Aprende a crear presentaciones elegantes utilizando Power Point.</p>
+                <img src="../img/ppt.jpg" alt="" style="height:50%; width: 50%;"/>
+                <p><a href="../dashboard/power_point.php">Ver</a></p>
+              </div>
+            </div>
+        </div>
       </div>
         <!-- /tutos -->
   <!--Tutoriales-->

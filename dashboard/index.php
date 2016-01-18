@@ -226,6 +226,21 @@ require('../assets/dashboard/header.php'); ?>
     </div>
   </div>
   <!-- /Comedor -->
+  <!-- Nuevo -->
+  <div class="row">
+    <div class="col m12 s12">
+      <div class="card small">
+            <div class="card-image">
+              <img src="../img/ppt.jpg">
+            </div>
+            <div class="card-content">
+              <h5>Curso Power Point</h5>
+              <a href="../dashboard/power_point.php">Ver..</a>
+            </div>
+          </div>
+    </div>
+  </div>
+  <!-- /Nuevo -->
   <!-- Generales -->
   <div class="row">
     <div class="col m9 s12">
@@ -250,6 +265,7 @@ require('../assets/dashboard/header.php'); ?>
     </div>
   </div>
   <!-- /Generales -->
+
   <!-- Modal Contacto -->
   <div id="modal2" class="modal bottom-sheet">
     <div class="modal-content">
