@@ -256,7 +256,7 @@ require('../assets/dashboard/header.php');?>
     </div>
     <!-- /Modal Contacto -->
         <!--Footer-->
-              <footer class="page-footer grey lighten-1 ">
+              <footer class="page-footer grey lighten-1">
 
                        <div class="footer-copyright red darken-4">
                          <div class="container">

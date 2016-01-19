@@ -25,10 +25,6 @@
     <header class="z-depth-1">
         <ul id="navegacion_index">
           <li><a class="activo" href="#" id="aimex">AIMCO</a></li>
-          <li><a href="#nosotros">Nosotros</a></li>
-          <li><a href="http://www.aimco-solutions.com/acradyne.asp" target="_blank" id="ocultar">AcraDyne</a></li>
-          <li><a href="http://www.eagle-premier.com/" target="_blank" id="ocultar">Eagle</a></li>
-          <li><a href="http://www.aimco-solutions.com/online_catalog.asp" target="_blank" id="ocultar">Catálogos</a></li>
           <li><a href="#modal2" class="modal-trigger">Contacto</a></li>
           <li><a href="#modal1" class="modal-trigger">Acceso</a></li>
           <!-- Pantalla modal de login -->

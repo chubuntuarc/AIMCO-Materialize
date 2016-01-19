@@ -38,7 +38,7 @@ header ul { list-style-type: none; ; margin-top: 3px; padding: 0; overflow: hidd
 @media only screen and (min-width: 768px){
   #navegacion_index{
     position: relative;
-    left: 30%;
+    left: 40%;
   }
   #header_global_3{ /*Acomodo de la navegación si es de ventas*/
     position: relative;
