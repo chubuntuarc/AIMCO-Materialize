@@ -21,9 +21,6 @@
           <li><a <?php if ( basename($_SERVER['PHP_SELF']) == "index.php") {
             echo "class='activo' "; } ?>
              href="../dashboard">AIMCO</a></li>
-          <li><a href="http://www.aimco-solutions.com/acradyne.asp" target="_blank" id="ocultar">AcraDyne</a></li>
-          <li><a href="http://www.eagle-premier.com/" target="_blank" id="ocultar">Eagle</a></li>
-          <li><a href="http://www.aimco-solutions.com/online_catalog.asp" target="_blank" id="ocultar">Catalogos</a></li>
           <li><a <?php if ( basename($_SERVER['PHP_SELF']) == "ventas.php") {
             echo "class='activo' "; } ?>
              href="../dashboard/ventas.php" id="ocultar" <?php if($_SESSION['Nombre_Usuario'] != $_SESSION['DC']){ echo "style='display: none;'";} ?>>Ventas</a></li>
