@@ -21,6 +21,8 @@ $(document).ready(function(){
     //Descargado de Charts.js
     //Documentación adicional en: http://www.chartjs.org/docs/#bar-chart
     //Variables generales de la gráfica
+
+
            //Campos para la gráfica de Facturación
            var Campos_Facturacion = document.getElementById("campos_facturacion").value;  //Cadena capturada de los input ocultos en el DOM
            var Valores_Facturacion = document.getElementById("campos_facturacion").innerHTML=Campos_Facturacion;
@@ -41,22 +43,26 @@ $(document).ready(function(){
            var Valores_Back_Order = document.getElementById("campos_back_order").innerHTML=Campos_Back_Order;
            var Mes_Back_Order = Valores_Back_Order.split(",");   //Se divide la cadena en partes para poder pasarlos a Float
 
-           var exampleBarChartData = {
-             "datasets": {
-               "values": [100,200,300,400,500,600,700,800,900,1000,1100,1200],
-               "labels": ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"
-               ],
-               "color": "green"
-             },
-             "title": "Facturas de Clientes",
-             "noY": true,
-             "height": "400px",
-             "width": "980px",
-             "background": "#FFFFFF",
-             "shadowDepth": "1"
-           };
+           var inicial = {
+             labels : ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],
+             datasets : [
+               {
+                 fillColor : "#4CAF50", //Color principal de las barras
+                 strokeColor : "rgba(220,220,220,0.8)",
+                 highlightFill: "#00796B",
+                 highlightStroke: "rgba(220,220,220,1)",
+                 data : [parseFloat(Mes_Facturacion[0]),0,0,0,0,0,0,0,0,0,0,0]
+                 //parseFloat(Mes_Facturacion[3]),parseFloat(Mes_Facturacion[4]),parseFloat(Mes_Facturacion[5]),parseFloat(Mes_Facturacion[6]),parseFloat(Mes_Facturacion[7]),parseFloat(Mes_Facturacion[8]),parseFloat(Mes_Facturacion[9]),parseFloat(Mes_Facturacion[10]),parseFloat(Mes_Facturacion[11])
+                   //Los valores dentro de "data", son los que se obtienen con el split() de la variable Valores_Facturacion
+                   //Deben convertirse a Float para respetar el punto decimal, no pueden ir campos tipo String dentro
+               }
+             ]
+           }
+           var ctx = document.getElementById("canvas").getContext("2d");
+                      window.myBar = new Chart(ctx).Bar(inicial, {
+                        responsive : true
+                      });
 
-           MaterialCharts.bar("#barra", exampleBarChartData)
 
            //Funcion del botón Facturas de Clientes
            $('#facturas_clientes').on('click', function() {
