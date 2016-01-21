@@ -51,7 +51,7 @@ $(document).ready(function(){
                  strokeColor : "rgba(220,220,220,0.8)",
                  highlightFill: "#00796B",
                  highlightStroke: "rgba(220,220,220,1)",
-                 data : [parseFloat(Mes_Back_Order[0]),parseFloat(Mes_Back_Order[1]),0,0,0,0,0,0,0,0,0,0]
+                 data : [parseFloat(Mes_Facturacion[0]),0,0,0,0,0,0,0,0,0,0,0]
                  //parseFloat(Mes_Facturacion[3]),parseFloat(Mes_Facturacion[4]),parseFloat(Mes_Facturacion[5]),parseFloat(Mes_Facturacion[6]),parseFloat(Mes_Facturacion[7]),parseFloat(Mes_Facturacion[8]),parseFloat(Mes_Facturacion[9]),parseFloat(Mes_Facturacion[10]),parseFloat(Mes_Facturacion[11])
                    //Los valores dentro de "data", son los que se obtienen con el split() de la variable Valores_Facturacion
                    //Deben convertirse a Float para respetar el punto decimal, no pueden ir campos tipo String dentro
