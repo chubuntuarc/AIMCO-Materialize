@@ -40,7 +40,7 @@ require('../assets/dashboard/header.php'); ?>
   <div class="row" <?php if($_SESSION['Rango'] != 3){ echo "style='display: none;'";} ?>>
     <div class="col m9 s12">
         <div class="card-panel">
-          <h5 id="Titulo_Grafica">Facturas de Clientes</h5>
+          <h5 id="Titulo_Grafica"></h5>
           <canvas id="canvas" name="canvas" height="150" width="400"></canvas>
         </div>
         <!--Inputs ocultos para la consulta de los valores de las graficas-->

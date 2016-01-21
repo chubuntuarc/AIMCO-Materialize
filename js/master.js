@@ -47,11 +47,11 @@ $(document).ready(function(){
              labels : ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],
              datasets : [
                {
-                 fillColor : "#4CAF50", //Color principal de las barras
+                 fillColor : "#26a69a", //Color principal de las barras
                  strokeColor : "rgba(220,220,220,0.8)",
                  highlightFill: "#00796B",
                  highlightStroke: "rgba(220,220,220,1)",
-                 data : [parseFloat(Mes_Facturacion[0]),0,0,0,0,0,0,0,0,0,0,0]
+                 data : [parseFloat(Mes_Back_Order[0]),parseFloat(Mes_Back_Order[1]),0,0,0,0,0,0,0,0,0,0]
                  //parseFloat(Mes_Facturacion[3]),parseFloat(Mes_Facturacion[4]),parseFloat(Mes_Facturacion[5]),parseFloat(Mes_Facturacion[6]),parseFloat(Mes_Facturacion[7]),parseFloat(Mes_Facturacion[8]),parseFloat(Mes_Facturacion[9]),parseFloat(Mes_Facturacion[10]),parseFloat(Mes_Facturacion[11])
                    //Los valores dentro de "data", son los que se obtienen con el split() de la variable Valores_Facturacion
                    //Deben convertirse a Float para respetar el punto decimal, no pueden ir campos tipo String dentro
@@ -68,7 +68,7 @@ $(document).ready(function(){
            $('#facturas_clientes').on('click', function() {
                $('#Titulo_Grafica').text("Facturas de Clientes");
                  window.myBar.destroy();
-                 barChartData.datasets[0].data = [parseFloat(Mes_Facturacion[0]),parseFloat(Mes_Facturacion[1]),parseFloat(Mes_Facturacion[2]),parseFloat(Mes_Facturacion[3]),parseFloat(Mes_Facturacion[4]),parseFloat(Mes_Facturacion[5]),parseFloat(Mes_Facturacion[6]),parseFloat(Mes_Facturacion[7]),parseFloat(Mes_Facturacion[8]),parseFloat(Mes_Facturacion[9]),parseFloat(Mes_Facturacion[10]),parseFloat(Mes_Facturacion[11])];
+                 barChartData.datasets[0].data = [1,2,3,4,5,6,7,8,9,10,11,12];
                  barChartData.datasets[0].fillColor = '#4CAF50';
                var ctx = document.getElementById("canvas").getContext("2d");
                    window.myBar = new Chart(ctx).Bar(barChartData, {
@@ -80,7 +80,7 @@ $(document).ready(function(){
              $('#ordenes_venta').on('click', function(){
                  $('#Titulo_Grafica').text("Ordenes de Venta");
                  window.myBar.destroy();
-                 barChartData.datasets[0].data = [parseFloat(Mes_Ordenes[0]),parseFloat(Mes_Ordenes[1]),parseFloat(Mes_Ordenes[2]),parseFloat(Mes_Ordenes[3]),parseFloat(Mes_Ordenes[4]),parseFloat(Mes_Ordenes[5]),parseFloat(Mes_Ordenes[6]),parseFloat(Mes_Ordenes[7]),parseFloat(Mes_Ordenes[8]),parseFloat(Mes_Ordenes[9]),parseFloat(Mes_Ordenes[10]),parseFloat(Mes_Ordenes[11])];
+                 barChartData.datasets[0].data = [1,0,0,0,0,0,0,0,0,0,0,0];
                  barChartData.datasets[0].fillColor = '#3F51B5';
                  var ctx = document.getElementById("canvas").getContext("2d");
                  window.myBar = new Chart(ctx).Bar(barChartData, {
@@ -92,7 +92,7 @@ $(document).ready(function(){
                $('#ofertas_ventas').on('click', function(){
                    $('#Titulo_Grafica').text("Ofertas de Venta");
                    window.myBar.destroy();
-                   barChartData.datasets[0].data = [parseFloat(Mes_Ofertas[0]),parseFloat(Mes_Ofertas[1]),parseFloat(Mes_Ofertas[2]),parseFloat(Mes_Ofertas[3]),parseFloat(Mes_Ofertas[4]),parseFloat(Mes_Ofertas[5]),parseFloat(Mes_Ofertas[6]),parseFloat(Mes_Ofertas[7]),parseFloat(Mes_Ofertas[8]),parseFloat(Mes_Ofertas[9]),parseFloat(Mes_Ofertas[10]),parseFloat(Mes_Ofertas[11])];
+                   barChartData.datasets[0].data = [1,0,0,0,0,0,0,0,0,0,0,0];
                    barChartData.datasets[0].fillColor = '#00BCD4';
                    var ctx = document.getElementById("canvas").getContext("2d");
                    window.myBar = new Chart(ctx).Bar(barChartData, {
@@ -104,7 +104,7 @@ $(document).ready(function(){
                $('#back_order').on('click', function(){
                    $('#Titulo_Grafica').text("Back Order");
                    window.myBar.destroy();
-                   barChartData.datasets[0].data = [parseFloat(Mes_Back_Order[0]),parseFloat(Mes_Back_Order[1]),parseFloat(Mes_Back_Order[2]),parseFloat(Mes_Back_Order[3]),parseFloat(Mes_Back_Order[4]),parseFloat(Mes_Back_Order[5]),parseFloat(Mes_Back_Order[6]),parseFloat(Mes_Back_Order[7]),parseFloat(Mes_Back_Order[8]),parseFloat(Mes_Back_Order[9]),parseFloat(Mes_Back_Order[10]),parseFloat(Mes_Back_Order[11])];
+                   barChartData.datasets[0].data = [1,0,0,0,0,0,0,0,0,0,0,0];
                    barChartData.datasets[0].fillColor = '#7E57C2';
                    var ctx = document.getElementById("canvas").getContext("2d");
                    window.myBar = new Chart(ctx).Bar(barChartData, {
