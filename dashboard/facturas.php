@@ -182,7 +182,7 @@ require('../assets/dashboard/header.php');?>
     <div class="row">
       <div class="col m12 s12">
         <div class="card-panel">
-          <h5>Listado de facturas</h5>
+          <h5>Facturas del día</h5>
           <form action="facturas.php" method="post">
               <input type="text" name="busqueda" id="busqueda" value="" placeholder="Buscar">
           </form>
@@ -201,42 +201,21 @@ require('../assets/dashboard/header.php');?>
               </tr>
             </thead>
             <tbody>
-              <?php
-                  //Consulta de Facturas
-                  $fecha = date('Y-m-d');
-                  $Consulta_Nuevas_Facturas ="SELECT T0.[DocNum],T0.[CardName],T0.[DocDate], sum(T1.[TotalSumSy]),sum(T1.[TotalSumSy]) * T1.[VatPrcnt] /100, sum(T1.[TotalSumSy]) * T1.[VatPrcnt] /100 + sum(T1.[TotalSumSy]) FROM OINV T0  INNER JOIN INV1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." AND T0.[DocDate] = ".$fecha." AND  T1.[TargetType] <> 14 GROUP BY T0.[DocNum],T0.[DocDate],T1.[VatPrcnt],T0.[CardName] order by T0.[DocNum] desc";
-                  $Resultado_Consulta_Facturas = odbc_exec($Conexion_SQL, $Consulta_Nuevas_Facturas);
-                  while (odbc_fetch_array($Resultado_Consulta_Facturas)) {
-                    echo "<tr id='num_doc'>";
-                    echo "<td >".odbc_result($Resultado_Consulta_Facturas, 1)."</td>";
-                    echo "<td>".odbc_result($Resultado_Consulta_Facturas, 2)."</td>";
-                    echo "<td>".odbc_result($Resultado_Consulta_Facturas, 3)."</td>";
-                    echo "<td>$".number_format(odbc_result($Resultado_Consulta_Facturas, 4),2)."</td>";
-                    echo "<td>$".number_format(odbc_result($Resultado_Consulta_Facturas, 5),2)."</td>";
-                    echo "<td>$".number_format(odbc_result($Resultado_Consulta_Facturas, 6),2)."</td>";
-                    echo "<td><a href='facturas/".odbc_result($Resultado_Consulta_Facturas, 1).".pdf' target='blank'><img style='height:20px;' src='../img/pdf.png'></a></td>";
-                    echo "<td><a href='facturas/".odbc_result($Resultado_Consulta_Facturas, 1).".xml' target='blank'><img style='height:20px;' id='Icono_XML' src='../img/xml.ico'></a></td>";
-                    echo "</tr>";
-                    }
-               ?>
                <?php
-               if ( $_POST['busqueda'] >= "")
-               {
-                 $Consulta_Nuevas_Facturas ="SELECT T0.[DocNum],T0.[CardName],T0.[DocDate], sum(T1.[TotalSumSy]),sum(T1.[TotalSumSy]) * T1.[VatPrcnt] /100, sum(T1.[TotalSumSy]) * T1.[VatPrcnt] /100 + sum(T1.[TotalSumSy]) FROM OINV T0  INNER JOIN INV1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." AND T0.[DocNum] = ".$_POST['busqueda']." AND  T1.[TargetType] <> 14 GROUP BY T0.[DocNum],T0.[DocDate],T1.[VatPrcnt],T0.[CardName] order by T0.[DocNum] desc";
-                 $Resultado_Consulta_Facturas = odbc_exec($Conexion_SQL, $Consulta_Nuevas_Facturas);
-                 while (odbc_fetch_array($Resultado_Consulta_Facturas)) {
-                   echo "<tr id='num_doc'>";
-                   echo "<td >".odbc_result($Resultado_Consulta_Facturas, 1)."</td>";
-                   echo "<td>".odbc_result($Resultado_Consulta_Facturas, 2)."</td>";
-                   echo "<td>".odbc_result($Resultado_Consulta_Facturas, 3)."</td>";
-                   echo "<td>$".number_format(odbc_result($Resultado_Consulta_Facturas, 4),2)."</td>";
-                   echo "<td>$".number_format(odbc_result($Resultado_Consulta_Facturas, 5),2)."</td>";
-                   echo "<td>$".number_format(odbc_result($Resultado_Consulta_Facturas, 6),2)."</td>";
-                   echo "<td><a href='facturas/".odbc_result($Resultado_Consulta_Facturas, 1).".pdf' target='blank'><img style='height:20px;' src='../img/pdf.png'></a></td>";
-                   echo "<td><a href='facturas/".odbc_result($Resultado_Consulta_Facturas, 1).".xml' target='blank'><img style='height:20px;' id='Icono_XML' src='../img/xml.ico'></a></td>";
-                   echo "</tr>";
-                   }
-}
+               $Consulta_Nuevas_Facturas ="SELECT T0.[DocNum],T0.[CardName],T0.[DocDate], sum(T1.[TotalSumSy]),sum(T1.[TotalSumSy]) * T1.[VatPrcnt] /100, sum(T1.[TotalSumSy]) * T1.[VatPrcnt] /100 + sum(T1.[TotalSumSy]) FROM OINV T0  INNER JOIN INV1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']."  AND T0.[DocDate] Like '%%2016%%' AND  T1.[TargetType] <> 14 GROUP BY T0.[DocNum],T0.[DocDate],T1.[VatPrcnt],T0.[CardName] order by T0.[DocNum] desc";
+               $Resultado_Consulta_Facturas = odbc_exec($Conexion_SQL, $Consulta_Nuevas_Facturas);
+               while (odbc_fetch_array($Resultado_Consulta_Facturas)) {
+                 echo "<tr>";
+                 echo "<td>".odbc_result($Resultado_Consulta_Facturas, 1)."</td>";
+                 echo "<td>".odbc_result($Resultado_Consulta_Facturas, 2)."</td>";
+                 echo "<td>".odbc_result($Resultado_Consulta_Facturas, 3)."</td>";
+                 echo "<td>$".number_format(odbc_result($Resultado_Consulta_Facturas, 4),2)."</td>";
+                 echo "<td>$".number_format(odbc_result($Resultado_Consulta_Facturas, 5),2)."</td>";
+                 echo "<td>$".number_format(odbc_result($Resultado_Consulta_Facturas, 6),2)."</td>";
+                 echo "<td><a href='facturas/".odbc_result($Resultado_Consulta_Facturas, 1).".pdf' target='blank'><img style='height:20px;' src='../img/pdf.png'></a></td>";
+                 echo "<td><a href='facturas/".odbc_result($Resultado_Consulta_Facturas, 1).".xml' target='blank'><img style='height:20px;' id='Icono_XML' src='../img/xml.ico'></a></td>";
+                 echo "</tr>";
+                 }
                  ?>
             </tbody>
           </table>
@@ -256,14 +235,14 @@ require('../assets/dashboard/header.php');?>
       </div>
     </div>
     <!-- /Modal Contacto -->
-    <!-- Modal Información -->
-    <div id="modal3" class="modal bottom-sheet">
-      <div class="modal-content">
-        <h5>Información</h5>
-        <p>AIMCO 2016</p>
-      </div>
+    <!-- Modal Detalle -->
+    <div id="modal4" class="modal">
+    <div class="modal-content">
+      <h4>Detalle de factura No.<?php echo $_SESSION['docNum']; ?> </h4>
+      <p></p>
     </div>
-    <!-- /Modal Información -->
+  </div>
+    <!-- /Modal Detalle -->
     <!--Footer-->
           <footer class="page-footer grey lighten-1 ">
 

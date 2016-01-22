@@ -1,6 +1,6 @@
 $(document).ready(function(){
     //Modal del login -----------------------------------------------------------------------------------------------------------------
-    $('.modal-trigger').leanModal();
+  $('.modal-trigger').leanModal();
      $('select').material_select();
      $('.parallax').parallax();
     $('.sesion').dropdown({

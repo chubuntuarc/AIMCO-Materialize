@@ -40,7 +40,7 @@ require('../assets/dashboard/header.php'); ?>
   <div class="row" <?php if($_SESSION['Rango'] != 3){ echo "style='display: none;'";} ?>>
     <div class="col m9 s12">
         <div class="card-panel">
-          <h5 id="Titulo_Grafica"></h5>
+          <h5 id="Titulo_Grafica">Facturas de clientes</h5>
           <canvas id="canvas" name="canvas" height="150" width="400"></canvas>
         </div>
         <!--Inputs ocultos para la consulta de los valores de las graficas-->
@@ -219,19 +219,67 @@ require('../assets/dashboard/header.php'); ?>
   <!--/Rankings-->
   <!-- Comedor -->
   <div class="row">
-    <div  <?php if($_SESSION['Rango'] == 3){ echo "style='display: none;'";} ?> >
+    <div class="col m4 s12" <?php if($_SESSION['Rango'] == 3){ echo "style='display: none;'";} ?>>
       <div class="card small">
             <div class="card-image">
-              <img src="../img/avisos.png" height="992px" width="1200px">
-              <span class="card-title">Nueva Versión AIMEX</span>
+              <img src="../img/avisos/excel.jpg" style="height:60%; width:100%;">
             </div>
             <div class="card-content">
-              <h5>Bienvenido <?php echo $_SESSION['Nombre_Usuario']; ?></h5>
-              <p>Te presentamos la nueva versión de AIMEX.SYTES, aqui encontraras toda la información necesaria.</p>
-              <p>Estamos trabajando para ofrecerte una experiencia completa y en base a tu departamento ofrecerte el mayor número de soluciones posibles.</p>
+              <h5>Curso Excel Avanzado</h5>
+              <p>Viernes 29 de Enero de 2016.</p>
             </div>
           </div>
-      </div>
+    </div>
+    <div class="col m5 s12" <?php if($_SESSION['Rango'] == 3){ echo "style='display: none;'";} ?>>
+      <div class="card small">
+            <div class="card-image">
+              <img src="../img/avisos/mantenimiento.png" style="height:60%; width:100%;">
+            </div>
+            <div class="card-content">
+              <h5>Mantenimiento Equipo de Cómputo</h5>
+              <p><?php
+              switch ($_SESSION['Nombre_Usuario']) {
+                case 'Jesus Govea':
+                  echo "Sábado 30 de Enero de 2016";
+                  break;
+                  case 'Veronica Murillo':
+                    echo "Sábado 30 de Enero de 2016";
+                    break;
+                    case 'Sebastian Gonzalez':
+                      echo "Sábado 30 de Enero de 2016";
+                      break;
+                      case 'Leonardo Balderas':
+                        echo "Sábado 30 de Enero de 2016";
+                        break;
+                        case 'Jorge Cuellar':
+                          echo "Sábado 06 de Febrero de 2016";
+                          break;
+                          case 'Said Hernandez':
+                            echo "Sábado 06 de Febrero de 2016";
+                            break;
+                            case 'Bibiana Poumian':
+                              echo "Sábado 06 de Febrero de 2016";
+                              break;
+                              case 'Cesar Correa':
+                                echo "Sábado 13 de Febrero de 2016";
+                                break;
+                                case 'Alejandro Montes':
+                                  echo "Sábado 13 de Febrero de 2016";
+                                  break;
+                                  case 'Elizabeth Ortega':
+                                    echo "Sábado 13 de Febrero de 2016";
+                                    break;
+                                    case 'Susana Ricarte':
+                                      echo "Sábado 13 de Febrero de 2016";
+                                      break;
+                default:
+                  # code...
+                  break;
+              }
+               ?></p>
+            </div>
+          </div>
+    </div>
     <div class="col m3 s12" <?php if($_SESSION['Rango'] < 4){ echo "style='display: none;'";} ?>>
       <div class="card small">
             <div class="card-image">

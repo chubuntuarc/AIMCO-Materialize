@@ -9,7 +9,6 @@ $(document).ready(function(){
    alignment: 'left' // Displays dropdown with edge aligned to the left of button
  }
 );
-$('.modal-trigger').leanModal();
   //Campos para la gráfica de Ofertas de Ventas
   var Campos_Ofertas = document.getElementById("campos_ofertas").value;   //Cadena capturada de los input ocultos en el DOM
   var Valores_Ofertas = document.getElementById("campos_ofertas").innerHTML=Campos_Ofertas;
