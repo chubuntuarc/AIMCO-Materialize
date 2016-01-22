@@ -15,15 +15,59 @@ $('.modal-trigger').leanModal();
   var Valores_Back_Order = document.getElementById("campos_back_order").innerHTML=Campos_Back_Order;
   var Mes_Back_Order = Valores_Back_Order.split(",");   //Se divide la cadena en partes para poder pasarlos a Float
 
+  var fecha = new Date ();
+  var mes = fecha.getMonth ();
+  var datos_facturas_actuales = [0,0,0,0,0,0,0,0,0,0,0,0];
+  switch (mes) {
+    case 0:
+        datos_facturas_actuales = [parseFloat(Mes_Back_Order[0]),0,0,0,0,0,0,0,0,0,0,0];
+      break;
+      case 1:
+          datos_facturas_actuales = [parseFloat(Mes_Back_Order[0]),parseFloat(Mes_Back_Order[1]),0,0,0,0,0,0,0,0,0,0];
+        break;
+        case 2:
+            datos_facturas_actuales = [parseFloat(Mes_Back_Order[0]),parseFloat(Mes_Back_Order[1]),parseFloat(Mes_Back_Order[2]),0,0,0,0,0,0,0,0,0];
+          break;
+          case 3:
+              datos_facturas_actuales = [parseFloat(Mes_Back_Order[0]),parseFloat(Mes_Back_Order[1]),parseFloat(Mes_Back_Order[2]),parseFloat(Mes_Back_Order[3]),0,0,0,0,0,0,0,0];
+            break;
+            case 4:
+                datos_facturas_actuales = [parseFloat(Mes_Back_Order[0]),parseFloat(Mes_Back_Order[1]),parseFloat(Mes_Back_Order[2]),parseFloat(Mes_Back_Order[3]),parseFloat(Mes_Back_Order[4]),0,0,0,0,0,0,0];
+              break;
+              case 5:
+                  datos_facturas_actuales = [parseFloat(Mes_Back_Order[0]),parseFloat(Mes_Back_Order[1]),parseFloat(Mes_Back_Order[2]),parseFloat(Mes_Back_Order[3]),parseFloat(Mes_Back_Order[4]),parseFloat(Mes_Back_Order[5]),0,0,0,0,0,0];
+                break;
+                case 6:
+                    datos_facturas_actuales = [parseFloat(Mes_Back_Order[0]),parseFloat(Mes_Back_Order[1]),parseFloat(Mes_Back_Order[2]),parseFloat(Mes_Back_Order[3]),parseFloat(Mes_Back_Order[4]),parseFloat(Mes_Back_Order[5]),parseFloat(Mes_Back_Order[6]),0,0,0,0,0];
+                  break;
+                  case 7:
+                      datos_facturas_actuales = [parseFloat(Mes_Back_Order[0]),parseFloat(Mes_Back_Order[1]),parseFloat(Mes_Back_Order[2]),parseFloat(Mes_Back_Order[3]),parseFloat(Mes_Back_Order[4]),parseFloat(Mes_Back_Order[5]),parseFloat(Mes_Back_Order[6]),parseFloat(Mes_Back_Order[7]),0,0,0,0];
+                    break;
+                    case 8:
+                        datos_facturas_actuales = [parseFloat(Mes_Back_Order[0]),parseFloat(Mes_Back_Order[1]),parseFloat(Mes_Back_Order[2]),parseFloat(Mes_Back_Order[3]),parseFloat(Mes_Back_Order[4]),parseFloat(Mes_Back_Order[5]),parseFloat(Mes_Back_Order[6]),parseFloat(Mes_Back_Order[7]),parseFloat(Mes_Back_Order[8]),0,0,0];
+                      break;
+                      case 9:
+                          datos_facturas_actuales = [parseFloat(Mes_Back_Order[0]),parseFloat(Mes_Back_Order[1]),parseFloat(Mes_Back_Order[2]),parseFloat(Mes_Back_Order[3]),parseFloat(Mes_Back_Order[4]),parseFloat(Mes_Back_Order[5]),parseFloat(Mes_Back_Order[6]),parseFloat(Mes_Back_Order[7]),parseFloat(Mes_Back_Order[8]),parseFloat(Mes_Back_Order[9]),0,0];
+                        break;
+                        case 10:
+                            datos_facturas_actuales = [parseFloat(Mes_Back_Order[0]),parseFloat(Mes_Back_Order[1]),parseFloat(Mes_Back_Order[2]),parseFloat(Mes_Back_Order[3]),parseFloat(Mes_Back_Order[4]),parseFloat(Mes_Back_Order[5]),parseFloat(Mes_Back_Order[6]),parseFloat(Mes_Back_Order[7]),parseFloat(Mes_Back_Order[8]),parseFloat(Mes_Back_Order[9]),parseFloat(Mes_Back_Order[10]),0];
+                          break;
+                          case 11:
+                              datos_facturas_actuales = [parseFloat(Mes_Back_Order[0]),parseFloat(Mes_Back_Order[1]),parseFloat(Mes_Back_Order[2]),parseFloat(Mes_Back_Order[3]),parseFloat(Mes_Back_Order[4]),parseFloat(Mes_Back_Order[5]),parseFloat(Mes_Back_Order[6]),parseFloat(Mes_Back_Order[7]),parseFloat(Mes_Back_Order[8]),parseFloat(Mes_Back_Order[9]),parseFloat(Mes_Back_Order[10]),parseFloat(Mes_Back_Order[11])];
+                            break;
+    default:
+  }
+
+
 var barChartData = {
   labels : ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],
   datasets : [
     {
-      fillColor : "#7E57C2", //Color principal de las barras
+      fillColor : "#ab47bc", //Color principal de las barras
       strokeColor : "rgba(220,220,220,0.8)",
       highlightFill: "#00796B",
       highlightStroke: "rgba(220,220,220,1)",
-      data : [parseFloat(Mes_Back_Order[0]),parseFloat(Mes_Back_Order[1]),parseFloat(Mes_Back_Order[2]),parseFloat(Mes_Back_Order[3]),parseFloat(Mes_Back_Order[4]),parseFloat(Mes_Back_Order[5]),parseFloat(Mes_Back_Order[6]),parseFloat(Mes_Back_Order[7]),parseFloat(Mes_Back_Order[8]),parseFloat(Mes_Back_Order[9]),parseFloat(Mes_Back_Order[10]),parseFloat(Mes_Back_Order[11])]
+      data : datos_facturas_actuales
         //Los valores dentro de "data", son los que se obtienen con el split() de la variable Valores_Facturacion
         //Deben convertirse a Float para respetar el punto decimal, no pueden ir campos tipo String dentro
     }

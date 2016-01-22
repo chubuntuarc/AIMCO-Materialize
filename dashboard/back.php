@@ -8,6 +8,34 @@ require('../assets/dashboard/header.php');?>
 <!DOCTYPE html>
 <html>
   <body>
+    <!--Numeros Top-->
+    <div class="row" <?php if($_SESSION['Rango'] != 3){ echo "style='display: none;'";} ?>>
+      <div class="col m3 s12">
+        <div class="card-panel z-depth-3">
+            <h5 style="margin-top:-10px; "><i class="material-icons left teal lighten-1 white-text" style="font-size:230%; border-radius:5px;">attach_money</i><?php echo $facturas; ?></h5>
+            <p style="margin-bottom:-20px; margin-left:30%;">Total de Facturas</p>
+        </div>
+      </div>
+      <div class="col m3 s12">
+        <div class="card-panel z-depth-3">
+            <h5 style="margin-top:-10px; "><i class="material-icons left red lighten-1 white-text" style="font-size:230%; border-radius:5px;">attach_money</i><?php echo $ordenes; ?></h5>
+            <p style="margin-bottom:-20px; margin-left:30%;">Total de Ordenes</p>
+        </div>
+      </div>
+      <div class="col m3 s12">
+        <div class="card-panel z-depth-3">
+            <h5 style="margin-top:-10px; "><i class="material-icons left blue lighten-1 white-text" style="font-size:230%; border-radius:5px;">attach_money</i><?php echo $ofertas; ?></h5>
+            <p style="margin-bottom:-20px; margin-left:30%;">Total de Ofertas</p>
+        </div>
+      </div>
+      <div class="col m3 s12">
+        <div class="card-panel z-depth-3">
+          <h5 style="margin-top:-10px; "><i class="material-icons left purple lighten-1 white-text" style="font-size:230%; border-radius:5px;">attach_money</i><?php echo $back; ?></h5>
+            <p style="margin-bottom:-20px; margin-left:30%;">Total Back Order</p>
+        </div>
+      </div>
+    </div>
+    <!--/Numeros Top-->
     <!--Gráfica-->
     <div class="row">
       <div class="col s12 m9" id="ocultar">
@@ -115,7 +143,8 @@ require('../assets/dashboard/header.php');?>
             <tbody>
               <?php
                   //Consulta de Back Order
-                  $Consulta_Nuevas_Ordenes ="SELECT T0.[DocNum], T0.[CardName],T0.[DocDate], sum(T1.[TotalSumSy]), sum(T1.[TotalSumSy]) * T1.[VatPrcnt] /100, sum(T1.[TotalSumSy]) +  sum(T1.[TotalSumSy]) * T1.[VatPrcnt]/100 FROM ORDR T0  INNER JOIN RDR1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." AND T1.[OpenQty] <> 0 GROUP BY T0.[DocNum],T0.[CardName], T1.[VatPrcnt], T0.[DocDate] order by T0.[DocDate] desc";
+                  $fecha = date('Y-m-d');
+                  $Consulta_Nuevas_Ordenes ="SELECT T0.[DocNum], T0.[CardName],T0.[DocDate], sum(T1.[TotalSumSy]), sum(T1.[TotalSumSy]) * T1.[VatPrcnt] /100, sum(T1.[TotalSumSy]) +  sum(T1.[TotalSumSy]) * T1.[VatPrcnt]/100 FROM ORDR T0  INNER JOIN RDR1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." AND T0.[DocDate] = ".$fecha." AND T1.[OpenQty] <> 0 GROUP BY T0.[DocNum],T0.[CardName], T1.[VatPrcnt], T0.[DocDate] order by T0.[DocDate] desc";
                   $Resultado_Consulta_Ordenes = odbc_exec($Conexion_SQL, $Consulta_Nuevas_Ordenes);
                   while (odbc_fetch_array($Resultado_Consulta_Ordenes)) {
                     echo "<tr>";
@@ -128,6 +157,24 @@ require('../assets/dashboard/header.php');?>
                     echo "</tr>";
                     }
                ?>
+               <?php
+               if ( $_POST['busqueda'] >= "")
+               {
+                 /*Consulta de Ordenes*/
+                 $Consulta_Nuevas_Ordenes ="SELECT T0.[DocNum], T0.[CardName],T0.[DocDate], sum(T1.[TotalSumSy]), sum(T1.[TotalSumSy]) * T1.[VatPrcnt] /100, sum(T1.[TotalSumSy]) +  sum(T1.[TotalSumSy]) * T1.[VatPrcnt]/100 FROM ORDR T0  INNER JOIN RDR1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." AND T0.[DocNum] = ".$_POST['busqueda']." AND T1.[OpenQty] <> 0 GROUP BY T0.[DocNum],T0.[CardName], T1.[VatPrcnt], T0.[DocDate] order by T0.[DocDate] desc";
+                 $Resultado_Consulta_Ordenes = odbc_exec($Conexion_SQL, $Consulta_Nuevas_Ordenes);
+                 while (odbc_fetch_array($Resultado_Consulta_Ordenes)) {
+                   echo "<tr>";
+                   echo "<td class='text-left'>".odbc_result($Resultado_Consulta_Ordenes, 1)."</td>";
+                   echo "<td class='text-left' id='Row'>".odbc_result($Resultado_Consulta_Ordenes, 2)."</td>";
+                   echo "<td class='text-left' id='Row'>".odbc_result($Resultado_Consulta_Ordenes, 3)."</td>";
+                   echo "<td class='text-left'>$".number_format(odbc_result($Resultado_Consulta_Ordenes, 4),2)."</td>";
+                   echo "<td class='text-left' id='Row'>$".number_format(odbc_result($Resultado_Consulta_Ordenes, 5),2)."</td>";
+                   echo "<td class='text-left'>$".number_format(odbc_result($Resultado_Consulta_Ordenes, 6),2)."</td>";
+                   echo "</tr>";
+                   }
+               }
+                 ?>
             </tbody>
           </table>
         </div>
