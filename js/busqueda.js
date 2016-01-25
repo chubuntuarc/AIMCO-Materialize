@@ -9,14 +9,6 @@ $("#busqueda").keyup(function(){
         // Solo muestra las coincidencias y oculta lo demas
         $("#directorio tbody>tr").hide();
         $("#directorio td:contains-ci('" + $(this).val() + "')").parent("tr").show();
-        var id = $(this).val();
-        var longitud = id.length;
-        if(longitud == 4){
-          $("#titulo_detalle").html("Detalle factura " + id);
-        }
-        else {
-          $("#titulo_detalle").html("Escribe un folio de 4 digitos para mostrar el detalle de la factura ");
-        }
     }
     else
     {

@@ -214,7 +214,7 @@ require('../assets/dashboard/header.php');?>
                  echo "<td>$".number_format(odbc_result($Resultado_Consulta_Facturas, 6),2)."</td>";
                  echo "<td><a href='facturas/".odbc_result($Resultado_Consulta_Facturas, 1).".pdf' target='blank'><img style='height:20px;' src='../img/pdf.png'></a></td>";
                  echo "<td><a href='facturas/".odbc_result($Resultado_Consulta_Facturas, 1).".xml' target='blank'><img style='height:20px;' id='Icono_XML' src='../img/xml.ico'></a></td>";
-                 echo "<td><a class='modal-trigger' href='#modal4'><i class='material-icons'>visibility</i></a></td>";
+                 echo "<td class='vista_previa' folio='".odbc_result($Resultado_Consulta_Facturas, 1)."'><a class='modal-trigger' href='#modal4'><i class='material-icons'>visibility</i></a></td>";
                  echo "</tr>";
                  }
                  ?>
@@ -269,11 +269,10 @@ require('../assets/dashboard/header.php');?>
               <th>Cantidad</th>
               <th>Precio</th>
               <th>Importe</th>
-              <th>Tiempo Entrega</th>
             </thead>
             <tbody>
               <?php
-              $Consulta_Detalle_Factura ="SELECT T1.[ItemCode],T1.[Dscription],T1.[Quantity],T1.[Price],T1.[Quantity]*T1.[Price], T1.[U_TIEMPO_ENTREGA] FROM OINV T0  INNER JOIN INV1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocNum]  = ".$_SESSION['valor_detalle']." AND  T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." GROUP BY T1.[ItemCode],T1.[Dscription],T1.[Quantity],T1.[Price],T1.[U_TIEMPO_ENTREGA]";
+              $Consulta_Detalle_Factura ="SELECT T1.[ItemCode],T1.[Dscription],T1.[Quantity],T1.[Price],T1.[Quantity]*T1.[Price] FROM OINV T0  INNER JOIN INV1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocNum]  = ".$_SESSION['valor_detalle']." AND  T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." GROUP BY T1.[ItemCode],T1.[Dscription],T1.[Quantity],T1.[Price]";
               $Resultado_Detalle_Factura = odbc_exec($Conexion_SQL, $Consulta_Detalle_Factura);
               while (odbc_fetch_array($Resultado_Detalle_Factura)) {
                 echo "<tr>";
@@ -282,7 +281,6 @@ require('../assets/dashboard/header.php');?>
                 echo "<td>".number_format(odbc_result($Resultado_Detalle_Factura, 3),0)."</td>";
                 echo "<td>$".number_format(odbc_result($Resultado_Detalle_Factura, 4),2)."</td>";
                 echo "<td>$".number_format(odbc_result($Resultado_Detalle_Factura, 5),2)."</td>";
-                  echo "<td>".odbc_result($Resultado_Detalle_Factura, 6)."</td>";
                 echo "</tr>";
                 }
                 ?>

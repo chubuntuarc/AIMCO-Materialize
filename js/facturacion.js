@@ -26,10 +26,11 @@ $(".fila_facturas").each(function(){
 
   });
 
-
-
-
-
+//Se consigue el numero de folio de la linea seleccionada
+$(".vista_previa").click(function(){
+  var id_folio = $(this).attr("folio");
+  $("#titulo_detalle").text("Detalle Factura " + id_folio);
+});
 });
 
 
