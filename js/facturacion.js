@@ -10,11 +10,22 @@ $(document).ready(function(){
    alignment: 'left' // Displays dropdown with edge aligned to the left of button
  }
 );
-$('body_facturas').each(function(){
-  if ($('.fila_facturas').attr('folio') != '6721') {
-    $(".fila_facturas").css("display", "none");
-  }
+//Se obtiene la fecha del sistema para usarlo como filtro en las facturas
+Date.prototype.yyyymmdd = function() {
+  var yyyy = this.getFullYear().toString();
+  var mm = (this.getMonth()+1).toString(); // getMonth() is zero-based
+  var dd  = this.getDate().toString();
+  return yyyy + "-" + (mm[1]?mm:"0"+mm[0]) + "-" + (dd[1]?dd:"0"+dd[0]); // padding
+};
+var d = new Date();
+//Se ejecuta el filtro de las facturas en base a la fecha actual del sistema
+$(".fila_facturas").each(function(){
+     if($(this).attr("fecha") != d.yyyymmdd() + " 00:00:00.000"){
+      $(this).fadeOut();
+     }
+  });
 });
+
 
 //Campos para la gráfica de Facturación
 var Campos_Facturacion = document.getElementById("campos_facturacion").value;  //Cadena capturada de los input ocultos en el DOM
@@ -168,5 +179,3 @@ $('.dropdown-button').dropdown({
                   responsive : true,
              });
           });
-
-});
