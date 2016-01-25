@@ -10,6 +10,12 @@ $(document).ready(function(){
    alignment: 'left' // Displays dropdown with edge aligned to the left of button
  }
 );
+$('body_facturas').each(function(){
+  if ($('.fila_facturas').attr('folio') != '6721') {
+    $(".fila_facturas").css("display", "none");
+  }
+});
+
 //Campos para la gráfica de Facturación
 var Campos_Facturacion = document.getElementById("campos_facturacion").value;  //Cadena capturada de los input ocultos en el DOM
 var Valores_Facturacion = document.getElementById("campos_facturacion").innerHTML=Campos_Facturacion;
