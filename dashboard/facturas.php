@@ -241,21 +241,29 @@ require('../assets/dashboard/header.php');?>
     <div class="modal-content">
       <h5 id="titulo_detalle"></h5>
       <div class="row">
-        <div class="col m4 s4">
-          <p>Estatus: Cerrado</p>
-        </div>
-        <div class="col m4 s4">
-          <p>Cliente: Daimler</p>
-        </div>
-        <div class="col m4 s4">
-          <p>Moneda: USD</p>
-        </div>
-      </div>
+        <?php
+        $_SESSION['valor_detalle'] = 6608;
+        $Consulta_Info_Detalle ="SELECT T0.[DocStatus], T0.[CardName], T1.[Currency] FROM OINV T0  INNER JOIN INV1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocNum]  = ".$_SESSION['valor_detalle']." AND  T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." GROUP BY T0.[DocStatus], T0.[CardName], T1.[Currency]";
+        $Resultado_Info_Detalle = odbc_exec($Conexion_SQL, $Consulta_Info_Detalle);
+        while (odbc_fetch_array($Resultado_Info_Detalle)) {
+          echo "<div class='col m12 s12'>";
+          echo "<p>Cliente: ".odbc_result($Resultado_Info_Detalle, 2)."</p>";
+          echo "</div>";
+          echo "</div>";
+          echo "<div class='row'>";
+          echo "<div class='col m4 s4'>";
+          echo "<p>Estatus: ".odbc_result($Resultado_Info_Detalle, 1)."</p>";
+          echo "</div>";
+          echo "<div class='col m8 s8'>";
+          echo "<p>Moneda: ".odbc_result($Resultado_Info_Detalle, 3)."</p>";
+          echo "</div>";
+          echo "</div>";
+          }
+          ?>
       <div class="row">
         <div class="col m12 s12">
           <table>
             <thead>
-              <th>#</th>
               <th>Artículo</th>
               <th>Descripción</th>
               <th>Cantidad</th>
@@ -264,15 +272,20 @@ require('../assets/dashboard/header.php');?>
               <th>Tiempo Entrega</th>
             </thead>
             <tbody>
-              <tr>
-                <td>0</td>
-                <td>2225L</td>
-                <td>Wrench Impact Pistol Ext Anvil</td>
-                <td>1</td>
-                <td>113.65</td>
-                <td>1,917.28</td>
-                <td>26/11/2015</td>
-              </tr>
+              <?php
+              $Consulta_Detalle_Factura ="SELECT T1.[ItemCode],T1.[Dscription],T1.[Quantity],T1.[Price],T1.[Quantity]*T1.[Price], T1.[U_TIEMPO_ENTREGA] FROM OINV T0  INNER JOIN INV1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocNum]  = ".$_SESSION['valor_detalle']." AND  T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." GROUP BY T1.[ItemCode],T1.[Dscription],T1.[Quantity],T1.[Price],T1.[U_TIEMPO_ENTREGA]";
+              $Resultado_Detalle_Factura = odbc_exec($Conexion_SQL, $Consulta_Detalle_Factura);
+              while (odbc_fetch_array($Resultado_Detalle_Factura)) {
+                echo "<tr>";
+                echo "<td>".odbc_result($Resultado_Detalle_Factura, 1)."</td>";
+                echo "<td>".odbc_result($Resultado_Detalle_Factura, 2)."</td>";
+                echo "<td>".number_format(odbc_result($Resultado_Detalle_Factura, 3),0)."</td>";
+                echo "<td>$".number_format(odbc_result($Resultado_Detalle_Factura, 4),2)."</td>";
+                echo "<td>$".number_format(odbc_result($Resultado_Detalle_Factura, 5),2)."</td>";
+                  echo "<td>".odbc_result($Resultado_Detalle_Factura, 6)."</td>";
+                echo "</tr>";
+                }
+                ?>
             </tbody>
           </table>
           <br><br>
@@ -283,11 +296,17 @@ require('../assets/dashboard/header.php');?>
               <th>Total</th>
             </thead>
             <tbody>
-              <tr>
-                <td>131.83</td>
-                <td>18.18</td>
-                <td>131.83</td>
-              </tr>
+              <?php
+              $Consulta_Totales_Detalle ="SELECT sum(T1.[TotalSumSy] ),sum(T1.[TotalSumSy] ) * T1.[VatPrcnt]/100,sum(T1.[TotalSumSy] ) + sum(T1.[TotalSumSy] ) * T1.[VatPrcnt]/100 FROM OINV T0  INNER JOIN INV1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocNum]  = ".$_SESSION['valor_detalle']." AND  T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." GROUP BY T1.[VatPrcnt]";
+              $Resultado_Totales_Detalle = odbc_exec($Conexion_SQL, $Consulta_Totales_Detalle);
+              while (odbc_fetch_array($Resultado_Totales_Detalle)) {
+                echo "<tr>";
+                echo "<td>$".number_format(odbc_result($Resultado_Totales_Detalle, 1),2)."</td>";
+                echo "<td>$".number_format(odbc_result($Resultado_Totales_Detalle, 2),2)."</td>";
+                echo "<td>$".number_format(odbc_result($Resultado_Totales_Detalle, 3),2)."</td>";
+                echo "</tr>";
+                }
+                ?>
             </tbody>
           </table>
         </div>
