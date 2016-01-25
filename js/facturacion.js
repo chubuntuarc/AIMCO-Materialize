@@ -23,7 +23,13 @@ $(".fila_facturas").each(function(){
      if($(this).attr("fecha") != d.yyyymmdd() + " 00:00:00.000"){
       $(this).fadeOut();
      }
+
   });
+
+
+
+
+
 });
 
 

@@ -1,21 +1,6 @@
 $(document).ready(function(){
   $('.modal-trigger').leanModal();
 //Funciones de la busqueda en dashboard --------------------------------------------------------------------------------------------
-$( "#busqueda" ).ready(function() {
-    $buscar = document.getElementById('busqueda').value
-// Cuando el campo de busqueda no esta vacio
-    if( $buscar != "")
-    {
-        // Muestra solo las coincidencias
-        $("#directorio tbody>tr").hide();
-        $("#directorio td:contains-ci('" + $buscar + "')").parent("tr").show();
-    }
-    else
-    {
-        // Cuando se limpia el input, se carga todo de nuevo
-        $("#directorio tbody>tr").show();
-    }
-});
 // Escribe en el evento keyup
 $("#busqueda").keyup(function(){
     //Cuando el valor del input no esta vacio
@@ -24,6 +9,14 @@ $("#busqueda").keyup(function(){
         // Solo muestra las coincidencias y oculta lo demas
         $("#directorio tbody>tr").hide();
         $("#directorio td:contains-ci('" + $(this).val() + "')").parent("tr").show();
+        var id = $(this).val();
+        var longitud = id.length;
+        if(longitud == 4){
+          $("#titulo_detalle").html("Detalle factura " + id);
+        }
+        else {
+          $("#titulo_detalle").html("Escribe un folio de 4 digitos para mostrar el detalle de la factura ");
+        }
     }
     else
     {

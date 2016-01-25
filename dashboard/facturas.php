@@ -187,7 +187,7 @@ require('../assets/dashboard/header.php');?>
               <input type="text" name="busqueda" id="busqueda" value="" placeholder="Buscar">
           </form>
           <table id="directorio">
-            <thead title="Titulo">
+            <thead>
               <tr>
                 <th>Documento</th>
                 <th>Cliente</th>
@@ -239,8 +239,60 @@ require('../assets/dashboard/header.php');?>
     <!-- Modal Detalle -->
     <div id="modal4" class="modal">
     <div class="modal-content">
-      <h4>Detalle de factura No.<?php echo $_SESSION['docNum']; ?> </h4>
-      <p></p>
+      <h5 id="titulo_detalle"></h5>
+      <div class="row">
+        <div class="col m4 s4">
+          <p>Estatus: Cerrado</p>
+        </div>
+        <div class="col m4 s4">
+          <p>Cliente: Daimler</p>
+        </div>
+        <div class="col m4 s4">
+          <p>Moneda: USD</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col m12 s12">
+          <table>
+            <thead>
+              <th>#</th>
+              <th>Artículo</th>
+              <th>Descripción</th>
+              <th>Cantidad</th>
+              <th>Precio</th>
+              <th>Importe</th>
+              <th>Tiempo Entrega</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0</td>
+                <td>2225L</td>
+                <td>Wrench Impact Pistol Ext Anvil</td>
+                <td>1</td>
+                <td>113.65</td>
+                <td>1,917.28</td>
+                <td>26/11/2015</td>
+              </tr>
+            </tbody>
+          </table>
+          <br><br>
+          <table>
+            <thead>
+              <th>SubTotal</th>
+              <th>IVA</th>
+              <th>Total</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>131.83</td>
+                <td>18.18</td>
+                <td>131.83</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p id="mensaje"></p>
     </div>
   </div>
     <!-- /Modal Detalle -->
