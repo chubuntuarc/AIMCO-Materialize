@@ -42,6 +42,7 @@
           <li><a <?php if ( basename($_SERVER['PHP_SELF']) == "soporte.php") {
             echo "class='activo' "; } ?>
             href="soporte.php" id="ocultar">Soporte</a></li>
+            <li><a href="https://www.concursolutions.com/" id="ocultar" <?php if($_SESSION['Rango'] != 3){ echo "style='display: none;'";} ?> target="_blank">CONCUR</a></li>
           <li><a <?php if ( basename($_SERVER['PHP_SELF']) == "config.php") {
             echo "class='activo' "; } ?>
              href="../dashboard/config.php" id="ocultar" <?php if($_SESSION['Rango'] != 10){ echo "style='display: none;'";} ?>>Configuración</a></li>
