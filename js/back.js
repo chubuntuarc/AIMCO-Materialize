@@ -9,6 +9,21 @@ $(document).ready(function(){
    alignment: 'left' // Displays dropdown with edge aligned to the left of button
  }
 );
+//Se obtiene la fecha del sistema para usarlo como filtro en las facturas
+Date.prototype.yyyymmdd = function() {
+  var yyyy = this.getFullYear().toString();
+  var mm = (this.getMonth()+1).toString(); // getMonth() is zero-based
+  var dd  = this.getDate().toString();
+  return yyyy + "-" + (mm[1]?mm:"0"+mm[0]) + "-" + (dd[1]?dd:"0"+dd[0]); // padding
+};
+var d = new Date();
+//Se ejecuta el filtro de las facturas en base a la fecha actual del sistema
+$(".fila_back").each(function(){
+     if($(this).attr("fecha") != d.yyyymmdd() + " 00:00:00.000"){
+      $(this).fadeOut();
+     }
+
+  });
   //Campos para la gráfica de Back Order
   var Campos_Back_Order = document.getElementById("campos_back_order").value;   //Cadena capturada de los input ocultos en el DOM
   var Valores_Back_Order = document.getElementById("campos_back_order").innerHTML=Campos_Back_Order;
