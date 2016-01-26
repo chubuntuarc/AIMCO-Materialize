@@ -11,10 +11,7 @@ $(document).ready(function(){
      gutter: 0, // Spacing from edge
      belowOrigin: false, // Displays dropdown below the button
      alignment: 'left' // Displays dropdown with edge aligned to the left of button
-   }
-
- );
-
+   });
     //Gráfica de barras --------------------------------------------------------------------------------------------------------------
     //Funciones generales de la gráfica principal.
     //El script principal se encuentra en scripts/tabla_ventas.js
