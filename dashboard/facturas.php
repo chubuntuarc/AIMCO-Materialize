@@ -179,7 +179,7 @@ require('../assets/dashboard/header.php');?>
     </div>
     <!--/Gráfica-->
     <!--Facturas-->
-    <div class="row" id="prueba_fuera">
+    <div class="row">
       <div class="col m12 s12">
         <div class="card-panel">
           <h5>Facturas del día</h5>
@@ -221,7 +221,6 @@ require('../assets/dashboard/header.php');?>
             </tbody>
           </table>
         </div>
-
       </div>
 
     </div>
@@ -286,6 +285,7 @@ require('../assets/dashboard/header.php');?>
                 echo "<td>".number_format(odbc_result($Resultado_Detalle_Factura, 3),0)."</td>";
                 echo "<td>$".number_format(odbc_result($Resultado_Detalle_Factura, 4),2)."</td>";
                 echo "<td>$".number_format(odbc_result($Resultado_Detalle_Factura, 5),2)."</td>";
+
                 echo "</tr>";
                 }
                 ?>

@@ -12,8 +12,15 @@ error_reporting(0);
 	//Fecha hasta la que se haran las consultas.
 	$_SESSION["Fecha_Final"] = $_SESSION["Anual"]."-12-31";
 	//Valor del detalle de factura
-	if($_POST["texto"]){
-		$_SESSION['valor_detalle'] = $_POST["texto"];
+	if(isset($_POST["texto"]))
+	{
+		if($_POST["texto"])
+		{
+			$_SESSION['valor_detalle'] = $_POST["texto"];
+		}
+
+		else
+			echo "He recibido un campo vacio";
 	}
 
 
