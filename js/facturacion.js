@@ -30,6 +30,18 @@ $(".fila_facturas").each(function(){
 $(".vista_previa").click(function(){
   var id_folio = $(this).attr("folio");
   $("#titulo_detalle").text("Detalle Factura " + id_folio);
+
+  // Interceptamos el evento submit
+    $('#test').submit(function() {
+  // Enviamos el formulario usando AJAX
+        $.ajax({
+            type: 'POST',
+            url: $(this).attr('action'),
+            data: $(this).serialize()
+        })
+        return false;
+    });
+
 });
 });
 
