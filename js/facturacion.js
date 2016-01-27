@@ -1,4 +1,12 @@
 $(document).ready(function(){
+  //Variable que controla la visibilidad del modal de vista previa
+  var oculto = $("#valor_escondido").val();
+  //Se evalua si se puede mostrar el modal
+  if (oculto == 1) {
+    $("#modal4").openModal();
+  }
+
+  $("#carga_facturas").fadeOut();
   $('.preview').tooltip({delay: 50});
   $('.sesion').dropdown({
    inDuration: 300,
@@ -22,15 +30,17 @@ var d = new Date();
 $(".fila_facturas").each(function(){
      if($(this).attr("fecha") != d.yyyymmdd() + " 00:00:00.000"){
       $(this).fadeOut();
+      $("#carga_facturas").css({"display": "table-row-group"});
      }
 
   });
+
 //Se consigue el numero de folio de la linea seleccionada
 $(".vista_previa").click(function(){
   var id_folio = $(this).attr("folio");
   $("#titulo_detalle").text("Detalle Factura " + id_folio);
-  $.post("../php/master.php",{"texto":id_folio});
-
+  $.post("../php/detalle_factura.php",{"texto":id_folio});
+  window.location.reload(true);
 });
 
 });

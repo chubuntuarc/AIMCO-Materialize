@@ -1,4 +1,5 @@
 $(document).ready(function(){
+   $.post("../php/detalle_factura.php",{"reset":0});
     //Modal del login -----------------------------------------------------------------------------------------------------------------
   $('.modal-trigger').leanModal();
      $('select').material_select();

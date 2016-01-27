@@ -11,17 +11,8 @@ error_reporting(0);
 	$_SESSION["Fecha_Inicial"] = $_SESSION["Anual"]."-01-01";
 	//Fecha hasta la que se haran las consultas.
 	$_SESSION["Fecha_Final"] = $_SESSION["Anual"]."-12-31";
-	//Valor del detalle de factura
-	if(isset($_POST["texto"]))
-	{
-		if($_POST["texto"])
-		{
-			$_SESSION['valor_detalle'] = $_POST["texto"];
-		}
+	//Control vista previa facturas
 
-		else
-			echo "He recibido un campo vacio";
-	}
 
 
 //Fin de Variables globales del sistema.   -----------------------------------------------------------------------------------------------

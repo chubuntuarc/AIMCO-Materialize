@@ -8,6 +8,7 @@ require('../assets/dashboard/header.php');?>
 <!DOCTYPE html>
 <html>
   <body>
+    <input type="text" id="valor_escondido" value="<?php echo $_SESSION["control_previa"]; ?>" style="display:none;">
     <!--Numeros Top-->
     <div class="row" <?php if($_SESSION['Rango'] != 3){ echo "style='display: none;'";} ?>>
       <div class="col m3 s12">
@@ -200,7 +201,7 @@ require('../assets/dashboard/header.php');?>
                 <th></th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="carga_facturas" style="display:none;">
               <?php
               $Consulta_Nuevas_Facturas ="SELECT T0.[DocNum],T0.[CardName],T0.[DocDate], sum(T1.[TotalSumSy]),sum(T1.[TotalSumSy]) * T1.[VatPrcnt] /100, sum(T1.[TotalSumSy]) * T1.[VatPrcnt] /100 + sum(T1.[TotalSumSy]) FROM OINV T0  INNER JOIN INV1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." AND  T1.[TargetType] <> 14 GROUP BY T0.[DocNum],T0.[DocDate],T1.[VatPrcnt],T0.[CardName] order by T0.[DocNum] desc";
               $Resultado_Consulta_Facturas = odbc_exec($Conexion_SQL, $Consulta_Nuevas_Facturas);
@@ -214,7 +215,7 @@ require('../assets/dashboard/header.php');?>
                 echo "<td>$".number_format(odbc_result($Resultado_Consulta_Facturas, 6),2)."</td>";
                 echo "<td><a href='facturas/".odbc_result($Resultado_Consulta_Facturas, 1).".pdf' target='blank'><img style='height:20px;' src='../img/pdf.png'></a></td>";
                 echo "<td><a href='facturas/".odbc_result($Resultado_Consulta_Facturas, 1).".xml' target='blank'><img style='height:20px;' id='Icono_XML' src='../img/xml.ico'></a></td>";
-                echo "<td class='vista_previa' folio='".odbc_result($Resultado_Consulta_Facturas, 1)."'><a class='modal-trigger' href='#modal4'><i class='material-icons'>visibility</i></a></td>";
+                echo "<td class='vista_previa' folio='".odbc_result($Resultado_Consulta_Facturas, 1)."'><a class='modal-trigger 'href='#modal5'><i class='material-icons'>visibility</i></a></td>";
                 echo "</tr>";
                 }
                 ?>
@@ -225,6 +226,12 @@ require('../assets/dashboard/header.php');?>
 
     </div>
     <!--/Facturas-->
+    <!-- Modal Loading -->
+    <div id="modal5" class="modal white">
+      <img src="../img/loader.gif" style="margin-left: 30%;"/>
+      <h4 style="margin-left: 20%;">Cargando Vista Previa..</h4>
+    </div>
+    <!-- /Modal Loading -->
     <!-- Modal Contacto -->
     <div id="modal2" class="modal bottom-sheet">
       <div class="modal-content">
@@ -238,7 +245,7 @@ require('../assets/dashboard/header.php');?>
     <!-- Modal Detalle -->
     <div id="modal4" class="modal">
     <div class="modal-content">
-      <h5 id="titulo_detalle"></h5>
+      <h5 id="titulo_detalle">Detalle Factura No. <?php echo $_SESSION['valor_detalle']; ?></h5>
       <div class="row">
         <?php
         $Consulta_Info_Detalle ="SELECT T0.[DocStatus], T0.[CardName], T1.[Currency] FROM OINV T0  INNER JOIN INV1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocNum]  = ".$_SESSION['valor_detalle']." AND  T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." GROUP BY T0.[DocStatus], T0.[CardName], T1.[Currency]";
@@ -256,7 +263,7 @@ require('../assets/dashboard/header.php');?>
           else {
             $estado = "Cerrado";
           }
-          echo "<p>Estatus: ".$estado."</p>";
+          echo "<p id='respuesta'>Estatus: ".$estado."</p>";
           echo "</div>";
           echo "<div class='col m8 s8'>";
           echo "<p>Moneda: ".odbc_result($Resultado_Info_Detalle, 3)."</p>";
