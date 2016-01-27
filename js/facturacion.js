@@ -7,7 +7,7 @@ $(document).ready(function(){
   }
 
   $("#carga_facturas").fadeOut();
-  $('.preview').tooltip({delay: 50});
+  $('.vista_previa').tooltip({delay: 50});
   $('.sesion').dropdown({
    inDuration: 300,
    outDuration: 225,
@@ -188,7 +188,7 @@ $('.dropdown-button').dropdown({
         $('#year_anterior_3').on('click', function() {
             $('#boton').text("2013");
             var facturas2013 = document.getElementById("facturas2013").value;   //Cadena capturada de los input ocultos en el DOM
-            var facturas20013 = document.getElementById("facturas2014").innerHTML=facturas2013;
+            var facturas20013 = document.getElementById("facturas2013").innerHTML=facturas2013;
             $('#total_facturas_clientes').text("Total: ".concat(facturas20013));
               window.myBar.destroy();
               barChartData.datasets[0].data = [parseFloat(Mes_Facturacion_Anterior3[0]),parseFloat(Mes_Facturacion_Anterior3[1]),parseFloat(Mes_Facturacion_Anterior3[2]),parseFloat(Mes_Facturacion_Anterior3[3]),parseFloat(Mes_Facturacion_Anterior3[4]),parseFloat(Mes_Facturacion_Anterior3[5]),parseFloat(Mes_Facturacion_Anterior3[6]),parseFloat(Mes_Facturacion_Anterior3[7]),parseFloat(Mes_Facturacion_Anterior3[8]),parseFloat(Mes_Facturacion_Anterior3[9]),parseFloat(Mes_Facturacion_Anterior3[10]),parseFloat(Mes_Facturacion_Anterior3[11])];

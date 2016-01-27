@@ -13,26 +13,26 @@ require('../assets/dashboard/header.php');?>
     <div class="row" <?php if($_SESSION['Rango'] != 3){ echo "style='display: none;'";} ?>>
       <div class="col m3 s12">
         <div class="card-panel z-depth-3">
-            <h5 style="margin-top:-10px; "><i class="material-icons left teal lighten-1 white-text" style="font-size:230%; border-radius:5px;">attach_money</i><?php echo $facturas; ?></h5>
-            <p style="margin-bottom:-20px; margin-left:30%;">Total de Facturas</p>
+            <h5 id="facturas_superior" style="margin-top:-10px; "><i class="material-icons left teal lighten-1 white-text" style="font-size:230%; border-radius:5px;">attach_money</i><?php echo $facturas; ?></h5>
+            <p id="texto_facturas_superior" style="margin-bottom:-20px; margin-left:30%;">Total de Facturas</p>
         </div>
       </div>
       <div class="col m3 s12">
         <div class="card-panel z-depth-3">
-            <h5 style="margin-top:-10px; "><i class="material-icons left red lighten-1 white-text" style="font-size:230%; border-radius:5px;">attach_money</i><?php echo $ordenes; ?></h5>
-            <p style="margin-bottom:-20px; margin-left:30%;">Total de Ordenes</p>
+            <h5 id="ordenes_superior" style="margin-top:-10px; "><i class="material-icons left red lighten-1 white-text" style="font-size:230%; border-radius:5px;">attach_money</i><?php echo $ordenes; ?></h5>
+            <p id="texto_ordenes_superior" style="margin-bottom:-20px; margin-left:30%;">Total de Ordenes</p>
         </div>
       </div>
       <div class="col m3 s12">
         <div class="card-panel z-depth-3">
-            <h5 style="margin-top:-10px; "><i class="material-icons left blue lighten-1 white-text" style="font-size:230%; border-radius:5px;">attach_money</i><?php echo $ofertas; ?></h5>
-            <p style="margin-bottom:-20px; margin-left:30%;">Total de Ofertas</p>
+            <h5 id="ofertas_superior" style="margin-top:-10px; "><i class="material-icons left blue lighten-1 white-text" style="font-size:230%; border-radius:5px;">attach_money</i><?php echo $ofertas; ?></h5>
+            <p id="texto_ofertas_superior" style="margin-bottom:-20px; margin-left:30%;">Total de Ofertas</p>
         </div>
       </div>
       <div class="col m3 s12">
         <div class="card-panel z-depth-3">
-          <h5 style="margin-top:-10px; "><i class="material-icons left purple lighten-1 white-text" style="font-size:230%; border-radius:5px;">attach_money</i><?php echo $back; ?></h5>
-            <p style="margin-bottom:-20px; margin-left:30%;">Total Back Order</p>
+          <h5 id="back_superior" style="margin-top:-10px; "><i class="material-icons left purple lighten-1 white-text" style="font-size:230%; border-radius:5px;">attach_money</i><?php echo $back; ?></h5>
+            <p id="texto_back_superior" style="margin-bottom:-20px; margin-left:30%;">Total Back Order</p>
         </div>
       </div>
     </div>
@@ -215,7 +215,7 @@ require('../assets/dashboard/header.php');?>
                 echo "<td>$".number_format(odbc_result($Resultado_Consulta_Facturas, 6),2)."</td>";
                 echo "<td><a href='facturas/".odbc_result($Resultado_Consulta_Facturas, 1).".pdf' target='blank'><img style='height:20px;' src='../img/pdf.png'></a></td>";
                 echo "<td><a href='facturas/".odbc_result($Resultado_Consulta_Facturas, 1).".xml' target='blank'><img style='height:20px;' id='Icono_XML' src='../img/xml.ico'></a></td>";
-                echo "<td class='vista_previa' folio='".odbc_result($Resultado_Consulta_Facturas, 1)."'><a class='modal-trigger 'href='#modal5'><i class='material-icons'>visibility</i></a></td>";
+                echo "<td class='vista_previa' data-tooltip='Vista Previa' folio='".odbc_result($Resultado_Consulta_Facturas, 1)."'><a class='modal-trigger 'href='#modal5'><i class='material-icons'>visibility</i></a></td>";
                 echo "</tr>";
                 }
                 ?>

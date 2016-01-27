@@ -1,4 +1,5 @@
 <?php
+//Este documento PHP obtiene y entrega la variable que controla la pantalla modal de vista previa de facturas
 session_start(0);
 //Valor del detalle de factura
 if(isset($_POST["texto"]))

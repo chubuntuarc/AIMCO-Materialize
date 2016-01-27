@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  //Se reinicia la variable que controla la visualización de la pantalla modal de vista previa de facturas
    $.post("../php/detalle_factura.php",{"reset":0});
     //Modal del login -----------------------------------------------------------------------------------------------------------------
   $('.modal-trigger').leanModal();
