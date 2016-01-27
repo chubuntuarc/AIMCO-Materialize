@@ -1,4 +1,8 @@
 $(document).ready(function(){
+      var str = $('#fecha_factura').text();
+          var res = str.substring(0, 17);
+          document.getElementById("fecha_factura").innerHTML = res;
+
   //Variable que controla la visibilidad del modal de vista previa
   var oculto = $("#valor_escondido").val();
   //Se evalua si se puede mostrar el modal
