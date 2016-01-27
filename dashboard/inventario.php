@@ -9,7 +9,7 @@ require('../assets/dashboard/header.php');?>
 <html>
 	<body>
     <div class="row">
-        <div class="col m9">
+        <div class="col m9 s12">
           <div class="card-panel">
             <h5>Consulta tiempos de entrega para SAP</h5>
             <table width="100%" border="0" cellpadding="5">
@@ -227,7 +227,7 @@ require('../assets/dashboard/header.php');?>
             ?>
           </div>
         </div>
-        <div class="col m3">
+        <div class="col m3 s12">
           <div class="card-panel">
             <h5>Buscar</h5>
             <form name="SubSapBuscar" method="post" action="inventario.php">

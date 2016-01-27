@@ -39,7 +39,7 @@ require('../assets/dashboard/header.php');?>
     <!--/Numeros Top-->
     <!--Gráfica-->
     <div class="row">
-      <div class="col s12 m9" id="ocultar">
+      <div class="col s12 m9" id="grafico">
         <div class="card-panel z-depth-3">
           <h5 id="Titulo_Grafica">Facturas de Clientes</h5>
             <canvas id="canvas" height="150" width="400"></canvas>
@@ -187,7 +187,7 @@ require('../assets/dashboard/header.php');?>
           <form action="facturas.php" method="post">
               <input type="text" name="busqueda" id="busqueda" value="" placeholder="Buscar">
           </form>
-          <table id="directorio">
+          <table class="bordered highlight" id="directorio">
             <thead>
               <tr>
                 <th>Documento</th>
