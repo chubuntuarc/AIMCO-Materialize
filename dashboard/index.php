@@ -302,8 +302,181 @@ require('../assets/dashboard/header.php'); ?>
     </div>
   </div>
   <!-- /Comedor -->
-  <!-- Nuevo -->
+  <!-- Entrada rápida de información -->
   <div class="row">
+    <div class="col m4 s12">
+      <div class="fixed-action-btn horizontal" style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-large red">
+      <i class="large material-icons tooltipped" data-position="top" data-delay="50" data-tooltip="Registrar">mode_edit</i>
+    </a>
+    <ul>
+      <li <?php if($_SESSION['Rango'] != 10){ echo "style='display: none;'";} ?>><a class="btn-floating tooltipped red" data-position="top" data-delay="50" data-tooltip="Servicio"><i class="material-icons">build</i></a></li>
+      <li <?php if($_SESSION['Rango'] != 10){ echo "style='display: none;'";} ?>><a class="btn-floating tooltipped black" data-position="top" data-delay="50" data-tooltip="Inventario"><i class="material-icons">assignment</i></a></li>
+      <li><a class="btn-floating tooltipped green" data-position="top" data-delay="50" data-tooltip="Contacto"><i class="material-icons">account_circle</i></a></li>
+      <li><a class="btn-floating tooltipped blue" data-position="top" data-delay="50" data-tooltip="Recordatorio"><i class="material-icons">bookmark_border</i></a></li>
+      <li><a class="btn-floating tooltipped yellow darken-3" data-position="top" data-delay="50" data-tooltip="Nota"><i class="material-icons">border_color</i></a></li>
+      <li><a class="btn-floating tooltipped purple" data-position="top" data-delay="50" data-tooltip="Correo"><i class="material-icons">mail</i></a></li>
+      <li><a class="btn-floating tooltipped cyan" data-position="top" data-delay="50" data-tooltip="Reporte"><i class="material-icons">mode_comment</i></a></li>
+    </ul>
+  </div>
+    </div>
+  </div>
+  <!-- /Entrada rápida de información -->
+  <!-- Modal Servicio Sistemas -->
+  <!-- /Modal Servicio Sistemas -->
+  <!-- Servicios Sistemas-->
+  <div class="row" <?php if($_SESSION['Rango'] != 10){ echo "style='display: none;'";} ?>>
+    <div class="col m4 s12">
+      <div class="card-panel">
+        <h5>Notas</h5>
+        <table>
+          <tbody>
+            <tr>
+              <td><p>
+                <input type="checkbox" id="test5" />
+                <label for="test5">Nota de ejemplo</label>
+              </p></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col m8 s12">
+      <div class="card-panel">
+        <h5>Reportes de Usuarios</h5>
+        <table>
+          <thead>
+            <tr>
+              <th>Usuario</th>
+              <th>Problema</th>
+              <th>Notas</th>
+              <th>Notas</th>
+              <th>Completo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Soporte IT</td>
+              <td>Equipo Lento</td>
+              <td>Esta lenta la maquina</td>
+              <td><input type="text" name="name" placeholder="Descripción Solución"></td>
+              <td><p><input type="checkbox" id="test5" /><label for="test5">Completo</label></p></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="row" <?php if($_SESSION['Rango'] != 10){ echo "style='display: none;'";} ?>>
+    <div class="col m4 s12">
+      <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="../img/sistemas/tops_servicios.jpg">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Top Asistencia por Usuario<i class="material-icons right">more_vert</i></span>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Top Asistencia por Usuario<i class="material-icons right">close</i></span>
+      <table>
+        <thead>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Servicios / Semana</th>
+        </thead>
+      </table>
+    </div>
+  </div>
+    </div>
+    <div class="col m4 s12">
+      <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="../img/sistemas/blue.png">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Top Problemas Comunes<i class="material-icons right">more_vert</i></span>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Top Problemas Comunes<i class="material-icons right">close</i></span>
+      <table>
+        <thead>
+          <th>#</th>
+          <th>Conflicto</th>
+          <th>Categoría</th>
+          <th>Eventos / Mes</th>
+        </thead>
+      </table>
+    </div>
+  </div>
+    </div>
+    <div class="col m4 s12">
+      <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="../img/sistemas/visitas.jpg">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Top Sitios Web<i class="material-icons right">more_vert</i></span>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Top Sitios Web<i class="material-icons right">close</i></span>
+      <table>
+        <thead>
+          <th>#</th>
+          <th>Sitio</th>
+          <th>Visitas / Semana</th>
+        </thead>
+      </table>
+    </div>
+  </div>
+    </div>
+  </div>
+  <div class="row" <?php if($_SESSION['Rango'] != 10){ echo "style='display: none;'";} ?>>
+    <div class="col m6 s12">
+      <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="../img/sistemas/stock.png">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Inventario Sistemas<i class="material-icons right">more_vert</i></span>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Inventario Sistemas<i class="material-icons right">close</i></span>
+      <table>
+        <thead>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Categoría</th>
+          <th>Cantidad</th>
+        </thead>
+      </table>
+    </div>
+  </div>
+    </div>
+    <div class="col m6 s12">
+      <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="../img/sistemas/code.jpg">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Desarrollo<i class="material-icons right">more_vert</i></span>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Desarrollo<i class="material-icons right">close</i></span>
+      <table>
+        <thead>
+          <th>Repositorio</th>
+          <th>Usuario</th>
+          <th>Commit</th>
+          <th>Fecha</th>
+        </thead>
+      </table>
+    </div>
+  </div>
+    </div>
+  </div>
+  <!-- /Servicios Sistemas-->
+  <!-- Nuevo -->
+  <div class="row" <?php if($_SESSION['Rango'] == 10){ echo "style='display: none;'";} ?>>
     <div class="col m12 s12">
       <div class="card small">
             <div class="card-image">
