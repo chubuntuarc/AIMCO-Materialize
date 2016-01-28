@@ -12,22 +12,6 @@ header li a { display: block; color: #212121; font-size: 13px; text-align: cente
 header ul { list-style-type: none; ; margin-top: 3px; padding: 0; overflow: hidden; }
 #logo { height: 25px; left: 36%; position: relative; top: 18px; width: 70px; z-index: 998;}
 
-/*----------------------------Celular 5.5 pulgadas.............................................................................*/
-/*Ocultar elementos en pantallas de 5.5 Pulgadas como LG G3 Stylus Verticalmente*/
-@media only screen and (max-width: 540px)
-{ #ocultar, #logo, #concur, #nombre_user, #canvas, #comedor, #menu_comedor, #esconder{ display:none!important; }
-  #menu_dashboard ul{list-style-type: none; margin-left: 0; margin-top: 3px; padding: 0; overflow: hidden; }
-  #aimco{position: relative; left: 15%; top: 10px; font-size: 20px;}
-  header ul { list-style-type: none; margin-left: 20%; margin-top: 3px; padding: 0; overflow: hidden; }
-}
-
-/*Ocultar elementos en pantallas de 5.5 Pulgadas como LG G3 Stylus Horizontalmente*/
-@media only screen and (min-width: 540px)
-{ #ocultar, #esconder { display:none!important; }
-#menu_dashboard ul{list-style-type: none; margin-left: 0; margin-top: 3px; padding: 0; overflow: hidden; }
-
-}
-/*----------------------------Celular 5.5 pulgadas.............................................................................*/
 /*------------------------------------------------------------------------------Index*/
 
 /*------------------------------------------------------------------------------Dashboard*/
