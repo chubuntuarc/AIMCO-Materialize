@@ -4,7 +4,7 @@
     Utilizando Materialize http://materializecss.com/
     Derechos Reservados 2016-->
 <?php require '../php/master.php';
-require('../assets/dashboard/header.php'); ?>
+require('../assets/dashboard/header.php');?>
 <!DOCTYPE html>
 <html>
   <body>

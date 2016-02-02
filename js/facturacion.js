@@ -70,8 +70,9 @@ var Campos_Facturacion_Anterior3 = document.getElementById("campos_facturacion_a
 var Valores_Facturacion_Anterior3 = document.getElementById("campos_facturacion_anterior3").innerHTML=Campos_Facturacion_Anterior3;
 var Mes_Facturacion_Anterior3 = Valores_Facturacion_Anterior3.split(",");  //Se divide la cadena en partes para poder pasarlos a Float
 var fecha = new Date ();
-var mes = fecha.getMonth ();
+var mes = fecha.getMonth();
 var datos_facturas_actuales = [0,0,0,0,0,0,0,0,0,0,0,0];
+
 switch (mes) {
   case 0:
       datos_facturas_actuales = [parseFloat(Mes_Facturacion[0]),0,0,0,0,0,0,0,0,0,0,0];

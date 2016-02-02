@@ -1,3 +1,4 @@
+<?php if($_SESSION["Nombre_Usuario"] == "") header("Location: ../index.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,7 +51,15 @@
           <li><i class="material-icons sesion" data-activates='dropdown1'>supervisor_account</i></li>
           <!-- Dropdown Structure -->
           <ul id='dropdown1' class='dropdown-content'>
-            <li><a href="../">Cerrar Sesión</a></li>
+            <li><a href="../" onclick="logoff()">Cerrar Sesión</a></li>
+            <script>
+              function logoff()
+              {
+                  <?php
+                      session_destroy();
+                  ?>
+              }
+              </script>
           </ul>
         </ul>
     </header>
