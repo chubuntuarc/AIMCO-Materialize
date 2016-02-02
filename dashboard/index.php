@@ -226,7 +226,7 @@ require('../assets/dashboard/header.php');?>
             </div>
             <div class="card-content">
               <h5>Curso Excel Avanzado</h5>
-              <p>Viernes 29 de Enero de 2016.</p>
+              <p>Gracias por su asistencia.</p>
             </div>
           </div>
     </div>
@@ -240,16 +240,16 @@ require('../assets/dashboard/header.php');?>
               <p><?php
               switch ($_SESSION['Nombre_Usuario']) {
                 case 'Jesus Govea':
-                  echo "Sábado 30 de Enero de 2016";
+                  echo "Sábado 06 de Febrero de 2016";
                   break;
                   case 'Veronica Murillo':
-                    echo "Sábado 30 de Enero de 2016";
+                    echo "Realizado el Sábado 30 de Enero de 2016";
                     break;
                     case 'Sebastian Gonzalez':
-                      echo "Sábado 30 de Enero de 2016";
+                      echo "Realizado el  Sábado 30 de Enero de 2016";
                       break;
                       case 'Leonardo Balderas':
-                        echo "Sábado 30 de Enero de 2016";
+                        echo "Realizado el  Sábado 30 de Enero de 2016";
                         break;
                         case 'Jorge Cuellar':
                           echo "Sábado 06 de Febrero de 2016";
