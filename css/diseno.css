@@ -17,7 +17,8 @@ header ul { list-style-type: none; ; margin-top: 3px; padding: 0; overflow: hidd
 /*------------------------------------------------------------------------------Dashboard*/
 /*Diseño de la Gráfica*/
 #campos_facturacion, #campos_ordenes, #campos_ofertas, #campos_back_order, #campos_facturacion_anterior, #campos_facturacion_anterior2, #campos_facturacion_anterior3, #facturas2015, #facturas2016
-,#facturas2014, #facturas2013, #houdini, #ofertas2016, #ofertas2015, #ofertas2014, #ofertas2013, #campos_ofertas_anterior, #campos_ofertas_anterior2, #campos_ofertas_anterior3
+,#facturas2014, #facturas2013, #houdini, #ofertas2016, #ofertas2015, #ofertas2014, #ofertas2013, #campos_ofertas_anterior, #campos_ofertas_anterior2, #campos_ofertas_anterior3, #campos_ordenes_anterior
+,#campos_ordenes_anterior2, #campos_ordenes_anterior3, #ordenes2016, #ordenes2015, #ordenes2014, #ordenes2013
 {
 	display: none;
 }
