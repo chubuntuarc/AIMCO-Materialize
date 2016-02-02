@@ -47,7 +47,43 @@ require('../assets/dashboard/header.php');?>
             <input type="text" id="campos_ofertas" value="
               <?php
                   //Consulta de Ofertas de Venta
-                  $Consulta_Grafica_Ofertas ="SELECT sum(T1.[TotalSumSy])AS Total FROM OQUT T0  INNER JOIN QUT1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocDate] >= '".$_SESSION["Anual"]."' AND T2.[U_CODIGO_USA]  = ".$_SESSION['Usuario_Actual']." GROUP BY month(T0.[DocDate]) ORDER BY month(T0.[DocDate])";
+                  $Consulta_Grafica_Ofertas ="SELECT sum(T1.[TotalSumSy])AS Total FROM OQUT T0  INNER JOIN QUT1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocDate] >= '2016' AND T2.[U_CODIGO_USA]  = ".$_SESSION['Usuario_Actual']." GROUP BY month(T0.[DocDate]) ORDER BY month(T0.[DocDate])";
+                  $Resultado_Consulta_Grafica_Ofertas = odbc_exec($Conexion_SQL, $Consulta_Grafica_Ofertas);
+                  while ($ofe = odbc_fetch_array($Resultado_Consulta_Grafica_Ofertas)) {
+                    foreach ($ofe as $meses_ofe) {
+                      echo $meses_ofe.",";
+                    }
+                  }
+              ?>
+            ">
+            <input type="text" id="campos_ofertas_anterior" value="
+              <?php
+                  //Consulta de Ofertas de Venta
+                  $Consulta_Grafica_Ofertas ="SELECT sum(T1.[TotalSumSy])AS Total FROM OQUT T0  INNER JOIN QUT1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocDate] >= '2015' AND T2.[U_CODIGO_USA]  = ".$_SESSION['Usuario_Actual']." GROUP BY month(T0.[DocDate]) ORDER BY month(T0.[DocDate])";
+                  $Resultado_Consulta_Grafica_Ofertas = odbc_exec($Conexion_SQL, $Consulta_Grafica_Ofertas);
+                  while ($ofe = odbc_fetch_array($Resultado_Consulta_Grafica_Ofertas)) {
+                    foreach ($ofe as $meses_ofe) {
+                      echo $meses_ofe.",";
+                    }
+                  }
+              ?>
+            ">
+            <input type="text" id="campos_ofertas_anterior2" value="
+              <?php
+                  //Consulta de Ofertas de Venta
+                  $Consulta_Grafica_Ofertas ="SELECT sum(T1.[TotalSumSy])AS Total FROM OQUT T0  INNER JOIN QUT1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocDate] >= '2014' AND T2.[U_CODIGO_USA]  = ".$_SESSION['Usuario_Actual']." GROUP BY month(T0.[DocDate]) ORDER BY month(T0.[DocDate])";
+                  $Resultado_Consulta_Grafica_Ofertas = odbc_exec($Conexion_SQL, $Consulta_Grafica_Ofertas);
+                  while ($ofe = odbc_fetch_array($Resultado_Consulta_Grafica_Ofertas)) {
+                    foreach ($ofe as $meses_ofe) {
+                      echo $meses_ofe.",";
+                    }
+                  }
+              ?>
+            ">
+            <input type="text" id="campos_ofertas_anterior3" value="
+              <?php
+                  //Consulta de Ofertas de Venta
+                  $Consulta_Grafica_Ofertas ="SELECT sum(T1.[TotalSumSy])AS Total FROM OQUT T0  INNER JOIN QUT1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocDate] >= '2013' AND T2.[U_CODIGO_USA]  = ".$_SESSION['Usuario_Actual']." GROUP BY month(T0.[DocDate]) ORDER BY month(T0.[DocDate])";
                   $Resultado_Consulta_Grafica_Ofertas = odbc_exec($Conexion_SQL, $Consulta_Grafica_Ofertas);
                   while ($ofe = odbc_fetch_array($Resultado_Consulta_Grafica_Ofertas)) {
                     foreach ($ofe as $meses_ofe) {
@@ -75,6 +111,10 @@ require('../assets/dashboard/header.php');?>
                 odbc_close($Conexion_SQL);  ?></p>
                 <p style="margin-top: -40px;" ><a href="../dashboard/facturas.php" class="red-text">Más Información</a></p>
             </div>
+            <input type="text" id="ofertas2016" value="<?php echo $ofertas; ?>">
+            <input type="text" id="ofertas2015" value="<?php echo $ofertas2; ?>">
+            <input type="text" id="ofertas2014" value="<?php echo $ofertas3; ?>">
+            <input type="text" id="ofertas2013" value="<?php echo $ofertas4; ?>">
           </li>
           <li>
             <div class="collapsible-header" id="ordenes_venta"><i class="material-icons">star</i>Ordenes de Ventas</div>
@@ -93,7 +133,7 @@ require('../assets/dashboard/header.php');?>
           </li>
           <li>
             <div class="collapsible-header active" id="ofertas_ventas"><i class="material-icons">star_half</i>Ofertas de Ventas</div>
-            <div class="collapsible-body" style="background-color: white;"><p>Total: <?php echo $ofertas; ?></p>
+            <div class="collapsible-body" style="background-color: white;"><p id="total_ofertas_clientes">Total: <?php echo $ofertas; ?></p>
               <p style="margin-top: -40px;"><?php //Consulta de nuevas ofertas al día
                 $Consulta_Notificacion_Ofertas ="SELECT count(T0.[DocNum]) as Total FROM OQUT T0 INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocDate] = '".date('Y/m/d')."' AND  T2.[U_CODIGO_USA] =".$_SESSION['Usuario_Actual']."";
                 $Resultado_Notificacion_Ofertas = odbc_exec($Conexion_SQL, $Consulta_Notificacion_Ofertas);
@@ -121,6 +161,17 @@ require('../assets/dashboard/header.php');?>
           </li>
         </ul>
       </div>
+      <!-- Dropdown Trigger -->
+        <a class='dropdown-button btn red darken-4' href='#' data-activates='dropdown2' id="boton"><?php echo date('Y'); ?></a>
+
+        <!-- Dropdown Structure -->
+        <ul id='dropdown2' class='dropdown-content'>
+          <li><a href="#!" id="year">2016</a></li>
+          <li><a href="#!" id="year_anterior">2015</a></li>
+          <li><a href="#!" id="year_anterior_2">2014</a></li>
+          <li><a href="#!" id="year_anterior_3">2013</a></li>
+        </ul>
+          <!-- Dropdown Trigger -->
     </div>
     <!--/Gráfica-->
     <!--Ofertas-->
@@ -192,7 +243,7 @@ require('../assets/dashboard/header.php');?>
                  </footer>
            <!--/Footer-->
   </body>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="../js/jquery-2.2.0.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
   <script type="text/javascript" src="../js/busqueda.js"></script>

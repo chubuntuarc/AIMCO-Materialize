@@ -1,8 +1,8 @@
 $(document).ready(function(){
-      var str = $('#fecha_factura').text();
+/*      var str = $('#fecha_factura').text();
           var res = str.substring(0, 17);
           document.getElementById("fecha_factura").innerHTML = res;
-
+*/
   //Variable que controla la visibilidad del modal de vista previa
   var oculto = $("#valor_escondido").val();
   //Se evalua si se puede mostrar el modal
@@ -72,8 +72,20 @@ var Mes_Facturacion_Anterior3 = Valores_Facturacion_Anterior3.split(",");  //Se 
 var fecha = new Date ();
 var mes = fecha.getMonth();
 var datos_facturas_actuales = [0,0,0,0,0,0,0,0,0,0,0,0];
-
-switch (mes) {
+var validacion = 0;
+if(Mes_Facturacion[1] > 0) validacion = 1;
+if(Mes_Facturacion[2] > 0) validacion = 2;
+if(Mes_Facturacion[3] > 0) validacion = 3;
+if(Mes_Facturacion[4] > 0) validacion = 4;
+if(Mes_Facturacion[5] > 0) validacion = 5;
+if(Mes_Facturacion[6] > 0) validacion = 6;
+if(Mes_Facturacion[7] > 0) validacion = 7;
+if(Mes_Facturacion[8] > 0) validacion = 8;
+if(Mes_Facturacion[9] > 0) validacion = 9;
+if(Mes_Facturacion[10] > 0) validacion = 10;
+if(Mes_Facturacion[11] > 0) validacion = 11;
+if(Mes_Facturacion[12] > 0) validacion = 12;
+switch (validacion) {
   case 0:
       datos_facturas_actuales = [parseFloat(Mes_Facturacion[0]),0,0,0,0,0,0,0,0,0,0,0];
     break;
@@ -144,6 +156,7 @@ $('.dropdown-button').dropdown({
     }
   );
 
+//Funciones de la muestra de graficos por año------------------------------------------------------------------------------------------------------------------
   //Funcion del botón Facturas de Clientes
   $('#year_anterior').on('click', function() {
       $('#boton').text("2015");
@@ -166,7 +179,7 @@ $('.dropdown-button').dropdown({
         var facturas20016 = document.getElementById("facturas2016").innerHTML=facturas2016;
         $('#total_facturas_clientes').text("Total: ".concat(facturas20016));
           window.myBar.destroy();
-          barChartData.datasets[0].data = [parseFloat(Mes_Facturacion[0]),0,0,0,0,0,0,0,0,0,0,0];
+          barChartData.datasets[0].data = datos_facturas_actuales;
           barChartData.datasets[0].fillColor = '#26a69a';
         var ctx = document.getElementById("canvas").getContext("2d");
             window.myBar = new Chart(ctx).Bar(barChartData, {

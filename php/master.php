@@ -77,6 +77,8 @@ $_SESSION['DC'] = 'Eric Aguayo';
 	$facturas4 = "$". number_format($Monto_Total_F13, 2);
 	odbc_close($Conexion_SQL);
 
+//Facturas por año   --------------------------------------------------------------------------------------------
+
 	//Consulta de ordenes de Venta
 	$Consulta_Monto_Ordenes ="SELECT SUM ( T2.[TotalSumSy] ) as Total FROM ORDR T0  INNER JOIN OSLP T1 ON T0.SlpCode = T1.SlpCode INNER JOIN RDR1 T2 ON T0.DocEntry = T2.DocEntry WHERE T0.[DocDate] >= '".$_SESSION["Fecha_Inicial"]."' AND  T0.[DocDate] <= '".$_SESSION["Fecha_Final"]."' AND T0.[CANCELED] = 'N' AND  T1.[U_CODIGO_USA]  = ".$_SESSION['Usuario_Actual']."";
 	$Resultado_Consulta2 = odbc_exec($Conexion_SQL, $Consulta_Monto_Ordenes);
@@ -84,12 +86,36 @@ $_SESSION['DC'] = 'Eric Aguayo';
 	$ordenes =  '$ ' . number_format($Monto_Total2, 2);
 	odbc_close($Conexion_SQL);
 
+//Ordenes por año   --------------------------------------------------------------------------------------------
 	//Consulta de ofertas de venta
 	$Consulta_Monto_Ofertas ="SELECT SUM(T1.[TotalSumSy]) AS Total FROM OQUT T0  INNER JOIN QUT1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocDate] >= '".$_SESSION["Fecha_Inicial"]."' AND  T0.[DocDate] <= '".$_SESSION["Fecha_Final"]."' AND  T2.[U_CODIGO_USA]  = ".$_SESSION['Usuario_Actual']."";
     $Resultado_Consulta3 = odbc_exec($Conexion_SQL, $Consulta_Monto_Ofertas);
     $Monto_Total3 = odbc_result($Resultado_Consulta3, "Total");
     $ofertas =  '$ ' . number_format($Monto_Total3, 2);
     odbc_close($Conexion_SQL);
+
+		//Consulta de ofertas de Clientes 2015
+		$Consulta_Monto_Ofertas_OF15 ="SELECT SUM(T1.[TotalSumSy]) AS Total FROM OQUT T0  INNER JOIN QUT1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocDate] >= '2015-01-01' AND  T0.[DocDate] <= '2015-12-31' AND  T2.[U_CODIGO_USA]  = ".$_SESSION['Usuario_Actual']."";
+	    $Resultado_Consulta3_OF15 = odbc_exec($Conexion_SQL, $Consulta_Monto_Ofertas_OF15);
+	    $Monto_Total3_OF15 = odbc_result($Resultado_Consulta3_OF15, "Total");
+	    $ofertas2 =  '$ ' . number_format($Monto_Total3_OF15, 2);
+	    odbc_close($Conexion_SQL);
+
+			//Consulta de ofertas de Clientes 2014
+			$Consulta_Monto_Ofertas_OF15 ="SELECT SUM(T1.[TotalSumSy]) AS Total FROM OQUT T0  INNER JOIN QUT1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocDate] >= '2014-01-01' AND  T0.[DocDate] <= '2014-12-31' AND  T2.[U_CODIGO_USA]  = ".$_SESSION['Usuario_Actual']."";
+		    $Resultado_Consulta3_OF15 = odbc_exec($Conexion_SQL, $Consulta_Monto_Ofertas_OF15);
+		    $Monto_Total3_OF15 = odbc_result($Resultado_Consulta3_OF15, "Total");
+		    $ofertas3 =  '$ ' . number_format($Monto_Total3_OF15, 2);
+		    odbc_close($Conexion_SQL);
+
+				//Consulta de ofertas de Clientes 2013
+				$Consulta_Monto_Ofertas_OF15 ="SELECT SUM(T1.[TotalSumSy]) AS Total FROM OQUT T0  INNER JOIN QUT1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocDate] >= '2013-01-01' AND  T0.[DocDate] <= '2013-12-31' AND  T2.[U_CODIGO_USA]  = ".$_SESSION['Usuario_Actual']."";
+			    $Resultado_Consulta3_OF15 = odbc_exec($Conexion_SQL, $Consulta_Monto_Ofertas_OF15);
+			    $Monto_Total3_OF15 = odbc_result($Resultado_Consulta3_OF15, "Total");
+			    $ofertas4 =  '$ ' . number_format($Monto_Total3_OF15, 2);
+			    odbc_close($Conexion_SQL);
+
+//Ofertas por año   --------------------------------------------------------------------------------------------
 
     //Consulta de Back Order
     $Consulta_Monto_Back ="SELECT SUM( T1.[OpenQty] *  T1.[Price]  ) as Total FROM ORDR T0  INNER JOIN RDR1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocDate] >= '".$_SESSION["Fecha_Inicial"]."' AND T0.[DocDate] <= '".$_SESSION["Fecha_Final"]."' AND   T1.[OpenQty] <> 0 AND  T2.[U_CODIGO_USA]  = ".$_SESSION['Usuario_Actual']."";
