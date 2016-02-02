@@ -1,8 +1,8 @@
 $(document).ready(function(){
-/*      var str = $('#fecha_factura').text();
+     var str = $('#fecha_factura').text();
           var res = str.substring(0, 17);
           document.getElementById("fecha_factura").innerHTML = res;
-*/
+
   //Variable que controla la visibilidad del modal de vista previa
   var oculto = $("#valor_escondido").val();
   //Se evalua si se puede mostrar el modal
@@ -122,8 +122,8 @@ switch (validacion) {
                         case 11:
                             datos_facturas_actuales = [parseFloat(Mes_Facturacion[0]),parseFloat(Mes_Facturacion[1]),parseFloat(Mes_Facturacion[2]),parseFloat(Mes_Facturacion[3]),parseFloat(Mes_Facturacion[4]),parseFloat(Mes_Facturacion[5]),parseFloat(Mes_Facturacion[6]),parseFloat(Mes_Facturacion[7]),parseFloat(Mes_Facturacion[8]),parseFloat(Mes_Facturacion[9]),parseFloat(Mes_Facturacion[10]),parseFloat(Mes_Facturacion[11])];
                           break;
-  default:
-}
+    default:
+  }
 
 var barChartData = {
   labels : ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],
