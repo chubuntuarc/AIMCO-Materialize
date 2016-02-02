@@ -51,15 +51,7 @@
           <li><i class="material-icons sesion" data-activates='dropdown1'>supervisor_account</i></li>
           <!-- Dropdown Structure -->
           <ul id='dropdown1' class='dropdown-content'>
-            <li><a href="../" onclick="logoff()">Cerrar Sesión</a></li>
-            <script>
-              function logoff()
-              {
-                  <?php
-                      session_destroy();
-                  ?>
-              }
-              </script>
+            <li><a href="../">Cerrar Sesión</a></li>
           </ul>
         </ul>
     </header>
