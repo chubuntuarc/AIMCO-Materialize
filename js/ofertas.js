@@ -38,7 +38,7 @@ $(".fila_ofertas").each(function(){
   $(".vista_previa").click(function(){
     var id_folio = $(this).attr("folio");
     $("#titulo_detalle").text("Detalle Oferta " + id_folio);
-    $.post("../php/detalle_factura.php",{"texto":id_folio});
+    $.post("../php/detalle_oferta.php",{"texto":id_folio});
     window.location.reload(true);
   });
 
