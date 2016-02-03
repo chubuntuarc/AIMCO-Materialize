@@ -105,7 +105,8 @@ header ul { list-style-type: none; ; margin-top: 3px; padding: 0; overflow: hidd
 	#aimco_header, #grafica_de_ventas,#esconde_ordenes
 	,#esconde_ofertas, #esconde_back, #grafico, #boton
 	,#fecha_detalle_factura, #cliente_detalle_factura, #cliente_detallado, #fecha_factura_busqueda,
-	#subtotal_detalle_factura, #subtotal_detalle_factura, #iva_detalle_factura, #iva_detallado, #modal5 img{
+	#subtotal_detalle_factura, #subtotal_detalle_factura, #iva_detalle_factura, #iva_detallado, #modal5 img
+	,#esconde_facturas{
 		display: none;
 	}
 	#header_global_3{
