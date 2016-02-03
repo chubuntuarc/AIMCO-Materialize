@@ -1,4 +1,12 @@
 $(document).ready(function(){
+  //Variable que controla la visibilidad del modal de vista previa
+  var oculto = $("#valor_escondido").val();
+  //Se evalua si se puede mostrar el modal
+  if (oculto == 1) {
+    $("#modal4").openModal();
+  }
+
+  $('.vista_previa').tooltip({delay: 50});
   $('.sesion').dropdown({
    inDuration: 300,
    outDuration: 225,
@@ -24,6 +32,15 @@ $(".fila_ordenes").each(function(){
      }
 
   });
+
+  //Se consigue el numero de folio de la linea seleccionada
+  $(".vista_previa").click(function(){
+    var id_folio = $(this).attr("folio");
+    $("#titulo_detalle").text("Detalle Orden " + id_folio);
+    $.post("../php/detalle_orden.php",{"texto":id_folio});
+    window.location.reload(true);
+  });
+
   });
   //Campos para la gráfica de Ordenes de Ventas 2016
   var Campos_Ordenes = document.getElementById("campos_ordenes").value;   //Cadena capturada de los input ocultos en el DOM
