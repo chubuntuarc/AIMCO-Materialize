@@ -110,7 +110,7 @@ require('../assets/dashboard/header.php');?>
                 elseif ($Registros_Facturacion == 1) {  echo $Registros_Facturacion . " Registro Nuevo"; }
                 else { echo "Sin nuevos registros"; }
                 odbc_close($Conexion_SQL);  ?></p>
-                <p style="margin-top: -40px;" ><a href="../dashboard/facturas.php" class="red-text">Más Información</a></p>
+                <p style="margin-top: -40px;" ><a href="../dashboard/facturas.php" class="red-text" id="reinicio_variable_modal">Más Información</a></p>
             </div>
             <input type="text" id="back2016" value="<?php echo $back; ?>">
             <input type="text" id="back2015" value="<?php echo $back2; ?>">
@@ -129,7 +129,7 @@ require('../assets/dashboard/header.php');?>
                 elseif ($Registros_Ordenes == 1) {  echo $Registros_Ordenes . " Registro Nuevo"; }
                 else { echo "Sin nuevos registros"; }
                odbc_close($Conexion_SQL);  ?></p>
-               <p style="margin-top: -40px;" ><a href="../dashboard/ordenes.php" class="red-text">Más Información</a></p>
+               <p style="margin-top: -40px;" ><a href="../dashboard/ordenes.php" class="red-text" id="reinicio_variable_modal">Más Información</a></p>
             </div>
           </li>
           <li>
@@ -144,7 +144,7 @@ require('../assets/dashboard/header.php');?>
                 elseif ($Registros_Facturacion == 1) {  echo $Registros_Facturacion . " Registro Nuevo"; }
                 else { echo "Sin nuevos registros"; }
                odbc_close($Conexion_SQL); ?></p>
-               <p style="margin-top: -40px;" ><a href="../dashboard/ofertas.php" class="red-text">Más Información</a></p>
+               <p style="margin-top: -40px;" ><a href="../dashboard/ofertas.php" class="red-text" id="reinicio_variable_modal">Más Información</a></p>
             </div>
           </li>
           <li>

@@ -37,8 +37,13 @@ $(".fila_ordenes").each(function(){
   $(".vista_previa").click(function(){
     var id_folio = $(this).attr("folio");
     $("#titulo_detalle").text("Detalle Orden " + id_folio);
-    $.post("../php/detalle_orden.php",{"texto":id_folio});
+    $.post("../php/detalle_factura.php",{"texto":id_folio});
     window.location.reload(true);
+  });
+
+  $("#reinicio_variable_modal").click(function(){
+    //Se reinicia la variable que controla la visualización de la pantalla modal de vista previa de facturas
+     $.post("../php/detalle_factura.php",{"reset":0});
   });
 
   });
