@@ -8,6 +8,7 @@ require('../assets/dashboard/header.php');?>
 <!DOCTYPE html>
 <html>
   <body>
+    <input type="text" id="valor_escondido" value="<?php echo $_SESSION["control_previa"]; ?>" style="display:none;">
     <!--Numeros Top-->
     <div class="row" <?php if($_SESSION['Rango'] != 3){ echo "style='display: none;'";} ?>>
       <div class="col m3 s12">
@@ -197,13 +198,14 @@ require('../assets/dashboard/header.php');?>
                   $Consulta_Nuevas_Ordenes ="SELECT T0.[DocNum], T0.[CardName],T0.[DocDate], sum(T1.[TotalSumSy]), sum(T1.[TotalSumSy]) * T1.[VatPrcnt] /100, sum(T1.[TotalSumSy]) +   sum(T1.[TotalSumSy]) * T1.[VatPrcnt] /100 FROM OQUT T0  INNER JOIN QUT1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T2.[U_CODIGO_USA] =".$_SESSION['Usuario_Actual']." GROUP BY T0.[DocNum], T0.[CardName], T1.[VatPrcnt], T0.[DocDate] order by T0.[DocDate] desc";
                   $Resultado_Consulta_Ordenes = odbc_exec($Conexion_SQL, $Consulta_Nuevas_Ordenes);
                   while (odbc_fetch_array($Resultado_Consulta_Ordenes)) {
-                    echo "<tr class='fila_ofertas' fecha='".odbc_result($Resultado_Consulta_Ordenes, 3)."'>";
+                    echo "<tr class='fila_ofertas' folio='".odbc_result($Resultado_Consulta_Ordenes, 1)."' fecha='".odbc_result($Resultado_Consulta_Ordenes, 3)."'>";
                     echo "<td class='text-left'>".odbc_result($Resultado_Consulta_Ordenes, 1)."</td>";
                     echo "<td class='text-left' id='Row'>".odbc_result($Resultado_Consulta_Ordenes, 2)."</td>";
                     echo "<td class='text-left' id='Row'>".odbc_result($Resultado_Consulta_Ordenes, 3)."</td>";
                     echo "<td class='text-left'>$".number_format(odbc_result($Resultado_Consulta_Ordenes, 4),2)."</td>";
                     echo "<td class='text-left' id='Row'>$".number_format(odbc_result($Resultado_Consulta_Ordenes, 5),2)."</td>";
                     echo "<td class='text-left'>$".number_format(odbc_result($Resultado_Consulta_Ordenes, 6),2)."</td>";
+                    echo "<td class='vista_previa' data-tooltip='Vista Previa' folio='".odbc_result($Resultado_Consulta_Ordenes, 1)."'><a class='modal-trigger 'href='#modal5'><i class='material-icons'>visibility</i></a></td>";
                     echo "</tr>";
                     }
                ?>
@@ -213,6 +215,12 @@ require('../assets/dashboard/header.php');?>
       </div>
     </div>
     <!--/Ofertas-->
+    <!-- Modal Loading -->
+    <div id="modal5" class="modal white">
+      <img src="../img/loader.gif" style="margin-left: 30%;"/>
+      <h4 style="margin-left: 20%;">Cargando Vista Previa..</h4>
+    </div>
+    <!-- /Modal Loading -->
     <!-- Modal Contacto -->
     <div id="modal2" class="modal bottom-sheet">
       <div class="modal-content">
@@ -231,6 +239,112 @@ require('../assets/dashboard/header.php');?>
       </div>
     </div>
     <!-- /Modal Información -->
+    <!-- Modal Detalle -->
+    <div id="modal4" class="modal">
+    <div class="modal-content">
+      <h5 id="titulo_detalle">Detalle Oferta No. <?php echo $_SESSION['valor_detalle']; ?></h5>
+      <div class="row">
+        <?php
+        $Consulta_Info_Detalle ="SELECT T0.[DocStatus], T0.[CardName], T1.[Currency],T0.[DocDate] FROM OQUT T0  INNER JOIN QUT1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." AND T0.[DocNum] = ".$_SESSION['valor_detalle']." GROUP BY T0.[DocNum], T0.[DocStatus], T0.[CardName], T1.[Currency],T0.[DocDate]";
+        $Resultado_Info_Detalle = odbc_exec($Conexion_SQL, $Consulta_Info_Detalle);
+        while (odbc_fetch_array($Resultado_Info_Detalle)) {
+          echo "<div class='col m12 s12'>";
+          echo "<p'>Cliente: ".odbc_result($Resultado_Info_Detalle, 2)."</p>";
+          echo "</div>";
+          echo "</div>";
+          echo "<div class='row'>";
+          echo "<div class='col m4 s4'>";
+          if (odbc_result($Resultado_Info_Detalle, 1) == 0) {
+            $estado = "Abierto";
+          }
+          else {
+            $estado = "Cerrado";
+          }
+          echo "<p id='respuesta' style='color:#2196F3;'>".$estado."</p>";
+          echo "</div>";
+          echo "<div class='col m4 s4'>";
+          echo "<p>Moneda: ".odbc_result($Resultado_Info_Detalle, 3)."</p>";
+          echo "</div>";
+          echo "<div class='col m4 s4'>";
+          echo "<p id='fecha_factura'>Fecha: ".odbc_result($Resultado_Info_Detalle, 4)."</p>";
+          echo "</div>";
+          echo "</div>";
+        }
+          ?>
+          </div>
+       <div class="row">
+        <div class="col m12 s12">
+          <table>
+            <thead>
+              <th>Artículo</th>
+              <th>Descripción</th>
+              <th>Cantidad</th>
+              <th>Precio</th>
+              <th>Importe</th>
+            </thead>
+            <tbody>
+              <?php
+              $Consulta_Detalle_Factura ="SELECT T1.[ItemCode],T1.[Dscription],T1.[Quantity],T1.[Price],T1.[Quantity]*T1.[Price] FROM OQUT T0  INNER JOIN QUT1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." AND T0.[DocNum] = ".$_SESSION['valor_detalle']."";
+              $Resultado_Detalle_Factura = odbc_exec($Conexion_SQL, $Consulta_Detalle_Factura);
+              while (odbc_fetch_array($Resultado_Detalle_Factura)) {
+                echo "<tr>";
+                echo "<td>".odbc_result($Resultado_Detalle_Factura, 1)."</td>";
+                echo "<td>".odbc_result($Resultado_Detalle_Factura, 2)."</td>";
+                echo "<td>".number_format(odbc_result($Resultado_Detalle_Factura, 3),2)."</td>";
+                echo "<td>$".number_format(odbc_result($Resultado_Detalle_Factura, 4),2)."</td>";
+                echo "<td>$".number_format(odbc_result($Resultado_Detalle_Factura, 5),2)."</td>";
+
+                echo "</tr>";
+              }
+                ?>
+            </tbody>
+          </table>
+          <br><br>
+          <table>
+            <thead>
+              <th>SubTotal</th>
+              <th>IVA</th>
+              <th>Total</th>
+            </thead>
+            <tbody>
+              <?php
+              $Consulta_Totales_Detalle ="SELECT sum(T1.[TotalSumSy] ),sum(T1.[TotalSumSy] ) * T1.[VatPrcnt]/100,sum(T1.[TotalSumSy] ) + sum(T1.[TotalSumSy] ) * T1.[VatPrcnt]/100 FROM OQUT T0  INNER JOIN QUT1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." AND T0.[DocNum] = ".$_SESSION['valor_detalle']." GROUP BY T1.[VatPrcnt]";
+              $Resultado_Totales_Detalle = odbc_exec($Conexion_SQL, $Consulta_Totales_Detalle);
+              while (odbc_fetch_array($Resultado_Totales_Detalle)) {
+                echo "<tr>";
+                echo "<td>$".number_format(odbc_result($Resultado_Totales_Detalle, 1),2)."</td>";
+                echo "<td>$".number_format(odbc_result($Resultado_Totales_Detalle, 2),2)."</td>";
+                echo "<td>$".number_format(odbc_result($Resultado_Totales_Detalle, 3),2)."</td>";
+                echo "</tr>";
+              } 
+                ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    <div class="row">
+        <div class="col m12 s12">
+          <table>
+            <thead>
+              <th>Comentarios</th>
+            </thead>
+            <tbody>
+              <?php
+            /*  $Consulta_Totales_Detalle ="SELECT T0.[Comments] FROM OQUT T0  INNER JOIN QUT1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." AND T0.[DocNum] = ".$_SESSION['valor_detalle']."";
+              $Resultado_Totales_Detalle = odbc_exec($Conexion_SQL, $Consulta_Totales_Detalle);
+              while (odbc_fetch_array($Resultado_Totales_Detalle)) {
+                echo "<tr>";
+                echo "<td>".odbc_result($Resultado_Totales_Detalle, 1)."</td>";
+                echo "</tr>";
+              }*/
+                ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- /Modal Detalle -->
     <!--Footer-->
           <footer class="page-footer grey lighten-1 ">
 
