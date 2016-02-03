@@ -38,7 +38,7 @@ require('../assets/dashboard/header.php');?>
     <!--/Numeros Top-->
   <!--Gráfica-->
   <div class="row" <?php if($_SESSION['Rango'] != 3){ echo "style='display: none;'";} ?>>
-    <div class="col m9 s12">
+    <div class="col m9 s12" id="grafica_de_ventas">
         <div class="card-panel">
           <h5 id="Titulo_Grafica">Facturas de clientes</h5>
           <canvas id="canvas" name="canvas" height="150" width="400"></canvas>
@@ -303,7 +303,7 @@ require('../assets/dashboard/header.php');?>
   </div>
   <!-- /Comedor -->
   <!-- Entrada rápida de información -->
-  <div class="row">
+  <div class="row" <?php if($_SESSION['Rango'] != 10){ echo "style='display: none;'";} ?>>
     <div class="col m4 s12">
       <div class="fixed-action-btn horizontal" style="bottom: 45px; right: 24px;">
     <a class="btn-floating btn-large red">

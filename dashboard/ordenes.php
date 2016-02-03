@@ -13,7 +13,7 @@ require('../assets/dashboard/header.php');?>
     <input type="text" id="valor_escondido" value="<?php echo $_SESSION["control_previa"]; ?>" style="display:none;">
     <!--Numeros Top-->
     <div class="row" <?php if($_SESSION['Rango'] != 3){ echo "style='display: none;'";} ?>>
-      <div class="col m3 s12">
+      <div class="col m3 s12" id="esconde_facturas">
         <div class="card-panel z-depth-3">
             <h5 style="margin-top:-10px; "><i class="material-icons left teal lighten-1 white-text" style="font-size:230%; border-radius:5px;">attach_money</i><?php echo $facturas; ?></h5>
             <p style="margin-bottom:-20px; margin-left:30%;">Total de Facturas</p>
@@ -25,13 +25,13 @@ require('../assets/dashboard/header.php');?>
             <p style="margin-bottom:-20px; margin-left:30%;">Total de Ordenes</p>
         </div>
       </div>
-      <div class="col m3 s12">
+      <div class="col m3 s12" id="esconde_ofertas">
         <div class="card-panel z-depth-3">
             <h5 style="margin-top:-10px; "><i class="material-icons left blue lighten-1 white-text" style="font-size:230%; border-radius:5px;">attach_money</i><?php echo $ofertas; ?></h5>
             <p style="margin-bottom:-20px; margin-left:30%;">Total de Ofertas</p>
         </div>
       </div>
-      <div class="col m3 s12">
+      <div class="col m3 s12" id="esconde_back">
         <div class="card-panel z-depth-3">
           <h5 style="margin-top:-10px; "><i class="material-icons left purple lighten-1 white-text" style="font-size:230%; border-radius:5px;">attach_money</i><?php echo $back; ?></h5>
             <p style="margin-bottom:-20px; margin-left:30%;">Total Back Order</p>
@@ -41,7 +41,7 @@ require('../assets/dashboard/header.php');?>
     <!--/Numeros Top-->
     <!--Gráfica-->
     <div class="row">
-      <div class="col s12 m9" id="ocultar">
+      <div class="col s12 m9" id="grafico">
         <div class="card-panel z-depth-3">
           <h5 id="Titulo_Grafica">Ordenes de Ventas</h5>
             <canvas id="canvas" height="150" width="400"></canvas>
@@ -179,7 +179,7 @@ require('../assets/dashboard/header.php');?>
     <!--/Gráfica-->
     <!--Facturas-->
     <div class="row">
-      <div class="col m12 s12">
+      <div class="col m12 s12" id="recuadro_busqueda">
         <div class="card-panel">
           <h5>Listado de ordenes</h5>
           <input type="text" name="busqueda" id="busqueda" value="" placeholder="Buscar">

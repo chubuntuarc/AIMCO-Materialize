@@ -17,19 +17,19 @@ require('../assets/dashboard/header.php');?>
             <p id="texto_facturas_superior" style="margin-bottom:-20px; margin-left:30%;">Total de Facturas</p>
         </div>
       </div>
-      <div class="col m3 s12">
+      <div class="col m3 s12" id="esconde_ordenes">
         <div class="card-panel z-depth-3">
             <h5 id="ordenes_superior" style="margin-top:-10px; "><i class="material-icons left red lighten-1 white-text" style="font-size:230%; border-radius:5px;">attach_money</i><?php echo $ordenes; ?></h5>
             <p id="texto_ordenes_superior" style="margin-bottom:-20px; margin-left:30%;">Total de Ordenes</p>
         </div>
       </div>
-      <div class="col m3 s12">
+      <div class="col m3 s12" id="esconde_ofertas">
         <div class="card-panel z-depth-3">
             <h5 id="ofertas_superior" style="margin-top:-10px; "><i class="material-icons left blue lighten-1 white-text" style="font-size:230%; border-radius:5px;">attach_money</i><?php echo $ofertas; ?></h5>
             <p id="texto_ofertas_superior" style="margin-bottom:-20px; margin-left:30%;">Total de Ofertas</p>
         </div>
       </div>
-      <div class="col m3 s12">
+      <div class="col m3 s12" id="esconde_back">
         <div class="card-panel z-depth-3">
           <h5 id="back_superior" style="margin-top:-10px; "><i class="material-icons left purple lighten-1 white-text" style="font-size:230%; border-radius:5px;">attach_money</i><?php echo $back; ?></h5>
             <p id="texto_back_superior" style="margin-bottom:-20px; margin-left:30%;">Total Back Order</p>
@@ -181,7 +181,7 @@ require('../assets/dashboard/header.php');?>
     <!--/Gráfica-->
     <!--Facturas-->
     <div class="row">
-      <div class="col m12 s12">
+      <div class="col m12 s12" id="recuadro_busqueda">
         <div class="card-panel">
           <h5>Facturas del día</h5>
           <form action="facturas.php" method="post">
@@ -191,10 +191,10 @@ require('../assets/dashboard/header.php');?>
             <thead>
               <tr>
                 <th>Documento</th>
-                <th>Cliente</th>
-                <th>Fecha</th>
-                <th>Subtotal</th>
-                <th>Iva</th>
+                <th id="cliente_detalle_factura">Cliente</th>
+                <th id="fecha_detalle_factura">Fecha</th>
+                <th id="subtotal_detalle_factura">Subtotal</th>
+                <th id="iva_detalle_factura">Iva</th>
                 <th>Total</th>
                 <th>PDF</th>
                 <th>XML</th>
@@ -208,14 +208,14 @@ require('../assets/dashboard/header.php');?>
               while (odbc_fetch_array($Resultado_Consulta_Facturas)) {
                 echo "<tr class='fila_facturas' folio='".odbc_result($Resultado_Consulta_Facturas, 1)."' fecha='".odbc_result($Resultado_Consulta_Facturas, 3)."'>";
                 echo "<td>".odbc_result($Resultado_Consulta_Facturas, 1)."</td>";
-                echo "<td>".odbc_result($Resultado_Consulta_Facturas, 2)."</td>";
+                echo "<td id='cliente_detallado'>".odbc_result($Resultado_Consulta_Facturas, 2)."</td>";
                 echo "<td id='fecha_factura_busqueda'>".odbc_result($Resultado_Consulta_Facturas, 3)."</td>";
-                echo "<td>$".number_format(odbc_result($Resultado_Consulta_Facturas, 4),2)."</td>";
-                echo "<td>$".number_format(odbc_result($Resultado_Consulta_Facturas, 5),2)."</td>";
+                echo "<td id='subtotal_detallado'>$".number_format(odbc_result($Resultado_Consulta_Facturas, 4),2)."</td>";
+                echo "<td id='iva_detallado'>$".number_format(odbc_result($Resultado_Consulta_Facturas, 5),2)."</td>";
                 echo "<td>$".number_format(odbc_result($Resultado_Consulta_Facturas, 6),2)."</td>";
                 echo "<td><a href='facturas/".odbc_result($Resultado_Consulta_Facturas, 1).".pdf' target='blank'><img style='height:20px;' src='../img/pdf.png'></a></td>";
                 echo "<td><a href='facturas/".odbc_result($Resultado_Consulta_Facturas, 1).".xml' target='blank'><img style='height:20px;' id='Icono_XML' src='../img/xml.ico'></a></td>";
-                echo "<td class='vista_previa' data-tooltip='Vista Previa' folio='".odbc_result($Resultado_Consulta_Facturas, 1)."'><a class='modal-trigger 'href='#modal5'><i class='material-icons'>visibility</i></a></td>";
+                echo "<td class='vista_previa' data-tooltip='Vista Previa' id='vista_detallada' folio='".odbc_result($Resultado_Consulta_Facturas, 1)."'><a class='modal-trigger 'href='#modal5'><i class='material-icons'>visibility</i></a></td>";
                 echo "</tr>";
                 }
                 ?>

@@ -19,16 +19,16 @@
   <body>
     <header id="menu_dashboard" class="z-depth-1">
         <ul  <?php echo "id='header_global_".$_SESSION['Rango']."'"; ?>>
-          <li><a <?php if ( basename($_SERVER['PHP_SELF']) == "index.php") {
+          <li id="aimco_header"><a <?php if ( basename($_SERVER['PHP_SELF']) == "index.php") {
             echo "class='activo' "; } ?>
              href="../dashboard">AIMCO</a></li>
           <li><a <?php if ( basename($_SERVER['PHP_SELF']) == "ventas.php") {
             echo "class='activo' "; } ?>
              href="../dashboard/ventas.php" id="ocultar" <?php if($_SESSION['Nombre_Usuario'] != $_SESSION['DC']){ echo "style='display: none;'";} ?>>Ventas</a></li>
-          <li><a <?php if ( basename($_SERVER['PHP_SELF']) == "inventario.php") {
+          <li id="inventarios_header"><a <?php if ( basename($_SERVER['PHP_SELF']) == "inventario.php") {
             echo "class='activo' "; } ?>
             href="../dashboard/inventario.php">Inventarios</a></li>
-          <li><a <?php if ( basename($_SERVER['PHP_SELF']) == "directorio.php") {
+          <li id="directorio_header"><a <?php if ( basename($_SERVER['PHP_SELF']) == "directorio.php") {
             echo "class='activo' "; } ?>
             href="../dashboard/directorio.php" >Directorio</a></li>
           <li id="menu_comedor"><a <?php if ( basename($_SERVER['PHP_SELF']) == "actualiza_comedor.php") {
@@ -40,14 +40,14 @@
           <li id="comedor"><a <?php if ( basename($_SERVER['PHP_SELF']) == "comedor.php") {
             echo "class='activo' "; } ?>
             href="../dashboard/comedor.php"<?php if($_SESSION['Rango'] < 4){ echo "style='display: none;'";} ?>>Comedor</a></li>
-          <li><a <?php if ( basename($_SERVER['PHP_SELF']) == "soporte.php") {
+          <li id="soporte_header"><a <?php if ( basename($_SERVER['PHP_SELF']) == "soporte.php") {
             echo "class='activo' "; } ?>
             href="soporte.php" >Soporte</a></li>
             <li><a href="https://www.concursolutions.com/" id="concur" <?php if($_SESSION['Rango'] != 3){ echo "style='display: none;'";} ?> target="_blank">CONCUR</a></li>
           <li><a <?php if ( basename($_SERVER['PHP_SELF']) == "config.php") {
             echo "class='activo' "; } ?>
              href="../dashboard/config.php" id="ocultar" <?php if($_SESSION['Rango'] != 10){ echo "style='display: none;'";} ?>>Configuración</a></li>
-          <li <?php if($_SESSION['Nombre_Usuario'] != $_SESSION['Recepcionista']){ echo "id='nombre_user'";}else echo "id='esconder'"; ?><?php if($_SESSION['Nombre_Usuario'] != $_SESSION['RH']){ echo "id='nombre_user'";}else echo "id='esconder'"; ?>><a><?php echo $_SESSION['Nombre_Usuario']; ?></a></li>
+          <li id="nombre_header" <?php if($_SESSION['Nombre_Usuario'] != $_SESSION['Recepcionista']){ echo "id='nombre_user'";}else echo "id='esconder'"; ?><?php if($_SESSION['Nombre_Usuario'] != $_SESSION['RH']){ echo "id='nombre_user'";}else echo "id='esconder'"; ?>><a><?php echo $_SESSION['Nombre_Usuario']; ?></a></li>
           <li><i class="material-icons sesion" data-activates='dropdown1'>supervisor_account</i></li>
           <!-- Dropdown Structure -->
           <ul id='dropdown1' class='dropdown-content'>

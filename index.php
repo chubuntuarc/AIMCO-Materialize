@@ -31,16 +31,16 @@
           <div id="modal1" class="modal">
              <div class="modal-content">
                <form class="col s12" method="post">
-                  <div class="row">
+                  <div class="row" id="acceso_sistema">
                     <h4>Acceso</h4>
                   </div>
-                  <div class="row">
+                  <div class="row" id="formulario_user">
                     <div class="input-field col s12">
                       <input id="email" name="email" type="text">
                       <label for="email">Usuario</label>
                     </div>
                   </div>
-                  <div class="row">
+                  <div class="row" id="formulario_pass">
                     <div class="input-field col s12">
                       <input id="password" name="password" type="password" class="validate">
                       <label for="password">Contraseña</label>
@@ -99,7 +99,7 @@
      </p>
    </div>
  </div>
- <div class="parallax-container">
+ <div class="parallax-container" id="bigimg2">
    <div class="parallax"><img src="img/slides/Slide2.jpg"></div>
  </div>
     <!-- Modal Contacto -->
@@ -107,7 +107,7 @@
       <div class="modal-content">
         <h5>Contacto AIMCO</h5>
         <p>Tel: (614) 380 1010</p>
-        <div id="ocultar">
+        <div id="visita">
           <h5>Visitanos</h5>
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.199177616678!2d-106.13776538539408!3d28.713592987159366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86ea421f917cbf23%3A0x4bcf5ec25750cf94!2sAIMCO+Corporation+de+Mexico+SA+de+CV!5e0!3m2!1ses-419!2smx!4v1452982282169" width="700" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>

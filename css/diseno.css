@@ -49,3 +49,65 @@ header ul { list-style-type: none; ; margin-top: 3px; padding: 0; overflow: hidd
     left: 25%;
   }
 }
+
+/*------------------------------------------------------------------------------Diseño Iphone 4 3.5"*/
+/*------------------------------------------------------------------------------Portait*/
+@media (max-width: 320px){
+	/*Acomodo del index principal*/
+	#navegacion_index{
+		position: relative;
+		left: 10%;
+	}
+	#logo, #nosotros, #bigimg2, #visita, #acceso_sistema{
+		display: none;
+	}
+	#aimco{
+		position: relative;
+		left: 7%;
+	}
+	/*Acomodo Header Ventas*/
+	#aimco_header, #inventarios_header, #soporte_header, #nombre_header, #grafica_de_ventas, #grafico, #boton, #esconde_ordenes
+	,#esconde_ofertas, #esconde_back,#fecha_detalle_factura, #cliente_detalle_factura, #cliente_detallado, #fecha_factura_busqueda,
+	#subtotal_detalle_factura, #subtotal_detalle_factura, #iva_detalle_factura, #iva_detallado, #modal5 img, #vista_detallada, #recuadro_busqueda
+	,#esconde_facturas{
+		display: none;
+	}
+	#header_global_3{
+		position: relative;
+		left: 15%;
+	}
+}
+/*------------------------------------------------------------------------------Portait*/
+/*------------------------------------------------------------------------------Landscape*/
+@media (min-width: 321px) and (max-width: 480px){
+	/*Acomodo del index principal*/
+	#navegacion_index{
+		position: relative;
+		left: 30%;
+	}
+	 #nosotros, #bigimg2, #visita, #acceso_sistema{
+		display: none;
+	}
+	#logo{
+		position: relative;
+		left: 17%;
+	}
+	#aimco{
+		position: relative;
+		left: 15%;
+	}
+	#formulario_user, #formulario_pass{
+		position: relative;
+		top: -20px;
+		margin-bottom: -10px;
+	}
+	/*Acomodo Header Ventas*/
+	#aimco_header, #grafica_de_ventas,#esconde_ordenes
+	,#esconde_ofertas, #esconde_back, #grafico, #boton
+	,#fecha_detalle_factura, #cliente_detalle_factura, #cliente_detallado, #fecha_factura_busqueda,
+	#subtotal_detalle_factura, #subtotal_detalle_factura, #iva_detalle_factura, #iva_detallado, #modal5 img{
+		display: none;
+	}
+}
+/*------------------------------------------------------------------------------Landscape*/
+/*------------------------------------------------------------------------------Diseño Iphone 4 3.5"*/
