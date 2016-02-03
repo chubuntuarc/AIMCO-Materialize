@@ -79,7 +79,7 @@ header ul { list-style-type: none; ; margin-top: 3px; padding: 0; overflow: hidd
 }
 /*------------------------------------------------------------------------------Portait*/
 /*------------------------------------------------------------------------------Landscape*/
-@media (min-width: 321px) and (max-width: 480px){
+@media (min-width: 321px) and (max-width: 568px){
 	/*Acomodo del index principal*/
 	#navegacion_index{
 		position: relative;
@@ -107,6 +107,10 @@ header ul { list-style-type: none; ; margin-top: 3px; padding: 0; overflow: hidd
 	,#fecha_detalle_factura, #cliente_detalle_factura, #cliente_detallado, #fecha_factura_busqueda,
 	#subtotal_detalle_factura, #subtotal_detalle_factura, #iva_detalle_factura, #iva_detallado, #modal5 img{
 		display: none;
+	}
+	#header_global_3{
+		position: relative;
+		left: 10%;
 	}
 }
 /*------------------------------------------------------------------------------Landscape*/
