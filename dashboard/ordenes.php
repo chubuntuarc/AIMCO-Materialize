@@ -120,7 +120,7 @@ require('../assets/dashboard/header.php');?>
           </li>
           <li>
             <div class="collapsible-header active" id="ordenes_venta"><i class="material-icons">star</i>Ordenes de Ventas</div>
-            <div class="collapsible-body" style="background-color: white;"><p>Total: <?php echo $ordenes; ?></p>
+            <div class="collapsible-body" style="background-color: white;"><p id="total_ordenes_clientes">Total: <?php echo $ordenes; ?></p>
               <p style="margin-top: -40px;"><?php //Consulta de nuevas ordenes al día
                 $Consulta_Notificacion_Ordenes ="SELECT count(T0.[DocNum]) as Total FROM ORDR T0 INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." AND  T0.[DocDate] = '".date('Y/m/d')."' AND T0.[CANCELED] = 'N'";
                 $Resultado_Notificacion_Ordenes = odbc_exec($Conexion_SQL, $Consulta_Notificacion_Ordenes);

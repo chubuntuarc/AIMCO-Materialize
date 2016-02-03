@@ -47,6 +47,42 @@ require('../assets/dashboard/header.php');?>
             <input type="text" id="campos_back_order" value="
               <?php
                   //Consulta de Back Order
+                  $Consulta_Grafica_Back_Order ="SELECT SUM( T1.[OpenQty] *  T1.[Price]  ) as Total FROM ORDR T0  INNER JOIN RDR1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocDate] >= '2016' AND  T2.[U_CODIGO_USA]  = ".$_SESSION['Usuario_Actual']." group by month(T0.[DocDate]) ORDER BY month(T0.[DocDate])";
+                  $Resultado_Consulta_Grafica_Back_Order = odbc_exec($Conexion_SQL, $Consulta_Grafica_Back_Order);
+                  while ($bac = odbc_fetch_array($Resultado_Consulta_Grafica_Back_Order)) {
+                    foreach ($bac as $meses_bac) {
+                      echo $meses_bac.",";
+                    }
+                  }
+              ?>
+            ">
+            <input type="text" id="campos_back_order_anterior" value="
+              <?php
+                  //Consulta de Back Order
+                  $Consulta_Grafica_Back_Order ="SELECT SUM( T1.[OpenQty] *  T1.[Price]  ) as Total FROM ORDR T0  INNER JOIN RDR1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocDate] >= '2015' AND  T2.[U_CODIGO_USA]  = ".$_SESSION['Usuario_Actual']." group by month(T0.[DocDate]) ORDER BY month(T0.[DocDate])";
+                  $Resultado_Consulta_Grafica_Back_Order = odbc_exec($Conexion_SQL, $Consulta_Grafica_Back_Order);
+                  while ($bac = odbc_fetch_array($Resultado_Consulta_Grafica_Back_Order)) {
+                    foreach ($bac as $meses_bac) {
+                      echo $meses_bac.",";
+                    }
+                  }
+              ?>
+            ">
+            <input type="text" id="campos_back_order_anterior2" value="
+              <?php
+                  //Consulta de Back Order
+                  $Consulta_Grafica_Back_Order ="SELECT SUM( T1.[OpenQty] *  T1.[Price]  ) as Total FROM ORDR T0  INNER JOIN RDR1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocDate] >= '2014' AND  T2.[U_CODIGO_USA]  = ".$_SESSION['Usuario_Actual']." group by month(T0.[DocDate]) ORDER BY month(T0.[DocDate])";
+                  $Resultado_Consulta_Grafica_Back_Order = odbc_exec($Conexion_SQL, $Consulta_Grafica_Back_Order);
+                  while ($bac = odbc_fetch_array($Resultado_Consulta_Grafica_Back_Order)) {
+                    foreach ($bac as $meses_bac) {
+                      echo $meses_bac.",";
+                    }
+                  }
+              ?>
+            ">
+            <input type="text" id="campos_back_order_anterior3" value="
+              <?php
+                  //Consulta de Back Order
                   $Consulta_Grafica_Back_Order ="SELECT SUM( T1.[OpenQty] *  T1.[Price]  ) as Total FROM ORDR T0  INNER JOIN RDR1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T0.[DocDate] >= '2013' AND  T2.[U_CODIGO_USA]  = ".$_SESSION['Usuario_Actual']." group by month(T0.[DocDate]) ORDER BY month(T0.[DocDate])";
                   $Resultado_Consulta_Grafica_Back_Order = odbc_exec($Conexion_SQL, $Consulta_Grafica_Back_Order);
                   while ($bac = odbc_fetch_array($Resultado_Consulta_Grafica_Back_Order)) {
@@ -75,6 +111,10 @@ require('../assets/dashboard/header.php');?>
                 odbc_close($Conexion_SQL);  ?></p>
                 <p style="margin-top: -40px;" ><a href="../dashboard/facturas.php" class="red-text">Más Información</a></p>
             </div>
+            <input type="text" id="back2016" value="<?php echo $back; ?>">
+            <input type="text" id="back2015" value="<?php echo $back2; ?>">
+            <input type="text" id="back2014" value="<?php echo $back3; ?>">
+            <input type="text" id="back2013" value="<?php echo $back4; ?>">
           </li>
           <li>
             <div class="collapsible-header" id="ordenes_venta"><i class="material-icons">star</i>Ordenes de Ventas</div>
@@ -108,7 +148,7 @@ require('../assets/dashboard/header.php');?>
           </li>
           <li>
             <div class="collapsible-header active" id="back_order"><i class="material-icons">whatshot</i>Back Order</div>
-            <div class="collapsible-body" style="background-color: white;"><p>Total: <?php echo $back; ?></p>
+            <div class="collapsible-body" style="background-color: white;"><p id="total_back_order">Total: <?php echo $back; ?></p>
             <p style="margin-top: -40px;"><?php //Consulta de nuevas registros en back order al día
               $Consulta_Notificacion_Back ="SELECT count(T0.[DocNum]) as Total FROM ORDR T0  INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." AND  T0.[DocDate] = '".date('Y/m/d')."'";
               $Resultado_Notificacion_Back = odbc_exec($Conexion_SQL, $Consulta_Notificacion_Back);
@@ -121,6 +161,17 @@ require('../assets/dashboard/header.php');?>
           </li>
         </ul>
       </div>
+      <!-- Dropdown Trigger -->
+        <a class='dropdown-button btn red darken-4' href='#' data-activates='dropdown2' id="boton"><?php echo date('Y'); ?></a>
+
+        <!-- Dropdown Structure -->
+        <ul id='dropdown2' class='dropdown-content'>
+          <li><a href="#!" id="year">2016</a></li>
+          <li><a href="#!" id="year_anterior">2015</a></li>
+          <li><a href="#!" id="year_anterior_2">2014</a></li>
+          <li><a href="#!" id="year_anterior_3">2013</a></li>
+        </ul>
+          <!-- Dropdown Trigger -->
     </div>
     <!--/Gráfica-->
     <!--Back Orders-->
