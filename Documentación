@@ -1,0 +1,74 @@
+Elementos importantes en el proyecto descrito por carpeta:
+- assets
+  - dashboard
+    - facturas : Carpeta donde se almacena todo lo relacionado al archivo facturas.php
+      - busqueda_dinamica.php : Se pretendia utilizarlo para busquedas dinamicas, aún en duda.
+      - busqueda.php : Se utiliza para realizar busqueda de facturas
+      - grafica.php : Aqui esta la gráfica que se muestra en esta pantalla.
+      - vista_previa.php : Sirve para mostrar la información de la factura seleccionada
+    - acceso_rapido.php : Este documento sirve para realizar entrada de información de manera veloz / Aun en desarrollo
+    - comedor.php : Esta es la vista donde se encuentra la opción para seleccionar el menú de la semana
+    - grafica_index.php : Esta es la gráfica dinámica que se muestra en el index del dashboard de ventas.
+    - header.php : Este elemento es implementado a lo largo del sistema, y trabaja con los elementos superiores de la página
+    - novedades: sección en la que se muestran novedades de cursos o invormación variada a los compañeros
+    - numeros_top : En esta sección se muestran los valores principales de ventas, ofertas, etc. en la parte superior del dashboard de ventas
+    - rankings : esta sección esta deshabilitada por el momento, se muestra el top de ventas por clientes
+    - registros_nuevos : Aqui se muestra la información en base a si existen nuevos registros en SAP
+    -servicios_sistemas : Esta es información exclusiva del area de sistemas
+  - modales
+    - contacto: Se muestra la información de contacto de la empresa.
+    - información : Se muestra la información del sistema
+  -boton_rojo: Este funciona para cambiar el año de las consultas del detalle de los vendedores
+  -footer: Pie de página de todo el sistemas
+
+-css
+  - diseno : Funciona en todo el sistema, aun en revision
+  - facturas : Exclusivo de facturas.PHP
+  - index : Solo funciona en el index de inicio de sesión
+  - materialize.css : Es el css del framework de diseño utilizado
+  - responsive.css : Aqui se adapta el sitio a distintos dispositivos
+
+-dashboard
+  - actualiza_comedor: En esta sección se actualiza el menu de la semana para los empleados
+  - back : Detalles de Back Order
+  - comedor: Aqui se selecciona el menu de la semana
+  - config : Se esta desarrollando para trabajar toda la información necesaria desde aqui
+  - directorio : Aqui se muestra el listado de numeros telefonicos de los empleados
+  - facturas : Detalles de facturación
+  - index: Elemento principal, es l avista inicial del dashboard
+  - inventario : Se muestra el inventario , por le momento solo de Portland
+  - ofertas : Detalles de ofertas de ventas
+  - ordenes : Detalles de ordenes de ventas
+  - power_point : Curso de Microsoft Office Power Point
+  - soporte : sección con ayuda práctica para los usuarios
+
+-documentos : Carpeta donde se almacena información de uso general
+
+-font: fuentes
+
+-fpdf : Pluggin para conversión a archivos .pdf
+
+-img : Carpeta de imagenes del sistema
+
+-js
+  - back : Script exclusivo del detalle de back order
+  - busqueda : Se implementa en busquedas dinamicas, actualmente sin uso
+  - Chart.min : Script que hace funcionar los graficos del sistema
+  - dashboard : Scripts para el index del dashboard
+  - facturacion: Script exclusivo de facturacion.PHP
+  - graficas_dashboard : Se carga la información de las graficas del index de ventas
+  - jquery-2.2.0 : JQuery
+  - materialize.min : Script propio del framework de diseño
+  - ofertas: Exclusivo de detalle de ofertas
+  - ordenes : Script de detalles de ordenes
+
+-PHP
+  - colores.php : No esta en uso, se pretende cambair el color del dashboard de manera dinamica
+  - consultas_vendedores : documento donde se almacenan las consultas a SAP por vendedor
+  - crearpdf : Documento que funciona con el plugin FPDF para crear y exportar documentos .pdf
+  - detalle_factura : Utilizado para mostrar la vista previa de los documentos
+  -master : Se pretende eliminarlo
+  - nuevo_menu : Documento que funciona para registrar el nuevo menu de la semana para los empleados
+  - sesion: Documento que guarda la sesion actual
+
+-videos : Videos que se usan en el sistema

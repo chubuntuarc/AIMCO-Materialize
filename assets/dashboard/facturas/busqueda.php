@@ -41,7 +41,7 @@
            ?>
            <?php
            if (isset($_POST['busqueda'])) {
-             $Consulta_Nuevas_Facturas ="SELECT T0.[DocNum],T0.[CardName],T0.[DocDate], sum(T1.[TotalSumSy]),sum(T1.[TotalSumSy]) * T1.[VatPrcnt] /100, sum(T1.[TotalSumSy]) * T1.[VatPrcnt] /100 + sum(T1.[TotalSumSy]) FROM OINV T0  INNER JOIN INV1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." AND T0.[DocNum] Like '%".$_POST['busqueda']."%' AND  T1.[TargetType] <> 14 GROUP BY T0.[DocNum],T0.[DocDate],T1.[VatPrcnt],T0.[CardName] order by T0.[DocNum] desc";
+             $Consulta_Nuevas_Facturas ="SELECT T0.[DocNum],T0.[CardName],T0.[DocDate], sum(T1.[TotalSumSy]),sum(T1.[TotalSumSy]) * T1.[VatPrcnt] /100, sum(T1.[TotalSumSy]) * T1.[VatPrcnt] /100 + sum(T1.[TotalSumSy]) FROM OINV T0  INNER JOIN INV1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." AND T0.[DocNum] Like '%".$_POST['busqueda']."%' AND T0.[DocDate] Like '%2016%' AND  T1.[TargetType] <> 14 GROUP BY T0.[DocNum],T0.[DocDate],T1.[VatPrcnt],T0.[CardName] order by T0.[DocNum] desc";
              $Resultado_Consulta_Facturas = odbc_exec($Conexion_SQL, $Consulta_Nuevas_Facturas);
              while (odbc_fetch_array($Resultado_Consulta_Facturas)) {
                echo "<tr class='fila_facturas' folio='".odbc_result($Resultado_Consulta_Facturas, 1)."' fecha='".odbc_result($Resultado_Consulta_Facturas, 3)."'>";
