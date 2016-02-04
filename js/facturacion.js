@@ -6,6 +6,7 @@ $(document).ready(function(){
     $("#modal4").openModal();
   }
 
+/* Estos elementos se usan cuando se activa la busqueda dinamica, y crean el filtro automatico de las facturas
   //Se obtiene la fecha del sistema para usarlo como filtro en las facturas
   Date.prototype.yyyymmdd = function() {
     var yyyy = this.getFullYear().toString();
@@ -14,17 +15,15 @@ $(document).ready(function(){
     return yyyy + "-" + (mm[1]?mm:"0"+mm[0]) + "-" + (dd[1]?dd:"0"+dd[0]); // padding
   };
   var d = new Date();
-
   //Se ejecuta el filtro de las facturas en base a la fecha actual del sistema
   $(".fila_facturas").each(function(){
        if($(this).attr("fecha") != d.yyyymmdd() + " 00:00:00.000"){
         $(this).fadeOut();
         $("#carga_facturas").css({"display": "table-row-group"});
        }
-
     });
-
   $("#carga_facturas").fadeOut();
+  */
   $('.vista_previa').tooltip({delay: 50});
   $('.sesion').dropdown({
    inDuration: 300,

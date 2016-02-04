@@ -15,6 +15,7 @@
     <input type="text" id="valor_escondido" value="<?php echo $_SESSION["control_previa"]; ?>"> <!--Input que controla la visibilidad del modal que se carga al principio-->
     <?php include('../assets/dashboard/numeros_top.php');?>                     <!--Elementos con cantidades en parte superior-->
     <?php include("../assets/dashboard/facturas/grafica.php"); ?>               <!--Gráfica de facturas-->
+    <?php include("../assets/dashboard/facturas/busqueda.php"); ?>              <!--Busqueda de Facturas-->
     <?php include("../assets/dashboard/facturas/vista_previa.php"); ?>          <!--Modal de Vista Previa de facturas-->
     <?php include("../assets/loading.php"); ?>                                  <!--Modal de carga de vista previa-->
     <?php include("../assets/modales/contacto.php"); ?>                         <!--Modal de contacto-->
