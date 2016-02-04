@@ -1,15 +1,28 @@
 $(document).ready(function(){
-  /*   Revisar el recorte de ceros en fecha de vista previa
-  var str = $('#fecha_factura').text();
-          var res = str.substring(0, 17);
-          document.getElementById("fecha_factura").innerHTML = res;
-          */
   //Variable que controla la visibilidad del modal de vista previa
   var oculto = $("#valor_escondido").val();
   //Se evalua si se puede mostrar el modal
   if (oculto == 1) {
     $("#modal4").openModal();
   }
+
+  //Se obtiene la fecha del sistema para usarlo como filtro en las facturas
+  Date.prototype.yyyymmdd = function() {
+    var yyyy = this.getFullYear().toString();
+    var mm = (this.getMonth()+1).toString(); // getMonth() is zero-based
+    var dd  = this.getDate().toString();
+    return yyyy + "-" + (mm[1]?mm:"0"+mm[0]) + "-" + (dd[1]?dd:"0"+dd[0]); // padding
+  };
+  var d = new Date();
+
+  //Se ejecuta el filtro de las facturas en base a la fecha actual del sistema
+  $(".fila_facturas").each(function(){
+       if($(this).attr("fecha") != d.yyyymmdd() + " 00:00:00.000"){
+        $(this).fadeOut();
+        $("#carga_facturas").css({"display": "table-row-group"});
+       }
+
+    });
 
   $("#carga_facturas").fadeOut();
   $('.vista_previa').tooltip({delay: 50});
@@ -23,30 +36,8 @@ $(document).ready(function(){
    alignment: 'left' // Displays dropdown with edge aligned to the left of button
  }
 );
-//Se obtiene la fecha del sistema para usarlo como filtro en las facturas
-Date.prototype.yyyymmdd = function() {
-  var yyyy = this.getFullYear().toString();
-  var mm = (this.getMonth()+1).toString(); // getMonth() is zero-based
-  var dd  = this.getDate().toString();
-  return yyyy + "-" + (mm[1]?mm:"0"+mm[0]) + "-" + (dd[1]?dd:"0"+dd[0]); // padding
-};
-var d = new Date();
-//Se ejecuta el filtro de las facturas en base a la fecha actual del sistema
-$(".fila_facturas").each(function(){
-     if($(this).attr("fecha") != d.yyyymmdd() + " 00:00:00.000"){
-      $(this).fadeOut();
-      $("#carga_facturas").css({"display": "table-row-group"});
-     }
 
-  });
 
-//Se consigue el numero de folio de la linea seleccionada
-$(".vista_previa").click(function(){
-  var id_folio = $(this).attr("folio");
-  $("#titulo_detalle").text("Detalle Factura " + id_folio);
-  $.post("../php/detalle_factura.php",{"texto":id_folio});
-  window.location.reload(true);
-});
 
 $("#reinicio_variable_modal").click(function(){
   //Se reinicia la variable que controla la visualización de la pantalla modal de vista previa de facturas
@@ -55,6 +46,14 @@ $("#reinicio_variable_modal").click(function(){
 
 });
 
+
+//Se consigue el numero de folio de la linea seleccionada
+$(".vista_previa").click(function(){
+  var id_folio = $(this).attr("folio");
+  $("#titulo_detalle").text("Detalle Factura " + id_folio);
+  $.post("../php/detalle_factura.php",{"texto":id_folio});
+  window.location.reload(true);
+});
 
 //Campos para la gráfica de Facturación
 var Campos_Facturacion = document.getElementById("campos_facturacion").value;  //Cadena capturada de los input ocultos en el DOM
