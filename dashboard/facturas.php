@@ -19,6 +19,7 @@
     <?php include("../assets/dashboard/facturas/vista_previa.php"); ?>          <!--Modal de Vista Previa de facturas-->
     <?php include("../assets/loading.php"); ?>                                  <!--Modal de carga de vista previa-->
     <?php include("../assets/modales/contacto.php"); ?>                         <!--Modal de contacto-->
+    <?php include("../assets/modales/informacion.php"); ?>                      <!--Modal de información-->
     <?php include("../assets/footer.php"); ?>                                   <!--Footer del sistema-->
   </body>
   <script src="../js/jquery-2.2.0.js"></script>                                 <!--JQUERY 2.2.0-->
