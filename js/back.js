@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
   //Variable que controla la visibilidad del modal de vista previa
   var oculto = $("#valor_escondido").val();
   //Se evalua si se puede mostrar el modal
@@ -7,8 +6,7 @@ $(document).ready(function(){
     $("#modal4").openModal();
   }
 
-$('.vista_previa').tooltip({delay: 50});
-
+  $('.vista_previa').tooltip({delay: 50});
   $('.sesion').dropdown({
    inDuration: 300,
    outDuration: 225,
@@ -19,56 +17,40 @@ $('.vista_previa').tooltip({delay: 50});
    alignment: 'left' // Displays dropdown with edge aligned to the left of button
  }
 );
-//Se obtiene la fecha del sistema para usarlo como filtro en las facturas
-Date.prototype.yyyymmdd = function() {
-  var yyyy = this.getFullYear().toString();
-  var mm = (this.getMonth()+1).toString(); // getMonth() is zero-based
-  var dd  = this.getDate().toString();
-  return yyyy + "-" + (mm[1]?mm:"0"+mm[0]) + "-" + (dd[1]?dd:"0"+dd[0]); // padding
-};
-var d = new Date();
-//Se ejecuta el filtro de las facturas en base a la fecha actual del sistema
-$(".fila_back").each(function(){
-     if($(this).attr("fecha") != d.yyyymmdd() + " 00:00:00.000"){
-      $(this).fadeOut();
-     }
 
-  });
+$("#reinicio_variable_modal").click(function(){
+   $.post("../php/detalle_factura.php",{"reset":0});                            //Se reinicia la variable que controla la visualización de la pantalla modal de vista previa de facturas
+});
 
-  //Se consigue el numero de folio de la linea seleccionada
-  $(".vista_previa").click(function(){
-    var id_folio = $(this).attr("folio");
-    $("#titulo_detalle").text("Detalle Registro " + id_folio);
-    $.post("../php/detalle_factura.php",{"texto":id_folio});
-    window.location.reload(true);
-  });
+});
 
-  $("#reinicio_variable_modal").click(function(){
-    //Se reinicia la variable que controla la visualización de la pantalla modal de vista previa de facturas
-     $.post("../php/detalle_factura.php",{"reset":0});
-  });
+//Se consigue el numero de folio de la linea seleccionada
+$(".vista_previa").click(function(){
+  var id_folio = $(this).attr("folio");
+  $("#titulo_detalle").text("Detalle Registro " + id_folio);
+  $.post("../php/detalle_factura.php",{"texto":id_folio});
+  window.location.reload(true);
+});
 
-  });
-  //Campos para la gráfica de Back Order
-  var Campos_Back_Order = document.getElementById("campos_back_order").value;   //Cadena capturada de los input ocultos en el DOM
-  var Valores_Back_Order = document.getElementById("campos_back_order").innerHTML=Campos_Back_Order;
-  var Mes_Back_Order = Valores_Back_Order.split(",");   //Se divide la cadena en partes para poder pasarlos a Float
+//Campos para la gráfica de Back Order
+var Campos_Back_Order = document.getElementById("campos_back_order").value;   //Cadena capturada de los input ocultos en el DOM
+var Valores_Back_Order = document.getElementById("campos_back_order").innerHTML=Campos_Back_Order;
+var Mes_Back_Order = Valores_Back_Order.split(",");   //Se divide la cadena en partes para poder pasarlos a Float
 
-  //Campos para la gráfica de Back Order 2015
-  var Campos_Back_Order_Anterior = document.getElementById("campos_back_order_anterior").value;   //Cadena capturada de los input ocultos en el DOM
-  var Valores_Back_Order_Anterior = document.getElementById("campos_back_order_anterior").innerHTML=Campos_Back_Order;
-  var Mes_Back_Order_Anterior = Valores_Back_Order_Anterior.split(",");   //Se divide la cadena en partes para poder pasarlos a Float
+//Campos para la gráfica de Back Order 2015
+var Campos_Back_Order_Anterior = document.getElementById("campos_back_order_anterior").value;   //Cadena capturada de los input ocultos en el DOM
+var Valores_Back_Order_Anterior = document.getElementById("campos_back_order_anterior").innerHTML=Campos_Back_Order;
+var Mes_Back_Order_Anterior = Valores_Back_Order_Anterior.split(",");   //Se divide la cadena en partes para poder pasarlos a Float
 
-  //Campos para la gráfica de Back Order 2014
-  var Campos_Back_Order_Anterior2 = document.getElementById("campos_back_order_anterior2").value;   //Cadena capturada de los input ocultos en el DOM
-  var Valores_Back_Order_Anterior2 = document.getElementById("campos_back_order_anterior2").innerHTML=Campos_Back_Order;
-  var Mes_Back_Order_Anterior2 = Valores_Back_Order_Anterior2.split(",");   //Se divide la cadena en partes para poder pasarlos a Float
+//Campos para la gráfica de Back Order 2014
+var Campos_Back_Order_Anterior2 = document.getElementById("campos_back_order_anterior2").value;   //Cadena capturada de los input ocultos en el DOM
+var Valores_Back_Order_Anterior2 = document.getElementById("campos_back_order_anterior2").innerHTML=Campos_Back_Order;
+var Mes_Back_Order_Anterior2 = Valores_Back_Order_Anterior2.split(",");   //Se divide la cadena en partes para poder pasarlos a Float
 
-  //Campos para la gráfica de Back Order 2013
-  var Campos_Back_Order_Anterior3 = document.getElementById("campos_back_order_anterior3").value;   //Cadena capturada de los input ocultos en el DOM
-  var Valores_Back_Order_Anterior3 = document.getElementById("campos_back_order_anterior3").innerHTML=Campos_Back_Order;
-  var Mes_Back_Order_Anterior3 = Valores_Back_Order_Anterior3.split(",");   //Se divide la cadena en partes para poder pasarlos a Float
-
+//Campos para la gráfica de Back Order 2013
+var Campos_Back_Order_Anterior3 = document.getElementById("campos_back_order_anterior3").value;   //Cadena capturada de los input ocultos en el DOM
+var Valores_Back_Order_Anterior3 = document.getElementById("campos_back_order_anterior3").innerHTML=Campos_Back_Order;
+var Mes_Back_Order_Anterior3 = Valores_Back_Order_Anterior3.split(",");   //Se divide la cadena en partes para poder pasarlos a Float
   var fecha = new Date ();
   var mes = fecha.getMonth ();
   var datos_back_order = [0,0,0,0,0,0,0,0,0,0,0,0];
@@ -141,10 +123,7 @@ var barChartData = {
   ]
 }
 
-var ctx = document.getElementById("canvas").getContext("2d");
-window.myBar = new Chart(ctx).Bar(barChartData, {
-  responsive : true
-});
+var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(barChartData, { responsive : true });
 
 $('.dropdown-button').dropdown({
       inDuration: 300,
@@ -158,7 +137,7 @@ $('.dropdown-button').dropdown({
   );
 
   //Funciones de la muestra de graficos por año------------------------------------------------------------------------------------------------------------------
-    //Funcion del botón Facturas de Clientes
+    //Funcion del botón Facturas de Clientes 2015
     $('#year_anterior').on('click', function() {
         $('#boton').text("2015");
         var back2015 = document.getElementById("back2015").value;   //Cadena capturada de los input ocultos en el DOM
@@ -167,13 +146,8 @@ $('.dropdown-button').dropdown({
           window.myBar.destroy();
           barChartData.datasets[0].data = [parseFloat(Mes_Back_Order_Anterior[0]),parseFloat(Mes_Back_Order_Anterior[1]),parseFloat(Mes_Back_Order_Anterior[2]),parseFloat(Mes_Back_Order_Anterior[3]),parseFloat(Mes_Back_Order_Anterior[4]),parseFloat(Mes_Back_Order_Anterior[5]),parseFloat(Mes_Back_Order_Anterior[6]),parseFloat(Mes_Back_Order_Anterior[7]),parseFloat(Mes_Back_Order_Anterior[8]),parseFloat(Mes_Back_Order_Anterior[9]),parseFloat(Mes_Back_Order_Anterior[10]),parseFloat(Mes_Back_Order_Anterior[11])];
           barChartData.datasets[0].fillColor = '#ab47bc';
-        var ctx = document.getElementById("canvas").getContext("2d");
-            window.myBar = new Chart(ctx).Bar(barChartData, {
-              responsive : true,
-         });
-      });
-
-      //Funcion del botón Facturas de Clientes
+        var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(barChartData, { responsive : true, }); });
+      //Funcion del botón Facturas de Clientes 2016
       $('#year').on('click', function() {
           $('#boton').text("2016");
           var back2016 = document.getElementById("back2016").value;   //Cadena capturada de los input ocultos en el DOM
@@ -182,13 +156,8 @@ $('.dropdown-button').dropdown({
             window.myBar.destroy();
             barChartData.datasets[0].data = datos_back_order;
             barChartData.datasets[0].fillColor = '#ab47bc';
-          var ctx = document.getElementById("canvas").getContext("2d");
-              window.myBar = new Chart(ctx).Bar(barChartData, {
-                responsive : true,
-           });
-        });
-
-        //Funcion del botón Facturas de Clientes
+          var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(barChartData, { responsive : true, }); });
+        //Funcion del botón Facturas de Clientes 2014
         $('#year_anterior_2').on('click', function() {
             $('#boton').text("2014");
             var back2014 = document.getElementById("back2014").value;   //Cadena capturada de los input ocultos en el DOM
@@ -197,13 +166,8 @@ $('.dropdown-button').dropdown({
               window.myBar.destroy();
               barChartData.datasets[0].data = [parseFloat(Mes_Back_Order_Anterior2[0]),parseFloat(Mes_Back_Order_Anterior2[1]),parseFloat(Mes_Back_Order_Anterior2[2]),parseFloat(Mes_Back_Order_Anterior2[3]),parseFloat(Mes_Back_Order_Anterior2[4]),parseFloat(Mes_Back_Order_Anterior2[5]),parseFloat(Mes_Back_Order_Anterior2[6]),parseFloat(Mes_Back_Order_Anterior2[7]),parseFloat(Mes_Back_Order_Anterior2[8]),parseFloat(Mes_Back_Order_Anterior2[9]),parseFloat(Mes_Back_Order_Anterior2[10]),parseFloat(Mes_Back_Order_Anterior2[11])];
               barChartData.datasets[0].fillColor = '#ab47bc';
-            var ctx = document.getElementById("canvas").getContext("2d");
-                window.myBar = new Chart(ctx).Bar(barChartData, {
-                  responsive : true,
-             });
-          });
-
-          //Funcion del botón Facturas de Clientes
+            var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(barChartData, { responsive : true, }); });
+          //Funcion del botón Facturas de Clientes 2013
           $('#year_anterior_3').on('click', function() {
               $('#boton').text("2013");
               var back2013 = document.getElementById("back2013").value;   //Cadena capturada de los input ocultos en el DOM
@@ -212,8 +176,4 @@ $('.dropdown-button').dropdown({
                 window.myBar.destroy();
                 barChartData.datasets[0].data = [parseFloat(Mes_Back_Order_Anterior3[0]),parseFloat(Mes_Back_Order_Anterior3[1]),parseFloat(Mes_Back_Order_Anterior3[2]),parseFloat(Mes_Back_Order_Anterior3[3]),parseFloat(Mes_Back_Order_Anterior3[4]),parseFloat(Mes_Back_Order_Anterior3[5]),parseFloat(Mes_Back_Order_Anterior3[6]),parseFloat(Mes_Back_Order_Anterior3[7]),parseFloat(Mes_Back_Order_Anterior3[8]),parseFloat(Mes_Back_Order_Anterior3[9]),parseFloat(Mes_Back_Order_Anterior3[10]),parseFloat(Mes_Back_Order_Anterior3[11])];
                 barChartData.datasets[0].fillColor = '#ab47bc';
-              var ctx = document.getElementById("canvas").getContext("2d");
-                  window.myBar = new Chart(ctx).Bar(barChartData, {
-                    responsive : true,
-               });
-            });
+              var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(barChartData, { responsive : true, }); });
