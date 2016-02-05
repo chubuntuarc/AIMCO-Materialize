@@ -10,10 +10,10 @@
         <thead>
           <tr>
             <th>Documento</th>
-            <th>Cliente</th>
-            <th>Fecha</th>
-            <th>Subtotal</th>
-            <th>Iva</th>
+            <th id="cliente_detalle_factura">Cliente</th>
+            <th id="fecha_detalle_factura">Fecha</th>
+            <th id="subtotal_detalle_factura">Subtotal</th>
+            <th id="iva_detalle_factura">Iva</th>
             <th>Total</th>
           </tr>
         </thead>
@@ -25,12 +25,12 @@
               while (odbc_fetch_array($Resultado_Consulta_Ordenes)) {
                 echo "<tr class='fila_ordenes' folio='".odbc_result($Resultado_Consulta_Ordenes, 1)."' fecha='".odbc_result($Resultado_Consulta_Ordenes, 3)."'>";
                 echo "<td class='text-left'>".odbc_result($Resultado_Consulta_Ordenes, 1)."</td>";
-                echo "<td class='text-left' id='Row'>".odbc_result($Resultado_Consulta_Ordenes, 2)."</td>";
-                echo "<td class='text-left' id='Row'>".odbc_result($Resultado_Consulta_Ordenes, 3)."</td>";
-                echo "<td class='text-left'>$".number_format(odbc_result($Resultado_Consulta_Ordenes, 4),2)."</td>";
+                echo "<td class='text-left' id='cliente_detallado'>".odbc_result($Resultado_Consulta_Ordenes, 2)."</td>";
+                echo "<td class='text-left' id='subtotal_detallado'>".odbc_result($Resultado_Consulta_Ordenes, 3)."</td>";
+                echo "<td class='text-left' id='iva_detallado'>$".number_format(odbc_result($Resultado_Consulta_Ordenes, 4),2)."</td>";
                 echo "<td class='text-left' id='Row'>$".number_format(odbc_result($Resultado_Consulta_Ordenes, 5),2)."</td>";
                 echo "<td class='text-left'>$".number_format(odbc_result($Resultado_Consulta_Ordenes, 6),2)."</td>";
-                echo "<td class='vista_previa' data-tooltip='Vista Previa' folio='".odbc_result($Resultado_Consulta_Ordenes, 1)."'><a class='modal-trigger 'href='#modal5'><i class='material-icons'>visibility</i></a></td>";
+                echo "<td class='vista_previa' data-tooltip='Vista Previa' id='vista_detallada' folio='".odbc_result($Resultado_Consulta_Ordenes, 1)."'><a class='modal-trigger 'href='#modal5'><i class='material-icons'>visibility</i></a></td>";
                 echo "</tr>";
                 }
            ?>
@@ -41,12 +41,12 @@
                while (odbc_fetch_array($Resultado_Consulta_Ordenes)) {
                  echo "<tr class='fila_ordenes' folio='".odbc_result($Resultado_Consulta_Ordenes, 1)."' fecha='".odbc_result($Resultado_Consulta_Ordenes, 3)."'>";
                  echo "<td class='text-left'>".odbc_result($Resultado_Consulta_Ordenes, 1)."</td>";
-                 echo "<td class='text-left' id='Row'>".odbc_result($Resultado_Consulta_Ordenes, 2)."</td>";
-                 echo "<td class='text-left' id='Row'>".odbc_result($Resultado_Consulta_Ordenes, 3)."</td>";
-                 echo "<td class='text-left'>$".number_format(odbc_result($Resultado_Consulta_Ordenes, 4),2)."</td>";
+                 echo "<td class='text-left' id='cliente_detallado'>".odbc_result($Resultado_Consulta_Ordenes, 2)."</td>";
+                 echo "<td class='text-left' id='subtotal_detallado'>".odbc_result($Resultado_Consulta_Ordenes, 3)."</td>";
+                 echo "<td class='text-left' id='iva_detallado'>$".number_format(odbc_result($Resultado_Consulta_Ordenes, 4),2)."</td>";
                  echo "<td class='text-left' id='Row'>$".number_format(odbc_result($Resultado_Consulta_Ordenes, 5),2)."</td>";
                  echo "<td class='text-left'>$".number_format(odbc_result($Resultado_Consulta_Ordenes, 6),2)."</td>";
-                 echo "<td class='vista_previa' data-tooltip='Vista Previa' folio='".odbc_result($Resultado_Consulta_Ordenes, 1)."'><a class='modal-trigger 'href='#modal5'><i class='material-icons'>visibility</i></a></td>";
+                 echo "<td class='vista_previa' data-tooltip='Vista Previa' id='vista_detallada' folio='".odbc_result($Resultado_Consulta_Ordenes, 1)."'><a class='modal-trigger 'href='#modal5'><i class='material-icons'>visibility</i></a></td>";
                  echo "</tr>";
                }}
             ?>

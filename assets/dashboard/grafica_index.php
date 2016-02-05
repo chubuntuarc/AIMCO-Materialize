@@ -67,7 +67,7 @@
             elseif ($Registros_Facturacion == 1) {  echo $Registros_Facturacion . " Registro Nuevo"; }
             else { echo "Sin nuevos registros"; }
             odbc_close($Conexion_SQL);  ?></p>
-            <p style="margin-top: -40px;" ><a href="../dashboard/facturas.php" class="red-text">Más Información</a></p>
+            <p style="margin-top: -40px;" ><a href="../dashboard/facturas.php" class="red-text">Más..</a></p>
         </div>
       </li>
       <li>
@@ -82,7 +82,7 @@
             elseif ($Registros_Ordenes == 1) {  echo $Registros_Ordenes . " Registro Nuevo"; }
             else { echo "Sin nuevos registros"; }
            odbc_close($Conexion_SQL);  ?></p>
-           <p style="margin-top: -40px;" ><a href="../dashboard/ordenes.php" class="red-text">Más Información</a></p>
+           <p style="margin-top: -40px;" ><a href="../dashboard/ordenes.php" class="red-text">Más..</a></p>
         </div>
       </li>
       <li>
@@ -97,7 +97,7 @@
             elseif ($Registros_Facturacion == 1) {  echo $Registros_Facturacion . " Registro Nuevo"; }
             else { echo "Sin nuevos registros"; }
            odbc_close($Conexion_SQL); ?></p>
-           <p style="margin-top: -40px;" ><a href="../dashboard/ofertas.php" class="red-text">Más Información</a></p>
+           <p style="margin-top: -40px;" ><a href="../dashboard/ofertas.php" class="red-text">Más..</a></p>
         </div>
       </li>
       <li>
@@ -111,7 +111,7 @@
           if ($Registros_Back > 1) {  echo $Registros_Back . " Registros Nuevos"; }
           elseif ($Registros_Facturacion == 1) {  echo $Registros_Facturacion . " Registro Nuevo"; }
           else { echo "Sin nuevos registros"; } ?></p>
-          <p style="margin-top: -40px;" ><a href="../dashboard/back.php" class="red-text">Más Información</a></p>
+          <p style="margin-top: -40px;" ><a href="../dashboard/back.php" class="red-text">Más..</a></p>
         </div>
       </li>
     </ul>

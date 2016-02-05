@@ -1,6 +1,6 @@
 <!--Gráfica-->
 <div class="row">
-  <div class="col s12 m9" id="ocultar">
+  <div class="col s12 m9" id="grafico">
     <div class="card-panel z-depth-3">
       <h5 id="Titulo_Grafica">Back Order</h5>
         <canvas id="canvas" height="150" width="400"></canvas>
@@ -51,4 +51,4 @@
   </div>
   <?php include('../assets/dashboard/registros_nuevos.php');?>              <!--consultas para obtener los nuevos registros  -->
   <?php include('../assets/boton_rojo.php');?>                              <!--Botón para consultar graficas de años distintos  -->
-</div>   
+</div>

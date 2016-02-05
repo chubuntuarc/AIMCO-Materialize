@@ -1,6 +1,6 @@
 <!--Gráfica-->
 <div class="row">
-  <div class="col s12 m9" id="ocultar">
+  <div class="col s12 m9" id="grafico">
     <div class="card-panel z-depth-3">
       <h5 id="Titulo_Grafica">Ofertas de Ventas</h5>
         <canvas id="canvas" height="150" width="400"></canvas>
