@@ -18,6 +18,7 @@
   <?php if($_SESSION['Rango'] != 10){ include('../assets/dashboard/novedades.php');} ?><!--Información Exclusiva sistemas-->
   <?php include("../assets/modales/contacto.php"); ?>                           <!--Modal de contacto-->
   <?php include("../assets/modales/informacion.php"); ?>                        <!--Modal de información-->
+  <?php if($_SESSION['Rango'] == 10){ include("../assets/modales/inventario.php");} ?><!--Modal de Inventario sistemas-->
   <?php include("../assets/footer.php"); ?>                                     <!--Footer del sistema-->
   </body>
   <script src="../js/jquery-2.2.0.js"></script>                                 <!--JQUERY 2.2.0-->
@@ -25,6 +26,7 @@
   <script type="text/javascript" src="../js/Chart.min.js"></script>             <!--ChartJs-->
   <script type="text/javascript" src="../js/dashboard.js"></script>             <!--Javascript Exclusivo de esta vista-->
   <?php if($_SESSION['Rango'] == 3) echo "<script type='text/javascript' src='../js/graficas_dashboard.js'></script> ";?> <!--Script de las Graficas de ventas-->
+  <?php if($_SESSION['Rango'] == 10) echo "<script type='text/javascript' src='../js/inventario.js'></script> ";?> <!--Script del Inventario de Sistemas-->
   <script type="text/javascript">
     $(document).ready(function(){
       //Se reinicia la variable que controla la visualización de la pantalla modal de vista previa de facturas
