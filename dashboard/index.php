@@ -10,11 +10,11 @@
   <body>
     <!--Se secconaron todos los elementos del sistema para poder modificarlos y trabajarlos de forma ordenada-->
   <?php if($_SESSION['Rango'] == 3){ include('../php/consultas_vendedores.php');} ?><!--consultas para obtener datos de ventas -->
+  <?php if($_SESSION['Rango'] == 10){ include('../assets/dashboard/servicios_sistemas.php');} ?><!--Información Exclusiva sistemas-->
   <?php if($_SESSION['Rango'] == 3){ include('../assets/dashboard/numeros_top.php');} ?><!--Elementos con cantidades en parte superior-->
   <?php if($_SESSION['Rango'] == 3){ include('../assets/dashboard/grafica_index.php');} ?><!--Gráfica de Barras-->
   <?php if($_SESSION['Rango'] != 3){ include('../assets/dashboard/comedor.php');} ?><!--Información sobre la comida de la semana-->
   <?php if($_SESSION['Rango'] == 10){ include('../assets/dashboard/acceso_rapido.php');} ?><!--Accesos rapidos de información-->
-  <?php if($_SESSION['Rango'] == 10){ include('../assets/dashboard/servicios_sistemas.php');} ?><!--Información Exclusiva sistemas-->
   <?php if($_SESSION['Rango'] != 10){ include('../assets/dashboard/novedades.php');} ?><!--Información Exclusiva sistemas-->
   <?php include("../assets/modales/contacto.php"); ?>                           <!--Modal de contacto-->
   <?php include("../assets/modales/informacion.php"); ?>                        <!--Modal de información-->

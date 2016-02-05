@@ -31,6 +31,7 @@
   <option value="2">General</option>
   <option value="2">Marketing</option>
   <option value="2">Procesos</option>
+  <option value="2">Recepción</option>
   <option value="2">Recursos Humanos</option>
   <option value="2">Servicio Técnico</option>
   <option value="2">Sistemas</option>
