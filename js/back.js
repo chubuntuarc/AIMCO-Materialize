@@ -132,7 +132,8 @@ var barChartData = {
 }
 
 var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(barChartData, { responsive : true ,
-scaleLabel: function(label) { return '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");  }});
+scaleLabel: function(label) { return '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");  },
+tooltipTemplate: function(label) { return '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");}});
 
 $('.dropdown-button').dropdown({
       inDuration: 300,
@@ -156,7 +157,8 @@ $('.dropdown-button').dropdown({
           barChartData.datasets[0].data = [parseFloat(Mes_Back_Order_Anterior[0]),parseFloat(Mes_Back_Order_Anterior[1]),parseFloat(Mes_Back_Order_Anterior[2]),parseFloat(Mes_Back_Order_Anterior[3]),parseFloat(Mes_Back_Order_Anterior[4]),parseFloat(Mes_Back_Order_Anterior[5]),parseFloat(Mes_Back_Order_Anterior[6]),parseFloat(Mes_Back_Order_Anterior[7]),parseFloat(Mes_Back_Order_Anterior[8]),parseFloat(Mes_Back_Order_Anterior[9]),parseFloat(Mes_Back_Order_Anterior[10]),parseFloat(Mes_Back_Order_Anterior[11])];
           barChartData.datasets[0].fillColor = '#ab47bc';
         var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(barChartData, { responsive : true,
-        scaleLabel: function(label) { return '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");  }}); });
+        scaleLabel: function(label) { return '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");  },
+      tooltipTemplate: function(label) { return '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");}}); });
       //Funcion del botón Facturas de Clientes 2016
       $('#year').on('click', function() {
           $('#boton').text("2016");
@@ -167,7 +169,8 @@ $('.dropdown-button').dropdown({
             barChartData.datasets[0].data = datos_back_order;
             barChartData.datasets[0].fillColor = '#ab47bc';
           var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(barChartData, { responsive : true,
-          scaleLabel: function(label) { return '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");  }}); });
+          scaleLabel: function(label) { return '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");  },
+        tooltipTemplate: function(label) { return '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");}}); });
         //Funcion del botón Facturas de Clientes 2014
         $('#year_anterior_2').on('click', function() {
             $('#boton').text("2014");
@@ -178,7 +181,8 @@ $('.dropdown-button').dropdown({
               barChartData.datasets[0].data = [parseFloat(Mes_Back_Order_Anterior2[0]),parseFloat(Mes_Back_Order_Anterior2[1]),parseFloat(Mes_Back_Order_Anterior2[2]),parseFloat(Mes_Back_Order_Anterior2[3]),parseFloat(Mes_Back_Order_Anterior2[4]),parseFloat(Mes_Back_Order_Anterior2[5]),parseFloat(Mes_Back_Order_Anterior2[6]),parseFloat(Mes_Back_Order_Anterior2[7]),parseFloat(Mes_Back_Order_Anterior2[8]),parseFloat(Mes_Back_Order_Anterior2[9]),parseFloat(Mes_Back_Order_Anterior2[10]),parseFloat(Mes_Back_Order_Anterior2[11])];
               barChartData.datasets[0].fillColor = '#ab47bc';
             var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(barChartData, { responsive : true,
-            scaleLabel: function(label) { return '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");  }}); });
+            scaleLabel: function(label) { return '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");  },
+          tooltipTemplate: function(label) { return '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");}}); });
           //Funcion del botón Facturas de Clientes 2013
           $('#year_anterior_3').on('click', function() {
               $('#boton').text("2013");
@@ -189,4 +193,5 @@ $('.dropdown-button').dropdown({
                 barChartData.datasets[0].data = [parseFloat(Mes_Back_Order_Anterior3[0]),parseFloat(Mes_Back_Order_Anterior3[1]),parseFloat(Mes_Back_Order_Anterior3[2]),parseFloat(Mes_Back_Order_Anterior3[3]),parseFloat(Mes_Back_Order_Anterior3[4]),parseFloat(Mes_Back_Order_Anterior3[5]),parseFloat(Mes_Back_Order_Anterior3[6]),parseFloat(Mes_Back_Order_Anterior3[7]),parseFloat(Mes_Back_Order_Anterior3[8]),parseFloat(Mes_Back_Order_Anterior3[9]),parseFloat(Mes_Back_Order_Anterior3[10]),parseFloat(Mes_Back_Order_Anterior3[11])];
                 barChartData.datasets[0].fillColor = '#ab47bc';
               var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(barChartData, { responsive : true,
-              scaleLabel: function(label) { return '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");  }}); });
+              scaleLabel: function(label) { return '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");  },
+            tooltipTemplate: function(label) { return '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");}}); });
