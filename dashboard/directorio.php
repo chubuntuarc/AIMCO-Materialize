@@ -75,8 +75,7 @@ require('../assets/dashboard/header.php');?>
                          </footer>
                    <!--/Footer-->
   </body>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-  <script type="text/javascript" src="../js/busqueda.js"></script>
-  <script type="text/javascript" src="../js/master.js"></script>
+  <script src="../js/jquery-2.2.0.js"></script>                                 <!--JQUERY 2.2.0-->
+  <script type="text/javascript" src="../js/materialize.min.js"></script>       <!--MaterializeCSS-->
+  <script type="text/javascript" src="../js/busqueda.js"></script>              <!--Buscador Dinámico-->
 </html>
