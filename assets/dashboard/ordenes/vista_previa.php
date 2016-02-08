@@ -4,11 +4,12 @@
   <h5 id="titulo_detalle">Detalle Orden No. <?php echo $_SESSION['valor_detalle']; ?></h5>
   <div class="row">
     <?php
-    $Consulta_Info_Detalle ="SELECT T0.[DocStatus], T0.[CardName],T1.[Currency],T0.[DocDate] FROM ORDR T0  INNER JOIN RDR1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." AND T0.[CANCELED] = 'N' AND T0.[DocNum] = ".$_SESSION['valor_detalle']."";
+    $Consulta_Info_Detalle ="SELECT T0.[DocStatus], T0.[CardName], T1.[Currency],T0.[DocDate] FROM ORDR T0  INNER JOIN RDR1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." AND T0.[CANCELED] = 'N' AND T0.[DocNum] = ".$_SESSION['valor_detalle']." GROUP BY T0.[DocStatus], T0.[CardName], T1.[Currency],T0.[DocDate]";
     $Resultado_Info_Detalle = odbc_exec($Conexion_SQL, $Consulta_Info_Detalle);
     while (odbc_fetch_array($Resultado_Info_Detalle)) {
       echo "<div class='col m12 s12'>";
       echo "<p'>Cliente: ".odbc_result($Resultado_Info_Detalle, 2)."</p>";
+      echo "</div>";
       echo "</div>";
       echo "<div class='row'>";
       echo "<div class='col m4 s4'>";
@@ -98,7 +99,6 @@
         </tbody>
       </table>
     </div>
-  </div>
   </div>
 </div>
 </div>
