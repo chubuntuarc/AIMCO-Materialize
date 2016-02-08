@@ -10,7 +10,6 @@
       echo "<div class='col m12 s12'>";
       echo "<p'>Cliente: ".odbc_result($Resultado_Info_Detalle, 2)."</p>";
       echo "</div>";
-      echo "</div>";
       echo "<div class='row'>";
       echo "<div class='col m4 s4'>";
       if (odbc_result($Resultado_Info_Detalle, 1) == 0) {
@@ -100,7 +99,6 @@
       </table>
     </div>
   </div>
+  </div>
 </div>
 </div>
-
-<!-- /Modal Detalle -->

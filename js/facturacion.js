@@ -1,9 +1,17 @@
 $(document).ready(function(){
   //Variable que controla la visibilidad del modal de vista previa
   var oculto = $("#valor_escondido").val();
+  //Se modifica la manera en que se muestra la fecha en la busqueda
+  var str = $(".fecha_buscador").text();
+  $('.fecha_buscador').html(str);
+  $('.fecha_buscador').html(str.substring(0,10));
   //Se evalua si se puede mostrar el modal
   if (oculto == 1) {
     $("#modal4").openModal();
+    //Se modifica la manera en que se muestra la fecha en la vista previa
+    var str = $("#fecha_factura").text();
+    $('#fecha_factura').html(str);
+    $('#fecha_factura').html(str.substring(0,17));
   }
 
   $('.vista_previa').tooltip({delay: 50});
@@ -175,22 +183,3 @@ $('.dropdown-button').dropdown({
               barChartData.datasets[0].data = [parseFloat(Mes_Facturacion_Anterior3[0]),parseFloat(Mes_Facturacion_Anterior3[1]),parseFloat(Mes_Facturacion_Anterior3[2]),parseFloat(Mes_Facturacion_Anterior3[3]),parseFloat(Mes_Facturacion_Anterior3[4]),parseFloat(Mes_Facturacion_Anterior3[5]),parseFloat(Mes_Facturacion_Anterior3[6]),parseFloat(Mes_Facturacion_Anterior3[7]),parseFloat(Mes_Facturacion_Anterior3[8]),parseFloat(Mes_Facturacion_Anterior3[9]),parseFloat(Mes_Facturacion_Anterior3[10]),parseFloat(Mes_Facturacion_Anterior3[11])];
               barChartData.datasets[0].fillColor = '#26a69a';
               var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(barChartData, { responsive : true, }); });
-
-          /* Estos elementos se usan cuando se activa la busqueda dinamica, y crean el filtro automatico de las facturas
-            //Se obtiene la fecha del sistema para usarlo como filtro en las facturas
-            Date.prototype.yyyymmdd = function() {
-              var yyyy = this.getFullYear().toString();
-              var mm = (this.getMonth()+1).toString(); // getMonth() is zero-based
-              var dd  = this.getDate().toString();
-              return yyyy + "-" + (mm[1]?mm:"0"+mm[0]) + "-" + (dd[1]?dd:"0"+dd[0]); // padding
-            };
-            var d = new Date();
-            //Se ejecuta el filtro de las facturas en base a la fecha actual del sistema
-            $(".fila_facturas").each(function(){
-                 if($(this).attr("fecha") != d.yyyymmdd() + " 00:00:00.000"){
-                  $(this).fadeOut();
-                  $("#carga_facturas").css({"display": "table-row-group"});
-                 }
-              });
-            $("#carga_facturas").fadeOut();
-            */

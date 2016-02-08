@@ -1,9 +1,17 @@
 $(document).ready(function(){
   //Variable que controla la visibilidad del modal de vista previa
   var oculto = $("#valor_escondido").val();
+  //Se modifica la manera en que se muestra la fecha en la busqueda
+  var str = $(".fecha_buscador").text();
+  $('.fecha_buscador').html(str);
+  $('.fecha_buscador').html(str.substring(0,10));
   //Se evalua si se puede mostrar el modal
   if (oculto == 1) {
     $("#modal4").openModal();
+    //Se modifica la manera en que se muestra la fecha en la vista previa
+    var str = $("#fecha_factura").text();
+    $('#fecha_factura').html(str);
+    $('#fecha_factura').html(str.substring(0,17));
   }
 
   $('.vista_previa').tooltip({delay: 50});

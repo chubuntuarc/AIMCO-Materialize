@@ -29,7 +29,7 @@
            echo "<tr class='fila_facturas' folio='".odbc_result($Resultado_Consulta_Facturas, 1)."' fecha='".odbc_result($Resultado_Consulta_Facturas, 3)."'>";
            echo "<td>".odbc_result($Resultado_Consulta_Facturas, 1)."</td>";
            echo "<td id='cliente_detallado'>".odbc_result($Resultado_Consulta_Facturas, 2)."</td>";
-           echo "<td id='fecha_factura_busqueda'>".odbc_result($Resultado_Consulta_Facturas, 3)."</td>";
+           echo "<td class='fecha_buscador' id='fecha_factura_busqueda'>".odbc_result($Resultado_Consulta_Facturas, 3)."</td>";
            echo "<td id='subtotal_detallado'>$".number_format(odbc_result($Resultado_Consulta_Facturas, 4),2)."</td>";
            echo "<td id='iva_detallado'>$".number_format(odbc_result($Resultado_Consulta_Facturas, 5),2)."</td>";
            echo "<td>$".number_format(odbc_result($Resultado_Consulta_Facturas, 6),2)."</td>";
@@ -47,7 +47,7 @@
                echo "<tr class='fila_facturas' folio='".odbc_result($Resultado_Consulta_Facturas, 1)."' fecha='".odbc_result($Resultado_Consulta_Facturas, 3)."'>";
                echo "<td>".odbc_result($Resultado_Consulta_Facturas, 1)."</td>";
                echo "<td id='cliente_detallado'>".odbc_result($Resultado_Consulta_Facturas, 2)."</td>";
-               echo "<td id='fecha_factura_busqueda'>".odbc_result($Resultado_Consulta_Facturas, 3)."</td>";
+               echo "<td class='fecha_buscador' id='fecha_factura_busqueda'>".odbc_result($Resultado_Consulta_Facturas, 3)."</td>";
                echo "<td id='subtotal_detallado'>$".number_format(odbc_result($Resultado_Consulta_Facturas, 4),2)."</td>";
                echo "<td id='iva_detallado'>$".number_format(odbc_result($Resultado_Consulta_Facturas, 5),2)."</td>";
                echo "<td>$".number_format(odbc_result($Resultado_Consulta_Facturas, 6),2)."</td>";

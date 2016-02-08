@@ -26,7 +26,7 @@
                 echo "<tr class='fila_back' folio='".odbc_result($Resultado_Consulta_Ordenes, 1)."' fecha='".odbc_result($Resultado_Consulta_Ordenes, 3)."'>";
                 echo "<td class='text-left'>".odbc_result($Resultado_Consulta_Ordenes, 1)."</td>";
                 echo "<td class='text-left' id='cliente_detallado'>".odbc_result($Resultado_Consulta_Ordenes, 2)."</td>";
-                echo "<td class='text-left' id='fecha_factura_busqueda'>".odbc_result($Resultado_Consulta_Ordenes, 3)."</td>";
+                echo "<td class='fecha_buscador' id='fecha_factura_busqueda'>".odbc_result($Resultado_Consulta_Ordenes, 3)."</td>";
                 echo "<td class='text-left' id='subtotal_detallado'>$".number_format(odbc_result($Resultado_Consulta_Ordenes, 4),2)."</td>";
                 echo "<td class='text-left' id='iva_detallado'>$".number_format(odbc_result($Resultado_Consulta_Ordenes, 5),2)."</td>";
                 echo "<td class='text-left'>$".number_format(odbc_result($Resultado_Consulta_Ordenes, 6),2)."</td>";
@@ -42,7 +42,7 @@
                  echo "<tr class='fila_back' folio='".odbc_result($Resultado_Consulta_Ordenes, 1)."' fecha='".odbc_result($Resultado_Consulta_Ordenes, 3)."'>";
                  echo "<td class='text-left'>".odbc_result($Resultado_Consulta_Ordenes, 1)."</td>";
                  echo "<td class='text-left' id='cliente_detallado'>".odbc_result($Resultado_Consulta_Ordenes, 2)."</td>";
-                 echo "<td class='text-left' id='fecha_factura_busqueda'>".odbc_result($Resultado_Consulta_Ordenes, 3)."</td>";
+                 echo "<td class='fecha_buscador' id='fecha_factura_busqueda'>".odbc_result($Resultado_Consulta_Ordenes, 3)."</td>";
                  echo "<td class='text-left' id='subtotal_detallado'>$".number_format(odbc_result($Resultado_Consulta_Ordenes, 4),2)."</td>";
                  echo "<td class='text-left' id='iva_detallado'>$".number_format(odbc_result($Resultado_Consulta_Ordenes, 5),2)."</td>";
                  echo "<td class='text-left'>$".number_format(odbc_result($Resultado_Consulta_Ordenes, 6),2)."</td>";
