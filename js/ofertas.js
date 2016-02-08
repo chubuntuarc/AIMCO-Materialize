@@ -131,9 +131,8 @@ var barChartData = {
 }
 
 var ctx = document.getElementById("canvas").getContext("2d");
-window.myBar = new Chart(ctx).Bar(barChartData, {
-  responsive : true
-});
+window.myBar = new Chart(ctx).Bar(barChartData, { responsive : true ,
+scaleLabel: function(label) { return '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");  }});
 
 $('.dropdown-button').dropdown({
       inDuration: 300,
@@ -156,7 +155,8 @@ $('#year_anterior').on('click', function() {
       window.myBar.destroy();
       barChartData.datasets[0].data = [parseFloat(Mes_Ofertas_Anterior[0]),parseFloat(Mes_Ofertas_Anterior[1]),parseFloat(Mes_Ofertas_Anterior[2]),parseFloat(Mes_Ofertas_Anterior[3]),parseFloat(Mes_Ofertas_Anterior[4]),parseFloat(Mes_Ofertas_Anterior[5]),parseFloat(Mes_Ofertas_Anterior[6]),parseFloat(Mes_Ofertas_Anterior[7]),parseFloat(Mes_Ofertas_Anterior[8]),parseFloat(Mes_Ofertas_Anterior[9]),parseFloat(Mes_Ofertas_Anterior[10]),parseFloat(Mes_Ofertas_Anterior[11])];
       barChartData.datasets[0].fillColor = '#42A5F5';
-    var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(barChartData, { responsive : true, }); });
+    var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(barChartData, { responsive : true,
+    scaleLabel: function(label) { return '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");  }}); });
   //Funcion del botón Facturas de Clientes
   $('#year').on('click', function() {
       $('#boton').text("2016");
@@ -166,7 +166,8 @@ $('#year_anterior').on('click', function() {
         window.myBar.destroy();
         barChartData.datasets[0].data = datos_ofertas_actuales;
         barChartData.datasets[0].fillColor = '#42A5F5';
-    var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(barChartData, { responsive : true, }); });
+    var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(barChartData, { responsive : true,
+    scaleLabel: function(label) { return '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");  }}); });
     //Funcion del botón Facturas de Clientes
     $('#year_anterior_2').on('click', function() {
         $('#boton').text("2014");
@@ -176,7 +177,8 @@ $('#year_anterior').on('click', function() {
           window.myBar.destroy();
           barChartData.datasets[0].data = [parseFloat(Mes_Ofertas_Anterior2[0]),parseFloat(Mes_Ofertas_Anterior2[1]),parseFloat(Mes_Ofertas_Anterior2[2]),parseFloat(Mes_Ofertas_Anterior2[3]),parseFloat(Mes_Ofertas_Anterior2[4]),parseFloat(Mes_Ofertas_Anterior2[5]),parseFloat(Mes_Ofertas_Anterior2[6]),parseFloat(Mes_Ofertas_Anterior2[7]),parseFloat(Mes_Ofertas_Anterior2[8]),parseFloat(Mes_Ofertas_Anterior2[9]),parseFloat(Mes_Ofertas_Anterior2[10]),parseFloat(Mes_Ofertas_Anterior2[11])];
           barChartData.datasets[0].fillColor = '#42A5F5';
-        var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(barChartData, { responsive : true, }); });
+        var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(barChartData, { responsive : true,
+        scaleLabel: function(label) { return '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");  }}); });
       //Funcion del botón Facturas de Clientes
       $('#year_anterior_3').on('click', function() {
           $('#boton').text("2013");
@@ -186,4 +188,5 @@ $('#year_anterior').on('click', function() {
             window.myBar.destroy();
             barChartData.datasets[0].data = [parseFloat(Mes_Ofertas_Anterior3[0]),parseFloat(Mes_Ofertas_Anterior3[1]),parseFloat(Mes_Ofertas_Anterior3[2]),parseFloat(Mes_Ofertas_Anterior3[3]),parseFloat(Mes_Ofertas_Anterior3[4]),parseFloat(Mes_Ofertas_Anterior3[5]),parseFloat(Mes_Ofertas_Anterior3[6]),parseFloat(Mes_Ofertas_Anterior3[7]),parseFloat(Mes_Ofertas_Anterior3[8]),parseFloat(Mes_Ofertas_Anterior3[9]),parseFloat(Mes_Ofertas_Anterior3[10]),parseFloat(Mes_Ofertas_Anterior3[11])];
             barChartData.datasets[0].fillColor = '#42A5F5';
-          var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(barChartData, { responsive : true, }); });
+          var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(barChartData, { responsive : true,
+          scaleLabel: function(label) { return '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");  } }); });

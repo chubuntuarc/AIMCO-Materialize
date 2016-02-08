@@ -103,29 +103,34 @@ $(document).ready(function(){
                          data : datos_facturas_actuales }]}                     //Datos que se cargaran en la gráfica
                            //Los valores dentro de "data", son los que se obtienen con el split() de la variable Valores_Facturacion
                            //Deben convertirse a Float para respetar el punto decimal, no pueden ir campos tipo String dentro
-         var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(inicial, {responsive : true}); //Se muestra la gráfica inicial en el dashboard
+         var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(inicial, {responsive : true ,
+           scaleLabel: function(label) { return '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");  }}); //Se muestra la gráfica inicial en el dashboard
          $('#facturas_clientes').on('click', function() {                       //Funcion del botón Facturas de Clientes
            $('#Titulo_Grafica').text("Facturas de Clientes");                   //Se cambia el titulo de la gráfica
              window.myBar.destroy();                                            //Se destruye la gráfica anterior para crear una nueva
              inicial.datasets[0].data = datos_facturas_actuales;                //Se cargan a la nueva gráfica los datos de la facturación
              inicial.datasets[0].fillColor = '#26a69a';                         //Se pintan las barras del color indicado
-             var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(inicial, {responsive : true}); }); //Se crea la nueva gráfica
+             var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(inicial, {responsive : true ,
+             scaleLabel: function(label) { return '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");  }}); }); //Se crea la nueva gráfica
          $('#ordenes_venta').on('click', function(){                            //Funcion del botón Ordenes de Venta
            $('#Titulo_Grafica').text("Ordenes de Venta");                       //Se cambia el titulo de la gráfica
            window.myBar.destroy();                                              //Se destruye la gráfica anterior para crear una nueva
            inicial.datasets[0].data = datos_ordenes_actuales;                   //Se cargan a la nueva gráfica los datos de las ordenes
            inicial.datasets[0].fillColor = '#EF5350';                           //Se pintan las barras del color indicado
-           var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(inicial, {responsive : true}); }); //Se crea la nueva gráfica
+           var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(inicial, {responsive : true ,
+           scaleLabel: function(label) { return '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");  }}); }); //Se crea la nueva gráfica
          $('#ofertas_ventas').on('click', function(){                           //Funcion del botón Ofertas de Venta
              $('#Titulo_Grafica').text("Ofertas de Venta");                     //Se cambia el titulo de la gráfica
              window.myBar.destroy();                                            //Se destruye la gráfica anterior para crear una nueva
              inicial.datasets[0].data = datos_ofertas_actuales;                 //Se cargan a la nueva gráfica los datos de las ofertas
              inicial.datasets[0].fillColor = '#42A5F5';                         //Se pintan las barras del color indicado
-             var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(inicial, {responsive : true}); }); //Se crea la nueva gráfica
+             var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(inicial, {responsive : true ,
+             scaleLabel: function(label) { return '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");  }}); }); //Se crea la nueva gráfica
          $('#back_order').on('click', function(){                               //Funcion del botón Back Order
              $('#Titulo_Grafica').text("Back Order");                           //Se cambia el titulo de la gráfica
              window.myBar.destroy();                                            //Se destruye la gráfica anterior para crear una nueva
              inicial.datasets[0].data = datos_back_actuales;                    //Se cargan a la nueva gráfica los datos de Back Order
              inicial.datasets[0].fillColor = '#ab47bc';                         //Se pintan las barras del color indicado
-             var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(inicial, {responsive : true}); }); //Se crea la nueva gráfica
+             var ctx = document.getElementById("canvas").getContext("2d"); window.myBar = new Chart(ctx).Bar(inicial, {responsive : true ,
+             scaleLabel: function(label) { return '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");  }}); }); //Se crea la nueva gráfica
 });
