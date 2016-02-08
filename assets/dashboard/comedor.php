@@ -21,7 +21,7 @@
             <p><?php
             switch ($_SESSION['Nombre_Usuario']) {
               case 'Jesus Govea':
-                echo "Sábado 06 de Febrero de 2016";
+                echo "Realizado el 09 de Febrero de 2016";
                 break;
                 case 'Veronica Murillo':
                   echo "Realizado el Sábado 30 de Enero de 2016";
@@ -33,13 +33,13 @@
                       echo "Realizado el  Sábado 30 de Enero de 2016";
                       break;
                       case 'Jorge Cuellar':
-                        echo "Sábado 06 de Febrero de 2016";
+                        echo "Realizado el 08 de Febrero de 2016";
                         break;
                         case 'Said Hernandez':
-                          echo "Sábado 06 de Febrero de 2016";
+                          echo "Realizado el 06 de Febrero de 2016";
                           break;
                           case 'Bibiana Poumian':
-                            echo "Sábado 06 de Febrero de 2016";
+                            echo "Realizado el 06 de Febrero de 2016";
                             break;
                             case 'Cesar Correa':
                               echo "Sábado 13 de Febrero de 2016";

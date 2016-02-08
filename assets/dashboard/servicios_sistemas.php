@@ -120,8 +120,25 @@
         <th>ID</th>
         <th>Nombre</th>
         <th>Categoría</th>
+        <th>Departamento</th>
         <th>Cantidad</th>
       </thead>
+      <tbody>
+        <?php
+        $sql = "";
+        $sql = mysql_query("SELECT * FROM inventario_sistemas ORDER BY categoria asc ", $_SESSION['conn']);
+        while($rs=mysql_fetch_array($sql))
+            {
+              echo "<tr>";
+              echo "<td>".$rs[0]."</td>";
+              echo "<td>".$rs[1]."</td>";
+              echo "<td>".$rs[2]."</td>";
+              echo "<td>".$rs[3]."</td>";
+              echo "<td>".$rs[4]."</td>";
+              echo "</tr>";
+            }
+          ?>
+      </tbody>
     </table>
   </div>
 </div>
