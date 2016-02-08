@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="../css/facturas.css" media="screen" title="no title" charset="utf-8"><!--Stylesheet Exclusivo de Ordenes.php-->
+  <link rel="stylesheet" href="../css/ordenes.css" media="screen" title="no title" charset="utf-8"><!--Stylesheet Exclusivo de Ordenes.php-->
 </head>
   <body>
     <input type="text" id="valor_escondido" value="<?php echo $_SESSION["control_previa"]; ?>"> <!--Input que controla la visibilidad del modal que se carga al principio-->

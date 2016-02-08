@@ -18,7 +18,7 @@ $(document).ready(function(){
  }
 );
 
-$("#reinicio_variable_modal").click(function(){
+$(".reinicio_variable_modal").click(function(){
    $.post("../php/detalle_factura.php",{"reset":0});                            //Se reinicia la variable que controla la visualización de la pantalla modal de vista previa de facturas
 });
 

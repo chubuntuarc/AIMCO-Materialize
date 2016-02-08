@@ -40,7 +40,7 @@
       </ul>
     </header>
     <nav id="tiulo_pagina">
-      <div  <?php echo $_SESSION['Color_Header'];?>>
+      <div class="black">
         <img src="../img/logo.png" id="logo">
           <a href="../dashboard" id="aimco">AIMCO Corporation de México</a>
       </div>
