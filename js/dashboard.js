@@ -12,4 +12,24 @@ $(document).ready(function(){
   });
   //Elemento que hace funcionar los modales
   $('.modal-trigger').leanModal();
+
+});
+$("#tipo_movimiento").change(function() {
+  if ($("#tipo_movimiento option:selected").text() == "Baja") {
+    $("#nombre_articulo").fadeOut();
+    $("#categoria_articulo").fadeOut();
+  }
+  else {
+    $("#nombre_articulo").fadeIn();
+    $("#categoria_articulo").fadeIn();
+  }
+});
+
+$("#seleccion_de_articulo").change(function() {
+  if ($("#seleccion_de_articulo option:selected").text() == "Nuevo") {
+    $("#nombre_articulo").fadeIn();
+  }
+  else {
+    $("#nombre_articulo").fadeOut();
+  }
 });
