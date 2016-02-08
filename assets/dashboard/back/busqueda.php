@@ -36,7 +36,7 @@
            ?>
            <?php
                if (isset($_POST['busqueda'])) {
-               $Consulta_Nuevas_Ordenes ="SELECT T0.[DocNum], T0.[CardName],T0.[DocDate], sum(T1.[TotalSumSy]), sum(T1.[TotalSumSy]) * T1.[VatPrcnt] /100, sum(T1.[TotalSumSy]) +  sum(T1.[TotalSumSy]) * T1.[VatPrcnt]/100 FROM ORDR T0  INNER JOIN RDR1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." AND T0.[DocNum] Like '%".$_POST['busqueda']."%' AND T0.[DocDate] Like '%2016%' AND T1.[OpenQty] <> 0 GROUP BY T0.[DocNum],T0.[CardName], T1.[VatPrcnt], T0.[DocDate] order by T0.[DocDate] desc";
+               $Consulta_Nuevas_Ordenes ="SELECT T0.[DocNum], T0.[CardName],T0.[DocDate], sum(T1.[TotalSumSy]), sum(T1.[TotalSumSy]) * T1.[VatPrcnt] /100, sum(T1.[TotalSumSy]) +  sum(T1.[TotalSumSy]) * T1.[VatPrcnt]/100 FROM ORDR T0  INNER JOIN RDR1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN OSLP T2 ON T0.SlpCode = T2.SlpCode WHERE T2.[U_CODIGO_USA] = ".$_SESSION['Usuario_Actual']." AND T0.[DocNum] Like '%".$_POST['busqueda']."%' AND T1.[OpenQty] <> 0 GROUP BY T0.[DocNum],T0.[CardName], T1.[VatPrcnt], T0.[DocDate] order by T0.[DocDate] desc";
                $Resultado_Consulta_Ordenes = odbc_exec($Conexion_SQL, $Consulta_Nuevas_Ordenes);
                while (odbc_fetch_array($Resultado_Consulta_Ordenes)) {
                  echo "<tr class='fila_back' folio='".odbc_result($Resultado_Consulta_Ordenes, 1)."' fecha='".odbc_result($Resultado_Consulta_Ordenes, 3)."'>";
