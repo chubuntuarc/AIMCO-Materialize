@@ -149,8 +149,21 @@ $('.dropdown-button').dropdown({
   $('#year_anterior').on('click', function() {
       $('#boton').text("2015");
       var facturas2015 = document.getElementById("facturas2015").value;   //Cadena capturada de los input ocultos en el DOM
-      var facturas20015 = document.getElementById("facturas2015").innerHTML=facturas2015;
-      $('#total_facturas_clientes').text("Total: ".concat(facturas20015));
+      $('#total_facturas_clientes').text("Total: ".concat(facturas2015));
+      //Cambio de valores en base al año en boton rojo
+      var facturas2015 = document.getElementById("facturas2015").value;   //Cadena capturada de los input ocultos en el DOM
+      $('#numero_top_facturas').html("<h5 style='margin-top:-10px;'><i class='material-icons left teal lighten-1 white-text' style='font-size:230%; border-radius:5px;'>attach_money</i>".concat(facturas2015).concat("</h5>"));          //Se cambia el valor de numero top facturas
+      $('#numero_top_facturas_total').html("<p style='margin-bottom:-20px; margin-left:30%;'>Total de Facturas 2015</p>");          //Se cambia el valor del texto en base al año
+      var ordenes2015 = document.getElementById("ordenes2015").value;   //Cadena capturada de los input ocultos en el DOM
+      $('#numero_top_ordenes').html("<h5 style='margin-top:-10px;'><i class='material-icons left red lighten-1 white-text' style='font-size:230%; border-radius:5px;'>attach_money</i>".concat(ordenes2015).concat("</h5>"));          //Se cambia el valor de numero top facturas
+      $('#numero_top_ordenes_total').html("<p style='margin-bottom:-20px; margin-left:30%;'>Total de Ordenes 2015</p>");          //Se cambia el valor del texto en base al año
+      var ofertas2015 = document.getElementById("ofertas2015").value;   //Cadena capturada de los input ocultos en el DOM
+      $('#numero_top_ofertas').html("<h5 style='margin-top:-10px;'><i class='material-icons left blue lighten-1 white-text' style='font-size:230%; border-radius:5px;'>attach_money</i>".concat(ofertas2015).concat("</h5>"));          //Se cambia el valor de numero top facturas
+      $('#numero_top_ofertas_total').html("<p style='margin-bottom:-20px; margin-left:30%;'>Total de Ofertas 2015</p>");          //Se cambia el valor del texto en base al año
+      var back2015 = document.getElementById("back2015").value;   //Cadena capturada de los input ocultos en el DOM
+      $('#numero_top_back').html("<h5 style='margin-top:-10px;'><i class='material-icons left purple lighten-1 white-text' style='font-size:230%; border-radius:5px;'>attach_money</i>".concat(back2015).concat("</h5>"));          //Se cambia el valor de numero top facturas
+      $('#numero_top_back_total').html("<p style='margin-bottom:-20px; margin-left:30%;'>Total de Back Order 2015</p>");          //Se cambia el valor del texto en base al año
+      //*************************************************************************
         window.myBar.destroy();
         barChartData.datasets[0].data = [parseFloat(Mes_Facturacion_Anterior[0]),parseFloat(Mes_Facturacion_Anterior[1]),parseFloat(Mes_Facturacion_Anterior[2]),parseFloat(Mes_Facturacion_Anterior[3]),parseFloat(Mes_Facturacion_Anterior[4]),parseFloat(Mes_Facturacion_Anterior[5]),parseFloat(Mes_Facturacion_Anterior[6]),parseFloat(Mes_Facturacion_Anterior[7]),parseFloat(Mes_Facturacion_Anterior[8]),parseFloat(Mes_Facturacion_Anterior[9]),parseFloat(Mes_Facturacion_Anterior[10]),parseFloat(Mes_Facturacion_Anterior[11])];
         barChartData.datasets[0].fillColor = '#26a69a';
@@ -161,8 +174,21 @@ $('.dropdown-button').dropdown({
     $('#year').on('click', function() {
         $('#boton').text("2016");
         var facturas2016 = document.getElementById("facturas2016").value;   //Cadena capturada de los input ocultos en el DOM
-        var facturas20016 = document.getElementById("facturas2016").innerHTML=facturas2016;
-        $('#total_facturas_clientes').text("Total: ".concat(facturas20016));
+        $('#total_facturas_clientes').text("Total: ".concat(facturas2016));
+        //Cambio de valores en base al año en boton rojo
+        var facturas2016 = document.getElementById("facturas2016").value;   //Cadena capturada de los input ocultos en el DOM
+        $('#numero_top_facturas').html("<h5 style='margin-top:-10px;'><i class='material-icons left teal lighten-1 white-text' style='font-size:230%; border-radius:5px;'>attach_money</i>".concat(facturas2016).concat("</h5>"));          //Se cambia el valor de numero top facturas
+        $('#numero_top_facturas_total').html("<p style='margin-bottom:-20px; margin-left:30%;'>Total de Facturas</p>");          //Se cambia el valor del texto en base al año
+        var ordenes2016 = document.getElementById("ordenes2016").value;   //Cadena capturada de los input ocultos en el DOM
+        $('#numero_top_ordenes').html("<h5 style='margin-top:-10px;'><i class='material-icons left red lighten-1 white-text' style='font-size:230%; border-radius:5px;'>attach_money</i>".concat(ordenes2016).concat("</h5>"));          //Se cambia el valor de numero top facturas
+        $('#numero_top_ordenes_total').html("<p style='margin-bottom:-20px; margin-left:30%;'>Total de Ordenes</p>");          //Se cambia el valor del texto en base al año
+        var ofertas2016 = document.getElementById("ofertas2016").value;   //Cadena capturada de los input ocultos en el DOM
+        $('#numero_top_ofertas').html("<h5 style='margin-top:-10px;'><i class='material-icons left blue lighten-1 white-text' style='font-size:230%; border-radius:5px;'>attach_money</i>".concat(ofertas2016).concat("</h5>"));          //Se cambia el valor de numero top facturas
+        $('#numero_top_ofertas_total').html("<p style='margin-bottom:-20px; margin-left:30%;'>Total de Ofertas</p>");          //Se cambia el valor del texto en base al año
+        var back2016 = document.getElementById("back2016").value;   //Cadena capturada de los input ocultos en el DOM
+        $('#numero_top_back').html("<h5 style='margin-top:-10px;'><i class='material-icons left purple lighten-1 white-text' style='font-size:230%; border-radius:5px;'>attach_money</i>".concat(back2016).concat("</h5>"));          //Se cambia el valor de numero top facturas
+        $('#numero_top_back_total').html("<p style='margin-bottom:-20px; margin-left:30%;'>Total de Back Order</p>");          //Se cambia el valor del texto en base al año
+        //*************************************************************************
           window.myBar.destroy();
           barChartData.datasets[0].data = datos_facturas_actuales;
           barChartData.datasets[0].fillColor = '#26a69a';
@@ -173,8 +199,21 @@ $('.dropdown-button').dropdown({
       $('#year_anterior_2').on('click', function() {
           $('#boton').text("2014");
           var facturas2014 = document.getElementById("facturas2014").value;   //Cadena capturada de los input ocultos en el DOM
-          var facturas20014 = document.getElementById("facturas2014").innerHTML=facturas2014;
-          $('#total_facturas_clientes').text("Total: ".concat(facturas20014));
+          $('#total_facturas_clientes').text("Total: ".concat(facturas2014));
+          //Cambio de valores en base al año en boton rojo
+          var facturas2014 = document.getElementById("facturas2014").value;   //Cadena capturada de los input ocultos en el DOM
+          $('#numero_top_facturas').html("<h5 style='margin-top:-10px;'><i class='material-icons left teal lighten-1 white-text' style='font-size:230%; border-radius:5px;'>attach_money</i>".concat(facturas2014).concat("</h5>"));          //Se cambia el valor de numero top facturas
+          $('#numero_top_facturas_total').html("<p style='margin-bottom:-20px; margin-left:30%;'>Total de Facturas 2014</p>");          //Se cambia el valor del texto en base al año
+          var ordenes2014 = document.getElementById("ordenes2014").value;   //Cadena capturada de los input ocultos en el DOM
+          $('#numero_top_ordenes').html("<h5 style='margin-top:-10px;'><i class='material-icons left red lighten-1 white-text' style='font-size:230%; border-radius:5px;'>attach_money</i>".concat(ordenes2014).concat("</h5>"));          //Se cambia el valor de numero top facturas
+          $('#numero_top_ordenes_total').html("<p style='margin-bottom:-20px; margin-left:30%;'>Total de Ordenes 2014</p>");          //Se cambia el valor del texto en base al año
+          var ofertas2014 = document.getElementById("ofertas2014").value;   //Cadena capturada de los input ocultos en el DOM
+          $('#numero_top_ofertas').html("<h5 style='margin-top:-10px;'><i class='material-icons left blue lighten-1 white-text' style='font-size:230%; border-radius:5px;'>attach_money</i>".concat(ofertas2014).concat("</h5>"));          //Se cambia el valor de numero top facturas
+          $('#numero_top_ofertas_total').html("<p style='margin-bottom:-20px; margin-left:30%;'>Total de Ofertas 2014</p>");          //Se cambia el valor del texto en base al año
+          var back2014 = document.getElementById("back2014").value;   //Cadena capturada de los input ocultos en el DOM
+          $('#numero_top_back').html("<h5 style='margin-top:-10px;'><i class='material-icons left purple lighten-1 white-text' style='font-size:230%; border-radius:5px;'>attach_money</i>".concat(back2014).concat("</h5>"));          //Se cambia el valor de numero top facturas
+          $('#numero_top_back_total').html("<p style='margin-bottom:-20px; margin-left:30%;'>Total de Back Order 2014</p>");          //Se cambia el valor del texto en base al año
+          //*************************************************************************
             window.myBar.destroy();
             barChartData.datasets[0].data = [parseFloat(Mes_Facturacion_Anterior2[0]),parseFloat(Mes_Facturacion_Anterior2[1]),parseFloat(Mes_Facturacion_Anterior2[2]),parseFloat(Mes_Facturacion_Anterior2[3]),parseFloat(Mes_Facturacion_Anterior2[4]),parseFloat(Mes_Facturacion_Anterior2[5]),parseFloat(Mes_Facturacion_Anterior2[6]),parseFloat(Mes_Facturacion_Anterior2[7]),parseFloat(Mes_Facturacion_Anterior2[8]),parseFloat(Mes_Facturacion_Anterior2[9]),parseFloat(Mes_Facturacion_Anterior2[10]),parseFloat(Mes_Facturacion_Anterior2[11])];
             barChartData.datasets[0].fillColor = '#26a69a';
@@ -185,8 +224,21 @@ $('.dropdown-button').dropdown({
         $('#year_anterior_3').on('click', function() {
             $('#boton').text("2013");
             var facturas2013 = document.getElementById("facturas2013").value;   //Cadena capturada de los input ocultos en el DOM
-            var facturas20013 = document.getElementById("facturas2013").innerHTML=facturas2013;
-            $('#total_facturas_clientes').text("Total: ".concat(facturas20013));
+            $('#total_facturas_clientes').text("Total: ".concat(facturas2013));
+            //Cambio de valores en base al año en boton rojo
+            var facturas2013 = document.getElementById("facturas2013").value;   //Cadena capturada de los input ocultos en el DOM
+            $('#numero_top_facturas').html("<h5 style='margin-top:-10px;'><i class='material-icons left teal lighten-1 white-text' style='font-size:230%; border-radius:5px;'>attach_money</i>".concat(facturas2013).concat("</h5>"));          //Se cambia el valor de numero top facturas
+            $('#numero_top_facturas_total').html("<p style='margin-bottom:-20px; margin-left:30%;'>Total de Facturas 2013</p>");          //Se cambia el valor del texto en base al año
+            var ordenes2013 = document.getElementById("ordenes2013").value;   //Cadena capturada de los input ocultos en el DOM
+            $('#numero_top_ordenes').html("<h5 style='margin-top:-10px;'><i class='material-icons left red lighten-1 white-text' style='font-size:230%; border-radius:5px;'>attach_money</i>".concat(ordenes2013).concat("</h5>"));          //Se cambia el valor de numero top facturas
+            $('#numero_top_ordenes_total').html("<p style='margin-bottom:-20px; margin-left:30%;'>Total de Ordenes 2013</p>");          //Se cambia el valor del texto en base al año
+            var ofertas2013 = document.getElementById("ofertas2013").value;   //Cadena capturada de los input ocultos en el DOM
+            $('#numero_top_ofertas').html("<h5 style='margin-top:-10px;'><i class='material-icons left blue lighten-1 white-text' style='font-size:230%; border-radius:5px;'>attach_money</i>".concat(ofertas2013).concat("</h5>"));          //Se cambia el valor de numero top facturas
+            $('#numero_top_ofertas_total').html("<p style='margin-bottom:-20px; margin-left:30%;'>Total de Ofertas 2013</p>");          //Se cambia el valor del texto en base al año
+            var back2013 = document.getElementById("back2013").value;   //Cadena capturada de los input ocultos en el DOM
+            $('#numero_top_back').html("<h5 style='margin-top:-10px;'><i class='material-icons left purple lighten-1 white-text' style='font-size:230%; border-radius:5px;'>attach_money</i>".concat(back2013).concat("</h5>"));          //Se cambia el valor de numero top facturas
+            $('#numero_top_back_total').html("<p style='margin-bottom:-20px; margin-left:30%;'>Total de Back Order 2013</p>");          //Se cambia el valor del texto en base al año
+            //*************************************************************************
               window.myBar.destroy();
               barChartData.datasets[0].data = [parseFloat(Mes_Facturacion_Anterior3[0]),parseFloat(Mes_Facturacion_Anterior3[1]),parseFloat(Mes_Facturacion_Anterior3[2]),parseFloat(Mes_Facturacion_Anterior3[3]),parseFloat(Mes_Facturacion_Anterior3[4]),parseFloat(Mes_Facturacion_Anterior3[5]),parseFloat(Mes_Facturacion_Anterior3[6]),parseFloat(Mes_Facturacion_Anterior3[7]),parseFloat(Mes_Facturacion_Anterior3[8]),parseFloat(Mes_Facturacion_Anterior3[9]),parseFloat(Mes_Facturacion_Anterior3[10]),parseFloat(Mes_Facturacion_Anterior3[11])];
               barChartData.datasets[0].fillColor = '#26a69a';

@@ -43,10 +43,23 @@
                   echo $meses_ofe.",";
                 } } ?> ">
         <!--/Inputs ocultos para la consulta de los valores de las graficas-->
+        <input type="text" id="facturas2016" value="<?php echo $facturas; ?>">
+        <input type="text" id="facturas2015" value="<?php echo $facturas2; ?>">
+        <input type="text" id="facturas2014" value="<?php echo $facturas3; ?>">
+        <input type="text" id="facturas2013" value="<?php echo $facturas4; ?>">
+        <input type="text" id="ordenes2016" value="<?php echo $ordenes; ?>">
+        <input type="text" id="ordenes2015" value="<?php echo $ordenes2; ?>">
+        <input type="text" id="ordenes2014" value="<?php echo $ordenes3; ?>">
+        <input type="text" id="ordenes2013" value="<?php echo $ordenes4; ?>">
         <input type="text" id="ofertas2016" value="<?php echo $ofertas; ?>">
         <input type="text" id="ofertas2015" value="<?php echo $ofertas2; ?>">
         <input type="text" id="ofertas2014" value="<?php echo $ofertas3; ?>">
         <input type="text" id="ofertas2013" value="<?php echo $ofertas4; ?>">
+        <input type="text" id="back2016" value="<?php echo $back; ?>">
+        <input type="text" id="back2015" value="<?php echo $back2; ?>">
+        <input type="text" id="back2014" value="<?php echo $back3; ?>">
+        <input type="text" id="back2013" value="<?php echo $back4; ?>">
+
     </div>
   </div>
   <?php include('../assets/dashboard/registros_nuevos.php');?>                  <!--consultas para obtener los nuevos registros  -->
