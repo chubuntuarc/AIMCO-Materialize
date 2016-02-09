@@ -13,7 +13,7 @@
   <?php if($_SESSION['Rango'] == 10){ include('../assets/dashboard/servicios_sistemas.php');} ?><!--Información Exclusiva sistemas-->
   <?php if($_SESSION['Rango'] == 3){ include('../assets/dashboard/numeros_top.php');} ?><!--Elementos con cantidades en parte superior-->
   <?php if($_SESSION['Rango'] == 3){ include('../assets/dashboard/grafica_index.php');} ?><!--Gráfica de Barras-->
-  <?php if($_SESSION['Rango'] != 3){ include('../assets/dashboard/comedor.php');} ?><!--Información sobre la comida de la semana-->
+  <?php if($_SESSION['Rango'] != 3 && $_SESSION['Rango'] != 10){ include('../assets/dashboard/comedor.php');} ?><!--Información sobre la comida de la semana-->
   <?php if($_SESSION['Rango'] == 10){ include('../assets/dashboard/acceso_rapido.php');} ?><!--Accesos rapidos de información-->
   <?php if($_SESSION['Rango'] != 10){ include('../assets/dashboard/novedades.php');} ?><!--Información Exclusiva sistemas-->
   <?php include("../assets/modales/contacto.php"); ?>                           <!--Modal de contacto-->

@@ -2,13 +2,13 @@
 <div class="row">
   <div class="col m4 s12">
     <div class="card-panel">
-      <h5>Notas</h5>
+      <h5>Tareas</h5>
       <table>
         <tbody>
           <tr>
             <td><p>
               <input type="checkbox" id="test5" />
-              <label for="test5">Nota de ejemplo</label>
+              <label for="test5">Tarea Ejemplo</label>
             </p></td>
           </tr>
         </tbody>
@@ -41,7 +41,7 @@
     </div>
   </div>
 </div>
-<div class="row" <?php if($_SESSION['Rango'] != 10){ echo "style='display: none;'";} ?>>
+<div class="row">
   <div class="col m4 s12">
     <div class="card">
   <div class="card-image waves-effect waves-block waves-light">
@@ -86,6 +86,53 @@
   <div class="col m4 s12">
     <div class="card">
   <div class="card-image waves-effect waves-block waves-light">
+    <img class="activator" src="../img/sistemas/monitoreo.jpg">
+  </div>
+  <div class="card-content">
+    <span class="card-title activator grey-text text-darken-4">Monitoreo Sistemas<i class="material-icons right">more_vert</i></span>
+  </div>
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4">Monitoreo Sistemas<i class="material-icons right">close</i></span>
+    <table>
+      <thead>
+        <th>#</th>
+        <th>Equipo</th>
+        <th>Monitoreo Anterior</th>
+        <th>Estado Anterior</th>
+        <th>Ultimo Monitoreo</th>
+        <th>Ultimo Estado</th>
+      </thead>
+    </table>
+  </div>
+</div>
+  </div>
+</div>
+<div class="row">
+  <div class="col m4 s12">
+    <div class="card">
+  <div class="card-image waves-effect waves-block waves-light">
+    <img class="activator" src="../img/sistemas/mantenimiento.jpg">
+  </div>
+  <div class="card-content">
+    <span class="card-title activator grey-text text-darken-4">Bitácora Mantenimiento<i class="material-icons right">more_vert</i></span>
+  </div>
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4">Bitácora Mantenimiento<i class="material-icons right">close</i></span>
+    <table>
+      <thead>
+        <th>#</th>
+        <th>Usuario</th>
+        <th>Departamento</th>
+        <th>Ultimo Mtto.</th>
+        <th>Próximo Mtto.</th>
+      </thead>
+    </table>
+  </div>
+</div>
+  </div>
+  <div class="col m4 s12">
+    <div class="card">
+  <div class="card-image waves-effect waves-block waves-light">
     <img class="activator" src="../img/sistemas/visitas.jpg">
   </div>
   <div class="card-content">
@@ -103,9 +150,7 @@
   </div>
 </div>
   </div>
-</div>
-<div class="row" <?php if($_SESSION['Rango'] != 10){ echo "style='display: none;'";} ?>>
-  <div class="col m6 s12">
+  <div class="col m4 s12">
     <div class="card">
   <div class="card-image waves-effect waves-block waves-light">
     <img class="activator" src="../img/sistemas/stock.png">
@@ -117,7 +162,6 @@
     <span class="card-title grey-text text-darken-4">Inventario Sistemas<i class="material-icons right">close</i></span>
     <table>
       <thead>
-        <th>ID</th>
         <th>Nombre</th>
         <th>Categoría</th>
         <th>Departamento</th>
@@ -130,7 +174,6 @@
         while($rs=mysql_fetch_array($sql))
             {
               echo "<tr>";
-              echo "<td>".$rs[0]."</td>";
               echo "<td>".$rs[1]."</td>";
               echo "<td>".$rs[2]."</td>";
               echo "<td>".$rs[3]."</td>";
@@ -143,21 +186,64 @@
   </div>
 </div>
   </div>
-  <div class="col m6 s12">
+</div>
+<div class="row">
+  <div class="col m4 s12">
     <div class="card">
   <div class="card-image waves-effect waves-block waves-light">
-    <img class="activator" src="../img/sistemas/code.jpg">
+    <img class="activator" src="../img/sistemas/cursos.jpg">
   </div>
   <div class="card-content">
-    <span class="card-title activator grey-text text-darken-4">Desarrollo<i class="material-icons right">more_vert</i></span>
+    <span class="card-title activator grey-text text-darken-4">Seguimiento Cursos<i class="material-icons right">more_vert</i></span>
   </div>
   <div class="card-reveal">
-    <span class="card-title grey-text text-darken-4">Desarrollo<i class="material-icons right">close</i></span>
+    <span class="card-title grey-text text-darken-4">Seguimiento Cursos<i class="material-icons right">close</i></span>
     <table>
       <thead>
-        <th>Repositorio</th>
-        <th>Usuario</th>
-        <th>Commit</th>
+        <th>#</th>
+        <th>Curso</th>
+        <th>Fecha</th>
+      </thead>
+    </table>
+  </div>
+</div>
+  </div>
+  <div class="col m4 s12">
+    <div class="card">
+  <div class="card-image waves-effect waves-block waves-light">
+    <img class="activator" src="../img/sistemas/checklist.jpg">
+  </div>
+  <div class="card-content">
+    <span class="card-title activator grey-text text-darken-4">Seguimiento Tareas<i class="material-icons right">more_vert</i></span>
+  </div>
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4">Seguimiento Tareas<i class="material-icons right">close</i></span>
+    <table>
+      <thead>
+        <th>#</th>
+        <th>Tarea</th>
+        <th>Comentario</th>
+        <th>Fecha</th>
+      </thead>
+    </table>
+  </div>
+</div>
+  </div>
+  <div class="col m4 s12">
+    <div class="card">
+  <div class="card-image waves-effect waves-block waves-light">
+    <img class="activator" src="../img/sistemas/avisos.png">
+  </div>
+  <div class="card-content">
+    <span class="card-title activator grey-text text-darken-4">Disponible<i class="material-icons right">more_vert</i></span>
+  </div>
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4">Espacio Disponible<i class="material-icons right">close</i></span>
+    <table>
+      <thead>
+        <th>#</th>
+        <th>Tarea</th>
+        <th>Comentario</th>
         <th>Fecha</th>
       </thead>
     </table>
