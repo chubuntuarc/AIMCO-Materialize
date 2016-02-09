@@ -54,11 +54,24 @@
     <span class="card-title grey-text text-darken-4">Top Asistencia por Usuario<i class="material-icons right">close</i></span>
     <table>
       <thead>
-        <th>#</th>
         <th>Nombre</th>
-        <th>Servicios / Semana</th>
+        <th>Servicios / Mes</th>
       </thead>
     </table>
+    <tbody>
+      <?php
+      $Mes = date("m");
+      $sql = "";
+      $sql = mysql_query("SELECT nombre_usuario, count(nombre_usuario) as Total FROM asistencia_sistemas WHERE tipo = 'Asistencia' and fecha like '%".$Mes."%' GROUP BY nombre_usuario ORDER BY Total desc ", $_SESSION['conn']);
+      while($rs=mysql_fetch_array($sql))
+          {
+            echo "<tr>";
+            echo "<td>".$rs[0]."</td>";
+            echo "<td>".$rs[1]."</td>";
+            echo "</tr>";
+          }
+        ?>
+    </tbody>
   </div>
 </div>
   </div>
@@ -74,11 +87,23 @@
     <span class="card-title grey-text text-darken-4">Top Problemas Comunes<i class="material-icons right">close</i></span>
     <table>
       <thead>
-        <th>#</th>
         <th>Conflicto</th>
-        <th>Categoría</th>
         <th>Eventos / Mes</th>
       </thead>
+      <tbody>
+        <?php
+        $Mes = date("m");
+        $sql = "";
+        $sql = mysql_query("SELECT conflicto, count(conflicto) as Total FROM asistencia_sistemas WHERE tipo = 'Asistencia' and fecha like '%".$Mes."%' GROUP BY conflicto ORDER BY Total", $_SESSION['conn']);
+        while($rs=mysql_fetch_array($sql))
+            {
+              echo "<tr>";
+              echo "<td>".$rs[0]."</td>";
+              echo "<td>".$rs[1]."</td>";
+              echo "</tr>";
+            }
+          ?>
+      </tbody>
     </table>
   </div>
 </div>
@@ -120,12 +145,24 @@
     <span class="card-title grey-text text-darken-4">Bitácora Mantenimiento<i class="material-icons right">close</i></span>
     <table>
       <thead>
-        <th>#</th>
         <th>Usuario</th>
-        <th>Departamento</th>
         <th>Ultimo Mtto.</th>
         <th>Próximo Mtto.</th>
       </thead>
+      <tbody>
+        <?php
+        $sql = "";
+        $sql = mysql_query("SELECT * FROM asistencia_sistemas WHERE tipo = 'Mantenimiento' ORDER BY fecha desc ", $_SESSION['conn']);
+        while($rs=mysql_fetch_array($sql))
+            {
+              echo "<tr>";
+              echo "<td>".$rs[1]."</td>";
+              echo "<td>".$rs[2]."</td>";
+              echo "<td>".$rs[5]."</td>";
+              echo "</tr>";
+            }
+          ?>
+      </tbody>
     </table>
   </div>
 </div>

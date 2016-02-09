@@ -19,6 +19,7 @@
   <?php include("../assets/modales/contacto.php"); ?>                           <!--Modal de contacto-->
   <?php include("../assets/modales/informacion.php"); ?>                        <!--Modal de información-->
   <?php if($_SESSION['Rango'] == 10){ include("../assets/modales/inventario.php");} ?><!--Modal de Inventario sistemas-->
+  <?php if($_SESSION['Rango'] == 10){ include("../assets/modales/asistencia.php");} ?><!--Modal de Inventario sistemas-->
   <?php include("../assets/footer.php"); ?>                                     <!--Footer del sistema-->
   </body>
   <script src="../js/jquery-2.2.0.js"></script>                                 <!--JQUERY 2.2.0-->

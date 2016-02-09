@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  $("#proximo_mtto").fadeOut();
   //Javascipt que se usa en todas las ventanas
   //Elemento que trabaja para que funcione la animación de cerrar sesión en la parte superior
    $('.sesion').dropdown({
@@ -14,6 +15,7 @@ $(document).ready(function(){
   $('.modal-trigger').leanModal();
 
 });
+                                                                                //Esta sección trabaja con la pantalla modal de alta y baja de inventario de Sistemas
 $("#tipo_movimiento").change(function() {
   if ($("#tipo_movimiento option:selected").text() == "Baja") {
     $("#nombre_articulo").fadeOut();
@@ -31,5 +33,29 @@ $("#seleccion_de_articulo").change(function() {
   }
   else {
     $("#nombre_articulo").fadeOut();
+  }
+});
+                                                                                //Esta sección trabaja con la pantalla modal de asistencia a usuarios de Sistemas
+$("#selecciona_conflicto").change(function() {
+  if ($("#selecciona_conflicto option:selected").text() != "Nuevo") {
+    $("#conflicto").fadeOut();
+  }
+  else {
+    $("#conflicto").fadeIn();
+  }
+});
+
+$("#tipo_servicio").change(function() {
+  if ($("#tipo_servicio option:selected").text() != "Asistencia") {
+    $("#conflicto").fadeOut();
+    $("#selecciona_conflicto").fadeOut();
+    $("#categoria_conflicto").fadeOut();
+    $("#proximo_mtto").fadeIn();
+  }
+  else {
+    $("#conflicto").fadeIn();
+    $("#selecciona_conflicto").fadeIn();
+    $("#categoria_conflicto").fadeIn();
+    $("#proximo_mtto").fadeOut();
   }
 });
